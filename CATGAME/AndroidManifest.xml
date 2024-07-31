@@ -3,7 +3,7 @@
     android:installLocation="auto"
     android:compileSdkVersion="34"
     android:compileSdkVersionCodename="14"
-    package="my.consler.app"
+    package="my.owner.app"
     platformBuildVersionCode="34"
     platformBuildVersionName="14"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -89,7 +89,7 @@
         android:name="com.huawei.appmarket.service.commondata.permission.GET_COMMON_DATA" />
     <application
         android:theme="@style/Catroid"
-        android:label="ErmApp"
+        android:label="App"
         android:icon="@mipmap/ic_launcher"
         android:name="org.catrobat.catroid.CatroidApplication"
         android:debuggable="true"
@@ -304,7 +304,7 @@
         <provider
             android:name="androidx.core.content.FileProvider"
             android:exported="false"
-            android:authorities="my.consler.app.fileProvider"
+            android:authorities="my.owner.app.fileProvider"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
@@ -317,7 +317,7 @@
         <provider
             android:name="org.catrobat.paintroid.MyProvider"
             android:exported="false"
-            android:authorities="my.consler.app.fileprovider"
+            android:authorities="my.owner.app.fileprovider"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
@@ -383,12 +383,12 @@
             android:name="com.amitshekhar.debug.DebugDBInitProvider"
             android:enabled="true"
             android:exported="false"
-            android:authorities="my.consler.app.DebugDBInitProvider" />
+            android:authorities="my.owner.app.DebugDBInitProvider" />
         <provider
             android:name="androidx.work.impl.WorkManagerInitializer"
             android:exported="false"
             android:multiprocess="true"
-            android:authorities="my.consler.app.workmanager-init"
+            android:authorities="my.owner.app.workmanager-init"
             android:directBootAware="false" />
         <service
             android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
@@ -512,7 +512,7 @@
         <provider
             android:name="com.squareup.picasso.PicassoProvider"
             android:exported="false"
-            android:authorities="my.consler.app.com.squareup.picasso" />
+            android:authorities="my.owner.app.com.squareup.picasso" />
         <meta-data
             android:name="com.huawei.hms.client.service.name:base"
             android:value="base:4.0.3.300" />
@@ -539,14 +539,14 @@
             android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
             android:exported="false"
             android:multiprocess="true"
-            android:authorities="my.consler.app.lifecycle-process" />
+            android:authorities="my.owner.app.lifecycle-process" />
         <meta-data
             android:name="availableLoaded"
             android:value="yes" />
         <provider
             android:name="com.huawei.hms.update.provider.UpdateProvider"
             android:exported="false"
-            android:authorities="my.consler.app.hms.update.provider"
+            android:authorities="my.owner.app.hms.update.provider"
             android:grantUriPermissions="true" />
         <activity
             android:theme="@android:style/Theme.Translucent"
@@ -566,7 +566,7 @@
         <provider
             android:name="com.huawei.agconnect.core.provider.AGConnectInitializeProvider"
             android:exported="false"
-            android:authorities="my.consler.app.AGCInitializeProvider" />
+            android:authorities="my.owner.app.AGCInitializeProvider" />
         <service
             android:name="com.huawei.agconnect.core.ServiceDiscovery"
             android:exported="false" />

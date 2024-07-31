@@ -14,5 +14,9 @@ This is a tool to automate building .apk from .catrobat. Please report any malfu
 You need to set up [WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
 ## Usage
 Cd into cat-the-builder
+
 Run:
+
 ``` ./main.sh path/to/your/game.catrobat ny.package.name AppName path/to/icon.png ```
+
+You can find your .apk in Release folder
