@@ -1,5 +1,5 @@
-# Cat The Builder
-This is a tool to automate building .apk from .catrobat.
+# Cat The Builder BETA
+This is a tool to automate building .apk from .catrobat. Please report any malfunctioning you find.
 
 ## Dependencies
 [ImageMagick](imagemagick.org),
