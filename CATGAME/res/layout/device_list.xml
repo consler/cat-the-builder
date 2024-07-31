@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include layout="@layout/toolbar" />
+        <androidx.core.widget.NestedScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:fillViewport="true">
+            <LinearLayout android:orientation="vertical" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/divider" android:showDividers="middle">
+                <LinearLayout android:orientation="vertical" android:id="@id/bluetooth_paired_section" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/divider" android:showDividers="middle">
+                    <TextView android:textColor="@color/solid_white" android:paddingTop="@dimen/material_design_spacing_small" android:paddingBottom="@dimen/material_design_spacing_small" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/title_paired_devices" android:textAllCaps="true" android:paddingStart="@dimen/material_design_spacing_large" android:paddingEnd="@dimen/material_design_spacing_large" />
+                    <ListView android:id="@id/paired_devices" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/divider" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textColor="@color/solid_white" android:paddingTop="@dimen/material_design_spacing_small" android:paddingBottom="@dimen/material_design_spacing_small" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/title_other_devices" android:layout_weight="0.8" android:textAllCaps="true" android:paddingStart="@dimen/material_design_spacing_large" android:paddingEnd="@dimen/material_design_spacing_large" />
+                    <ProgressBar android:layout_gravity="center" android:id="@id/device_list_progress_bar" android:paddingTop="@dimen/material_design_spacing_small" android:paddingBottom="@dimen/material_design_spacing_small" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_weight="0.2" style="progressBarStyleSmall" />
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:divider="@drawable/divider" android:showDividers="end">
+                    <ListView android:id="@id/new_devices" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/divider" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton android:id="@id/bluetooth_scan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/material_design_spacing_large" android:src="@drawable/ic_search" android:tint="@color/solid_white" android:layout_alignParentBottom="true" android:layout_marginEnd="@dimen/material_design_spacing_large" android:layout_alignParentEnd="true" app:backgroundTint="@color/action_button" app:elevation="10.0dip" />
+</RelativeLayout>

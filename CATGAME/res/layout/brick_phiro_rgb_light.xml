@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBox android:gravity="center_vertical" android:id="@id/brick_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <org.catrobat.catroid.ui.BrickLayout android:id="@id/brick_phiro_rgb_led_layout" style="@style/BrickContainer.Look.Big">
+        <include layout="@layout/icon_brick_category_phiro" />
+        <TextView android:id="@id/brick_phiro_rgb_led_action_label" android:text="@string/brick_phiro_rgb_led_action" style="@style/BrickText.SingleLine" />
+        <Spinner android:id="@id/brick_phiro_rgb_light_spinner" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textDirection="locale" />
+        <TextView android:id="@id/brick_phiro_rgb_led_red_text_view" android:text="@string/phiro_rgb_led_red" style="@style/BrickText" />
+        <TextView android:id="@id/brick_phiro_rgb_led_action_red_edit_text" style="@style/BrickEditText" />
+        <TextView android:id="@id/brick_phiro_rgb_led_green_text_view" android:text="@string/phiro_rgb_led_green" style="@style/BrickText" />
+        <TextView android:id="@id/brick_phiro_rgb_led_action_green_edit_text" style="@style/BrickEditText" />
+        <TextView android:id="@id/brick_phiro_rgb_led_blue_text_view" android:text="@string/phiro_rgb_led_blue" style="@style/BrickText" />
+        <TextView android:id="@id/brick_phiro_rgb_led_action_blue_edit_text" style="@style/BrickEditText" />
+    </org.catrobat.catroid.ui.BrickLayout>
+</LinearLayout>

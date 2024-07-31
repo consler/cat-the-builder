@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:paddingTop="@dimen/dialog_content_area_padding_top" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/dialog_content_area_padding_input" android:paddingEnd="@dimen/dialog_content_area_padding_input"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputLayout android:id="@id/input" android:layout_width="fill_parent" android:layout_height="wrap_content" app:errorEnabled="true" app:hintEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText android:id="@id/input_edit_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:selectAllOnFocus="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <androidx.appcompat.widget.SwitchCompat android:id="@id/place_visually_sprite_switch" android:paddingTop="@dimen/material_design_spacing_large" android:paddingBottom="@dimen/material_design_spacing_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/new_sprite_dialog_place_visually" />
+        <TextView android:id="@id/place_visually_textView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/place_visually_text" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout style="@style/BrickCategory.Control"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/icon_brick_category_control" />
+    <TextView android:text="@string/category_control" style="@style/BrickCategoryText" />
+</LinearLayout>

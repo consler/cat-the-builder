@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">Katman</item>
+        <item quantity="one">Katman</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">adım</item>
+        <item quantity="one">adım</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">Öğelerin her bir parçası için</item>
+        <item quantity="one">Her bir öğe için</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">aynı isimlere sahip değişkenlerde saklanır</item>
+        <item quantity="one">aynı isimli değişkende saklanır</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">Kopyalanan %d görüntü</item>
+        <item quantity="one">Kopyalanan %d görüntü</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">Kopyalanan %d NFC etiketi</item>
+        <item quantity="one">Kopyalanan %d NFC etiketi</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">Kopyalanan %d sahne</item>
+        <item quantity="one">Kopyalanan %d sahne</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">Kopyalanan %d ses</item>
+        <item quantity="one">Kopyalanan %d ses</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">Kopyalanan %d Obje</item>
+        <item quantity="one">Kopyalanan %d Obje</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d gün</item>
+        <item quantity="one">%d gün</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">Bu görüntüler silinsin mi?</item>
+        <item quantity="one">Bu görüntü silinsin mi?</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">Bu etiketler silinsin mi?</item>
+        <item quantity="one">Bu etiket silinsin mi?</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">Bu projeler silinsin mi?</item>
+        <item quantity="one">Bu proje silinsin mi?</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">Bu sahneler silinsin mi?</item>
+        <item quantity="one">Bu sahne silinsin mi?</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">Bu komut dosyaları silinsin mi?</item>
+        <item quantity="one">Bu komut dosyası silinsin mi?</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">Bu sesler silinsin mi?</item>
+        <item quantity="one">Bu ses silinsin mi?</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">Bu objeler silinsin mi?</item>
+        <item quantity="one">Bu obje silinsin mi?</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">Silinen %d item</item>
+        <item quantity="one">Silinen %d item</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">Silinen %d Look</item>
+        <item quantity="one">Silinen %d Look</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">Silinen %d NFC etiketi!</item>
+        <item quantity="one">Silinen %d NFC etiketi!</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">Silinmiş %d Proje</item>
+        <item quantity="one">Silinmiş %d Proje</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">Silinen %d Sahne</item>
+        <item quantity="one">Silinen %d Sahne</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">Silinen %d Kod</item>
+        <item quantity="one">Silinen %d Kod</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">Silinen %d Ses</item>
+        <item quantity="one">Silinen %d Ses!</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">Silinen %d Sprite</item>
+        <item quantity="one">Silinen %d Sprite</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">Aynı anda %d projeden fazlasını dönüştüremezsiniz. Lütfen önce devam eden dönüşümlerin bitmesini bekleyin.</item>
+        <item quantity="one">Aynı anda %d projeden fazlasını dönüştüremezsiniz. Lütfen önce devam eden dönüşümlerin bitmesini bekleyin.</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d saat</item>
+        <item quantity="one">%d saat</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">%d projeleri içe aktarıldı.</item>
+        <item quantity="one">%d projesi içe aktarıldı.</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d liste seçildi</item>
+        <item quantity="one">%d liste seçildi</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d dakika</item>
+        <item quantity="one">%d dakika</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">Paketlenmiş %d Görüntü</item>
+        <item quantity="one">Paketlenmiş %d Görüntü</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">Paketlenmiş %d Sahne</item>
+        <item quantity="one">Paketlenmiş %d Sahne</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">Paketlenmiş %d Ses</item>
+        <item quantity="one">Paketlenmiş %d Ses</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">Paketlenmiş %d Obje</item>
+        <item quantity="one">Paketlenmiş %d Obje</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">Kuyruğa %d Scratch projeleri eklendi…</item>
+        <item quantity="one">Kuyruğa %d Scratch projesi eklendi…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">saniye</item>
+        <item quantity="one">saniye</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">Tamamlandı: %d iş</item>
+        <item quantity="one">Tamamlandı: %d iş</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">Devam ediyor: %d iş</item>
+        <item quantity="one">Devam ediyor: %d iş</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">Kere</item>
+        <item quantity="one">Kere</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">Aç %d görüntü</item>
+        <item quantity="one">Aç %d görüntü</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">Aç %d Sahne</item>
+        <item quantity="one">Aç %d Sahne</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">Aç %d kod</item>
+        <item quantity="one">Aç %d kod</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">Aç %d ses</item>
+        <item quantity="one">Aç %d ses</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">Aç %d Obje</item>
+        <item quantity="one">Aç %d Obje</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">Bu tuğla için girişler</item>
+        <item quantity="one">Bu tuğla için giriş</item>
+    </plurals>
+</resources>

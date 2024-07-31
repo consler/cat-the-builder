@@ -1,0 +1,130 @@
+.class public Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$Values;
+.super Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$View;
+.source "AbstractDualBidiMap.java"
+
+# interfaces
+.implements Ljava/util/Set;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xc
+    name = "Values"
+.end annotation
+
+
+# direct methods
+.method protected constructor <init>(Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;)V
+    .locals 2
+    .param p1, "parent"    # Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;
+
+    .line 472
+    iget-object v0, p1, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;->maps:[Ljava/util/Map;
+
+    const/4 v1, 0x0
+
+    aget-object v0, v0, v1
+
+    invoke-interface {v0}, Ljava/util/Map;->values()Ljava/util/Collection;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0, p1}, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$View;-><init>(Ljava/util/Collection;Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;)V
+
+    .line 473
+    return-void
+.end method
+
+
+# virtual methods
+.method public contains(Ljava/lang/Object;)Z
+    .locals 2
+    .param p1, "value"    # Ljava/lang/Object;
+
+    .line 480
+    iget-object v0, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$Values;->parent:Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;
+
+    iget-object v0, v0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;->maps:[Ljava/util/Map;
+
+    const/4 v1, 0x1
+
+    aget-object v0, v0, v1
+
+    invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public iterator()Ljava/util/Iterator;
+    .locals 2
+
+    .line 476
+    iget-object v0, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$Values;->parent:Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;
+
+    invoke-super {p0}, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$View;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;->createValuesIterator(Ljava/util/Iterator;)Ljava/util/Iterator;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public remove(Ljava/lang/Object;)Z
+    .locals 4
+    .param p1, "value"    # Ljava/lang/Object;
+
+    .line 484
+    iget-object v0, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$Values;->parent:Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;
+
+    iget-object v0, v0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;->maps:[Ljava/util/Map;
+
+    const/4 v1, 0x1
+
+    aget-object v0, v0, v1
+
+    invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    const/4 v2, 0x0
+
+    if-eqz v0, :cond_0
+
+    .line 485
+    iget-object v0, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$Values;->parent:Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;
+
+    iget-object v0, v0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;->maps:[Ljava/util/Map;
+
+    aget-object v0, v0, v1
+
+    invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    .line 486
+    .local v0, "key":Ljava/lang/Object;
+    iget-object v3, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$Values;->parent:Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;
+
+    iget-object v3, v3, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;->maps:[Ljava/util/Map;
+
+    aget-object v2, v3, v2
+
+    invoke-interface {v2, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 487
+    return v1
+
+    .line 489
+    .end local v0    # "key":Ljava/lang/Object;
+    :cond_0
+    return v2
+.end method

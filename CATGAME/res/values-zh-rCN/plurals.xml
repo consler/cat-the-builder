@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">层</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">步</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">对于每个项目的</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">存储在具有相同名称的变量</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">已复制 %d 外观</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">已复制 %d NFC 标签。</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">已复制 %d 场景</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">已复制 %d 音响</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">以复制 %d 个对象或物体</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d 天</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">删除这些外观吗？</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">删除这些标签？</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">删除这些项目？</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">删除这些场景吗？</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">删除这些脚本？</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">删除这些声音吗？</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">删除这些对象或物体？</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">已删除 %d 项</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">已删除 %d 个外观</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">已删除 %d NFC 标签</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">已删除 %d 个项目</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">已删除 %d 个场景</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">已删除 %d 个脚本</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">已删除 %d 个音响</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">已删除 %d 个脚本</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">您不能同时转换超过 %d 个项目。请等待正在运行的转换完成先。</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d 小时</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">导入了 %d 项目。</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">已选择 %d 个列表</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d 分钟</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">背包了 %d 个外观。</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">背包的 %d 场景。</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">背包了 %d 个声音。</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">背包的 %d 个演员或对象。</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">添加 %d Scratch 项目到队列…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">"秒 "</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">已经完成：%d个任务</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">正在运行：%d个任务</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">次</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">未打包的 %d 个外观。</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">解包了 %d 个场景。</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">未打包的 %d 脚本。</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">未打包的 %d 个声音.</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">解包了 %d 个演员或对象。</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">对此积木的投入</item>
+    </plurals>
+</resources>

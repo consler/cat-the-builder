@@ -1,0 +1,241 @@
+.class public abstract Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;
+.super Lorg/apache/commons/collections4/set/AbstractSetDecorator;
+.source "AbstractSortedSetDecorator.java"
+
+# interfaces
+.implements Ljava/util/SortedSet;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<E:",
+        "Ljava/lang/Object;",
+        ">",
+        "Lorg/apache/commons/collections4/set/AbstractSetDecorator<",
+        "TE;>;",
+        "Ljava/util/SortedSet<",
+        "TE;>;"
+    }
+.end annotation
+
+
+# static fields
+.field private static final serialVersionUID:J = -0x300c59cc02adcefeL
+
+
+# direct methods
+.method protected constructor <init>()V
+    .locals 0
+
+    .line 44
+    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
+    invoke-direct {p0}, Lorg/apache/commons/collections4/set/AbstractSetDecorator;-><init>()V
+
+    .line 45
+    return-void
+.end method
+
+.method protected constructor <init>(Ljava/util/Set;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Set<",
+            "TE;>;)V"
+        }
+    .end annotation
+
+    .line 54
+    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
+    .local p1, "set":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
+    invoke-direct {p0, p1}, Lorg/apache/commons/collections4/set/AbstractSetDecorator;-><init>(Ljava/util/Set;)V
+
+    .line 55
+    return-void
+.end method
+
+
+# virtual methods
+.method public comparator()Ljava/util/Comparator;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Comparator<",
+            "-TE;>;"
+        }
+    .end annotation
+
+    .line 95
+    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
+    invoke-virtual {p0}, Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;->decorated()Ljava/util/SortedSet;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/SortedSet;->comparator()Ljava/util/Comparator;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method protected bridge synthetic decorated()Ljava/util/Collection;
+    .locals 1
+
+    .line 32
+    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
+    invoke-virtual {p0}, Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;->decorated()Ljava/util/SortedSet;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method protected bridge synthetic decorated()Ljava/util/Set;
+    .locals 1
+
+    .line 32
+    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
+    invoke-virtual {p0}, Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;->decorated()Ljava/util/SortedSet;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method protected decorated()Ljava/util/SortedSet;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/SortedSet<",
+            "TE;>;"
+        }
+    .end annotation
+
+    .line 64
+    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
+    invoke-super {p0}, Lorg/apache/commons/collections4/set/AbstractSetDecorator;->decorated()Ljava/util/Set;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/SortedSet;
+
+    return-object v0
+.end method
+
+.method public first()Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()TE;"
+        }
+    .end annotation
+
+    .line 85
+    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
+    invoke-virtual {p0}, Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;->decorated()Ljava/util/SortedSet;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/SortedSet;->first()Ljava/lang/Object;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TE;)",
+            "Ljava/util/SortedSet<",
+            "TE;>;"
+        }
+    .end annotation
+
+    .line 75
+    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
+    .local p1, "toElement":Ljava/lang/Object;, "TE;"
+    invoke-virtual {p0}, Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;->decorated()Ljava/util/SortedSet;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Ljava/util/SortedSet;->headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public last()Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()TE;"
+        }
+    .end annotation
+
+    .line 90
+    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
+    invoke-virtual {p0}, Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;->decorated()Ljava/util/SortedSet;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/SortedSet;->last()Ljava/lang/Object;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TE;TE;)",
+            "Ljava/util/SortedSet<",
+            "TE;>;"
+        }
+    .end annotation
+
+    .line 70
+    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
+    .local p2, "toElement":Ljava/lang/Object;, "TE;"
+    invoke-virtual {p0}, Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;->decorated()Ljava/util/SortedSet;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1, p2}, Ljava/util/SortedSet;->subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TE;)",
+            "Ljava/util/SortedSet<",
+            "TE;>;"
+        }
+    .end annotation
+
+    .line 80
+    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
+    invoke-virtual {p0}, Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;->decorated()Ljava/util/SortedSet;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Ljava/util/SortedSet;->tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
+
+    move-result-object v0
+
+    return-object v0
+.end method

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">lapisan</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">langkah</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">Untuk setiap item dari</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">disimpan dalam variabel dengan nama yang sama</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">%d tampilan telah disalin.</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">%d tag NFC telah disalin.</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">%d adegan disalin.</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">%d suara telah disalin.</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">Menyalin %d aktor atau objek.</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d Hari</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">Hapus tampilan ini?</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">Hapus tag ini?</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">Hapus proyek ini?</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">Hapus adegan ini?</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">Hapus skrip ini?</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">Hapus suara ini?</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">Hapus aktor atau objek ini?</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">Menghapus %d item.</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">%d tampilan dihapus.</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">Menghapus %d tag NFC.</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">Menghapus %d proyek.</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">%d adegan dihapus.</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">Menghapus %d skrip.</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">%d suara dihapus.</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">Menghapus %d sprite.</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">Anda tidak dapat mengonversi lebih dari %d proyek pada waktu yang sama. Harap tunggu menjalankan konversi untuk menyelesaikannya terlebih dahulu.</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d jam</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">%d proyek yang diimpor.</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d daftar dipilih</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d menit</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">Penampilan %d backpacked.</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">Mengembalikan %d adegan.</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">Suara backpacking %d.</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">Aktor atau objek %d melakukan backpacking.</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">Menambahkan %d proyek Scratch ke antrean…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">"detik "</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">Selesai: %d pekerjaan</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">Sedang diproses: %d pekerjaan</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">kali</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">%d tampilan belum dibuka.</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">%d adegan yang belum dibuka.</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">%d skrip belum dibuka.</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">Suara %d belum dibuka.</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">%d aktor atau objek belum dibuka.</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">Masukan untuk batu bata ini</item>
+    </plurals>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/empty_view_item" android:layout_width="fill_parent" android:layout_height="80.0dip" android:paddingStart="5.0dip">
+        <ProgressBar android:layout_width="wrap_content" android:layout_height="wrap_content" android:indeterminate="true" />
+        <TextView android:id="@id/cast_searching_for_cast_text_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cast_searching_for_cast_devices" android:layout_marginStart="15.0dip" />
+    </LinearLayout>
+    <ListView android:id="@id/cast_device_list_view" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

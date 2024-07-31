@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:background="@drawable/button_background_selector" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="?element_spacing" android:layout_marginBottom="?element_spacing" android:minHeight="@dimen/user_data_view_holder_height" android:paddingStart="@dimen/view_holder_padding" android:paddingEnd="@dimen/view_holder_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="?large" android:textColor="@color/view_holder_item_title" android:id="@id/title_view" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</LinearLayout>

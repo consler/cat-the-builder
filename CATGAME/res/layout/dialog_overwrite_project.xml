@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:padding="@dimen/dialog_content_area_padding_input" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/textView" android:paddingBottom="@dimen/material_design_spacing_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/overwrite_text" />
+        <RadioGroup android:id="@id/radio_group" android:layout_width="fill_parent" android:layout_height="wrap_content" android:checkedButton="@id/rename">
+            <RadioButton android:id="@id/replace" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/overwrite_replace" />
+            <RadioButton android:gravity="center_vertical" android:id="@id/rename" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/overwrite_rename" />
+        </RadioGroup>
+        <com.google.android.material.textfield.TextInputLayout android:id="@id/input" android:layout_width="fill_parent" android:layout_height="wrap_content" app:errorEnabled="true" app:hintEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText android:id="@id/input_edit_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:selectAllOnFocus="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/more_details_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/view_holder_padding" android:paddingEnd="@dimen/view_holder_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/view_holder_height">
+        <ImageView android:id="@id/image" android:background="@drawable/image_contour" android:layout_width="72.0dip" android:layout_height="65.0dip" android:scaleType="centerCrop" android:cropToPadding="true" android:layout_marginEnd="@dimen/img_margin" />
+        <TextView android:textSize="?large" android:id="@id/name" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView android:textSize="?large" android:textColor="@color/accent" android:id="@id/description_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/description" />
+    <TextView android:id="@id/description_value" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/description_hint" />
+    <TextView android:textSize="?large" android:textColor="@color/accent" android:id="@id/author_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/author" />
+    <TextView android:id="@id/author_value" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TextView android:textSize="?large" android:textColor="@color/accent" android:id="@id/notes_and_credits_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/notes_and_credits_title" />
+    <TextView android:id="@id/notes_and_credits_value" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/notes_and_credits_hint" />
+    <TextView android:textSize="?large" android:textColor="@color/accent" android:id="@id/size_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/size" />
+    <TextView android:id="@id/size_value" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <TextView android:textSize="?large" android:textColor="@color/accent" android:id="@id/last_access_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/last_used" />
+    <TextView android:id="@id/last_access_value" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <TextView android:textSize="?large" android:textColor="@color/accent" android:id="@id/screen_size_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/screen_size" />
+    <TextView android:id="@id/screen_size_value" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <TextView android:textSize="?large" android:textColor="@color/accent" android:id="@id/mode_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/mode" />
+    <TextView android:id="@id/mode_value" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <TextView android:textSize="?large" android:textColor="@color/accent" android:id="@id/remix_of_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/remix_of" />
+    <TextView android:id="@id/remix_of_value" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

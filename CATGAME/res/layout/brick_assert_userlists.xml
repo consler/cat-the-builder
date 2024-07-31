@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBox android:gravity="center_vertical" android:id="@id/brick_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <org.catrobat.catroid.ui.BrickLayout android:orientation="horizontal" android:id="@id/brick_assert_userlists_layout" android:layout_height="fill_parent" style="@style/BrickContainer.Test.Big">
+        <include layout="@layout/icon_brick_category_look" />
+        <TextView android:text="@string/brick_assert_lists" style="@style/BrickText.SingleLine" />
+        <TextView android:text="@string/brick_assert_actual" app:layout_newLine="true" style="@style/BrickText.SingleLine" />
+        <Spinner android:id="@id/brick_assert_lists_actual" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textDirection="locale" />
+        <TextView android:text="@string/brick_assert_expected" app:layout_newLine="true" style="@style/BrickText.SingleLine" />
+        <Spinner android:id="@id/brick_assert_lists_expected" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textDirection="locale" />
+    </org.catrobat.catroid.ui.BrickLayout>
+</LinearLayout>

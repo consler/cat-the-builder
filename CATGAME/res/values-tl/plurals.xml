@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">layers</item>
+        <item quantity="one">layer</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">steps</item>
+        <item quantity="one">step</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">For each tuple of items of</item>
+        <item quantity="one">For each item of</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">stored in variables with the same names</item>
+        <item quantity="one">stored in variable with the same name</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">Nakopya ang %d mga larawan</item>
+        <item quantity="one">Copied %d look.</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">Nakopya ang mga %d NFC tags</item>
+        <item quantity="one">Copied %d NFC tag.</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">Nakopya ang %d mga scene.</item>
+        <item quantity="one">Copied %d scene.</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">Nakopya ang mga %d tunog.</item>
+        <item quantity="one">Copied %d sound.</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">Nakopya ang %d mga aktor o bagay.</item>
+        <item quantity="one">Copied %d actor or object.</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d araw</item>
+        <item quantity="one">%d day</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">Burahin ang mga larawang ito?</item>
+        <item quantity="one">Delete this look?</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">Burahin ang mga tag na ito?</item>
+        <item quantity="one">Delete this tag?</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">Burahin ang mga proyektong ito?</item>
+        <item quantity="one">Delete this project?</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">Burahin ang mga scene na ito?</item>
+        <item quantity="one">Delete this scene?</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">Burahin ang mga script na ito?</item>
+        <item quantity="one">Delete this script?</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">Burahin ang mga tunog na ito?</item>
+        <item quantity="one">Delete this sound?</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">Burahin ang mga Aktor o bagay?</item>
+        <item quantity="one">Delete this actor or object?</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">Nabura ang %d mga items.</item>
+        <item quantity="one">Deleted %d item.</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">Nabura ang %d mga larawan.</item>
+        <item quantity="one">Deleted %d look.</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">Nabura ang %d mga NFC tags.</item>
+        <item quantity="one">Deleted %d NFC tag.</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">Nabura ang %d mga proyekto.</item>
+        <item quantity="one">Deleted %d project.</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">Nabura ang %d mga scene.</item>
+        <item quantity="one">Deleted %d scene.</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">Deleted %d scripts.</item>
+        <item quantity="one">Nabura ang %d script</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">Nabura ang %d mga tunog.</item>
+        <item quantity="one">Deleted %d sound.</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">Nabura ang %d mga aktor o bagay.</item>
+        <item quantity="one">Deleted %d actor or object.</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">Hindi ka maaaring mag-convert ng hihigit sa %d na mga proyekto ng sabay-sabay. Pakiusap hintayin muna ang mga naunang kino-convert na matapos muna.</item>
+        <item quantity="one">You cannot convert more than %d project at the same time. Please wait for the running conversions to finish first.</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d oras</item>
+        <item quantity="one">%d hour</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">Na-import ang %d mga proyekto.</item>
+        <item quantity="one">Imported %d project.</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d lists selected</item>
+        <item quantity="one">%d list selected</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d minuto</item>
+        <item quantity="one">%d minute</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">Nailagay sa backpack ang %d mga larawan</item>
+        <item quantity="one">Backpacked %d look.</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">Nailagay sa backpack ang %d mga scene</item>
+        <item quantity="one">Backpacked %d scene.</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">Nailagay sa backpack ang %d mga tunog</item>
+        <item quantity="one">Backpacked %d sound.</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">Nailagay sa backpack ang mga %d aktor o bagay</item>
+        <item quantity="one">Backpacked %d actor or object.</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">Naidagdag ang mga %d Scratch project sa pila…</item>
+        <item quantity="one">Added %d Scratch project to the queue…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">mga segundo</item>
+        <item quantity="one">second</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">Natapos: %d mga trabaho</item>
+        <item quantity="one">Completed: %d job</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">progreso: %d mga trabaho</item>
+        <item quantity="one">In progress: %d job</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">times</item>
+        <item quantity="one">time</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">Na-unpack ang %d mga larawan</item>
+        <item quantity="one">Unpacked %d look.</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">Na-unpack ang %d mga scene</item>
+        <item quantity="one">Unpacked %d scene.</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">Na-unpack ang %d mga script</item>
+        <item quantity="one">Unpacked %d script.</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">Na-unpack ang %d mga tunog</item>
+        <item quantity="one">Unpacked %d sound.</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">Na-unpack ang %d mga aktor o bagay</item>
+        <item quantity="one">Unpacked %d actor or object.</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">Mga input para sa brick na ito</item>
+        <item quantity="one">Input for this brick</item>
+    </plurals>
+</resources>

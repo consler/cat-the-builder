@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBox android:gravity="center_vertical" android:id="@id/brick_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <org.catrobat.catroid.ui.BrickLayout android:id="@id/brick_touch_and_slide_layout" style="@style/BrickContainer.Device.Big">
+        <include layout="@layout/icon_brick_category_device" />
+        <TextView android:text="@string/brick_touch_slide" style="@style/BrickText.SingleLine" />
+        <TextView android:text="@string/brick_touch_from_x" app:layout_newLine="true" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_touch_slide_edit_from_x" style="@style/BrickEditText" />
+        <TextView android:text="@string/y_label" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_touch_slide_edit_from_y" style="@style/BrickEditText" />
+        <TextView android:text="@string/brick_glide_to_x" app:layout_newLine="true" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_touch_slide_edit_to_x" style="@style/BrickEditText" />
+        <TextView android:text="@string/y_label" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_touch_slide_edit_to_y" style="@style/BrickEditText" />
+        <TextView android:text="@string/brick_loop_in" app:layout_newLine="true" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_tap_for_edit_duration" style="@style/BrickEditText" />
+        <TextView android:id="@id/brick_seconds_label" style="@style/BrickText.SingleLine" />
+    </org.catrobat.catroid.ui.BrickLayout>
+</LinearLayout>

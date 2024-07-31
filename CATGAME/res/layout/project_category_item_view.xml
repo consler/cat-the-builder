@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="?x_large" android:textColor="@color/landing_page_icons" android:id="@id/categoryTitle" android:background="@drawable/button_background_selector" android:paddingTop="16.0dip" android:paddingBottom="16.0dip" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/main_menu_programs" android:textDirection="locale" android:paddingStart="20.0dip" android:paddingEnd="32.0dip" app:drawableEndCompat="@drawable/ic_arrow_forward_vector" />
+    <androidx.recyclerview.widget.RecyclerView android:orientation="horizontal" android:id="@id/categoryRecyclerView" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="14.0dip" android:paddingEnd="14.0dip" app:layoutManager="LinearLayoutManager" />
+</LinearLayout>

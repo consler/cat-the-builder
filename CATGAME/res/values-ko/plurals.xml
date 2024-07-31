@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">레이어</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">픽셀</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">각 항목에 대해</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">같은 이름의 변수에 저장</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">모양 %d가 복사됨</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">NFC 태그 %d가 복사됨</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">장면 %d가 복사됨</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">소리%d가 복사됨</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">오브젝트 %d가 복사됨</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d 일</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">이 모양을 삭제하시겠습니까?</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">이 태그를 삭제하시겠습니까?</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">이 프로젝트를 삭제하시겠습니까?</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">이 장면을 삭제하시겠습니까?</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">이 스크립트를 삭제하시겠습니까?</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">이 소리를 삭제하시겠습니까?</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">이 오브젝트를 삭제하시겠습니까?</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">%d 아이템 삭제</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">모양 %d 삭제</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">NFC Tags %d 삭제</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">프로젝트 %d 삭제</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">장면 %d 삭제</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">스크립트 %d 삭제</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">소리 %d 삭제</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">스크립트 %d 삭제</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">동시에 %d 프로그램보다 많이 변환할 수 없습니다. 먼저 실행중인 프로그램이 끝날 때까지 기다려주세요.</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d 시간</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">%d 개의 프로젝트를 가져왔습니다.</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d 목록 선택</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d 분</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">배낭 %d 모양.</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">%d 장면 묶기!</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">%d 소리 묶기</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">배낭을 메고 있는 %d 액터 또는 개체입니다.</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">스크래치 프로젝트 %d 추가…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">초</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">%d 작업 완료:</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">진행중: %d 작업</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">번</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">모양 %d 풀기</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">장면 %d 풀기</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">스크립트 %d 풀기</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">소리 %d 풀기</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">오브젝트 %d 풀기</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">블럭을 위한 입력</item>
+    </plurals>
+</resources>

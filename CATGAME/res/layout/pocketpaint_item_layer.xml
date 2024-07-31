@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/pocketpaint_item_layer_background" android:background="@drawable/pocketpaint_attribute_button_selector" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:descendantFocusability="blocksDescendants" android:layout_width="150.0dip" android:layout_height="wrap_content" android:baselineAligned="false" android:paddingStart="8.0dip" android:paddingEnd="8.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <CheckBox android:id="@id/pocketpaint_checkbox_layer" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <androidx.appcompat.widget.AppCompatImageView android:id="@id/pocketpaint_layer_drag_handle" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:src="@drawable/ic_pocketpaint_drag_handle" />
+    </LinearLayout>
+    <FrameLayout android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="8.0dip" android:layout_marginEnd="8.0dip">
+        <ImageView android:layout_gravity="center" android:id="@id/pocketpaint_item_layer_image" android:background="@drawable/pocketpaint_checkeredbg_repeat" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY" android:adjustViewBounds="true" android:maxHeight="100.0dip" android:contentDescription="@string/layer_background" />
+    </FrameLayout>
+</LinearLayout>

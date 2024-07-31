@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:background="@color/toolbar_background" android:layout_width="fill_parent" android:layout_height="?actionBarSize">
+        <ImageView android:id="@id/close" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="?homeAsUpIndicator" app:tint="@color/solid_white" style="actionButtonStyle" />
+        <EditText android:textColor="@color/solid_white" android:layout_gravity="center_vertical" android:id="@id/search_bar" android:layout_width="0.0dip" android:layout_height="wrap_content" android:hint="@string/keyword_label" android:layout_weight="1.0" android:inputType="text" android:imeOptions="actionSearch" />
+        <FrameLayout android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="fill_parent">
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="fill_parent">
+                <TextView android:textColor="@color/toolbar_title" android:layout_gravity="center_vertical" android:id="@id/search_position_indicator" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/brick_space_padding" android:layout_marginEnd="@dimen/brick_space_padding" />
+                <ImageView android:id="@id/find" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/ic_search" app:tint="@color/solid_white" style="actionButtonStyle" />
+                <ImageView android:id="@id/find_previous" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/ic_keyboard_toggle_caret_up" app:tint="@color/solid_white" style="actionButtonStyle" />
+                <ImageView android:id="@id/find_next" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/ic_keyboard_toggle_caret_down" app:tint="@color/solid_white" style="actionButtonStyle" />
+            </LinearLayout>
+            <ProgressBar android:layout_gravity="center" android:id="@id/progress_bar" android:paddingTop="@dimen/brick_space_padding" android:paddingBottom="@dimen/brick_space_padding" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+        </FrameLayout>
+    </LinearLayout>
+    <TextView android:id="@id/scene_and_sprite_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/brick_space_padding" />
+</merge>

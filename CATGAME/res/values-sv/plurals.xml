@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">lager</item>
+        <item quantity="one">lager</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">steg</item>
+        <item quantity="one">steg</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">For each tuple of items of</item>
+        <item quantity="one">For each item of</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">lagras i variabler med samma namn</item>
+        <item quantity="one">lagras i variabel med samma namn</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">Copied %d looks.</item>
+        <item quantity="one">Copied %d look.</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">Kopierade %d NFC-taggar.</item>
+        <item quantity="one">Kopierade %d NFC-tagg.</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">Kopierade %d scener.</item>
+        <item quantity="one">Kopierade %d scen.</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">Kopierade %d ljud.</item>
+        <item quantity="one">Kopierade %d ljud.</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">Kopierade %d aktörer eller objekt.</item>
+        <item quantity="one">Kopierade %d aktör eller objekt.</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d dagar</item>
+        <item quantity="one">%d dag</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">Ta bort dessa utseenden?</item>
+        <item quantity="one">Ta bort detta utseende?</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">Ta bort dessa taggar?</item>
+        <item quantity="one">Ta bort denna tagg?</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">Ta bort dessa projekt?</item>
+        <item quantity="one">Ta bort detta projekt?</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">Ta bort dessa scener?</item>
+        <item quantity="one">Ta bort denna scen?</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">Ta bort dessa skript?</item>
+        <item quantity="one">Ta bort detta skript?</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">Ta bort dessa ljud?</item>
+        <item quantity="one">Ta bort detta ljud?</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">Ta bort dessa aktörer eller objekt?</item>
+        <item quantity="one">Ta bort denna aktör eller objekt?</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">Tog bort %d objekt.</item>
+        <item quantity="one">Tog bort %d objekt.</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">Tog bort %d utseenden.</item>
+        <item quantity="one">Tog bort %d utseende.</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">Tog bort %d NFC-taggar.</item>
+        <item quantity="one">Tog bort %d NFC-tagg.</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">Tog bort %d projekt.</item>
+        <item quantity="one">Tog bort %d projekt.</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">Tog bort %d scener.</item>
+        <item quantity="one">Tog bort %d scen.</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">Tog bort %d skript.</item>
+        <item quantity="one">Tog bort %d skript.</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">Tog bort %d ljud.</item>
+        <item quantity="one">Tog bort %d ljud.</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">Deleted %d actors or objects.</item>
+        <item quantity="one">Deleted %d actor or object.</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">You cannot convert more than %d projects at the same time. Please wait for the running conversions to finish first.</item>
+        <item quantity="one">You cannot convert more than %d project at the same time. Please wait for the running conversions to finish first.</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d timmar</item>
+        <item quantity="one">%d timme</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">Imported %d projects.</item>
+        <item quantity="one">Imported %d project.</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d lists selected</item>
+        <item quantity="one">%d list selected</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d minuter</item>
+        <item quantity="one">%d minut</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">Backpacked %d looks.</item>
+        <item quantity="one">Backpacked %d look.</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">Backpacked %d scenes.</item>
+        <item quantity="one">Backpacked %d scene.</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">Backpacked %d sounds.</item>
+        <item quantity="one">Backpacked %d sound.</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">Backpacked %d actors or objects.</item>
+        <item quantity="one">Backpacked %d actor or object.</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">Added %d Scratch projects to the queue…</item>
+        <item quantity="one">Added %d Scratch project to the queue…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">"sekunder "</item>
+        <item quantity="one">"sekund "</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">Completed: %d jobs</item>
+        <item quantity="one">Completed: %d job</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">Pågående: %d jobb</item>
+        <item quantity="one">Pågående: %d jobb</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">gånger</item>
+        <item quantity="one">gång</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">Unpacked %d looks.</item>
+        <item quantity="one">Unpacked %d look.</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">Unpacked %d scenes.</item>
+        <item quantity="one">Unpacked %d scene.</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">Packade upp %d skript.</item>
+        <item quantity="one">Packade upp %d skript.</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">Unpacked %d sounds.</item>
+        <item quantity="one">Unpacked %d sound.</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">Unpacked %d actors or objects.</item>
+        <item quantity="one">Unpacked %d actor or object.</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">Inputs for this brick</item>
+        <item quantity="one">Input for this brick</item>
+    </plurals>
+</resources>

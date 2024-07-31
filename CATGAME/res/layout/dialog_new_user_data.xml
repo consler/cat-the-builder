@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:padding="@dimen/dialog_content_area_padding_input" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputLayout android:id="@id/input" android:layout_width="fill_parent" android:layout_height="wrap_content" app:errorEnabled="true" app:hintEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText android:id="@id/input_edit_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:selectAllOnFocus="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <RadioGroup android:id="@id/radio_group" android:layout_width="fill_parent" android:layout_height="wrap_content" android:checkedButton="@id/global">
+            <RadioButton android:id="@id/global" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/new_data_for_all_sprites" />
+            <RadioButton android:id="@id/local" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/new_data_for_this_sprite_only" />
+            <RadioButton android:id="@id/multiplayer" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/new_data_for_connected_devices" />
+        </RadioGroup>
+        <CheckBox android:id="@id/make_list" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/formula_editor_data_dialog_is_list" />
+    </LinearLayout>
+</ScrollView>

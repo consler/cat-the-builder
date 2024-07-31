@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/ic_pocketpaint_tools" android:id="@id/action_tools" android:title="@string/bottom_navigation_tools" />
+    <item android:icon="@drawable/ic_pocketpaint_tool_hand" android:id="@id/action_current_tool" android:title="@string/bottom_navigation_current" />
+    <item android:icon="@drawable/pocketpaint_checkeredbg_repeat" android:id="@id/action_color_picker" android:title="@string/bottom_navigation_color" />
+    <item android:icon="@drawable/ic_pocketpaint_layers" android:id="@id/action_layers" android:title="@string/bottom_navigation_layers" />
+</menu>

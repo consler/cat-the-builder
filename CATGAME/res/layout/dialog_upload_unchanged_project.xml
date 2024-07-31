@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/dialog_content_area_padding_top" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/dialog_content_area_padding" android:paddingEnd="@dimen/dialog_content_area_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/unchanged_upload_warning" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/material_design_spacing_small" android:text="@string/unchanged_upload_warning" />
+    <TextView android:id="@id/unchanged_upload_info" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/material_design_spacing_small" android:text="@string/unchanged_upload_info" />
+    <TextView android:id="@id/unchanged_upload_url" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

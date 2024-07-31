@@ -1,0 +1,238 @@
+.class final Landroidx/security/crypto/EncryptedFile$EncryptedFileInputStream;
+.super Ljava/io/FileInputStream;
+.source "EncryptedFile.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/security/crypto/EncryptedFile;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1a
+    name = "EncryptedFileInputStream"
+.end annotation
+
+
+# instance fields
+.field private final mEncryptedInputStream:Ljava/io/InputStream;
+
+
+# direct methods
+.method constructor <init>(Ljava/io/FileDescriptor;Ljava/io/InputStream;)V
+    .locals 0
+    .param p1, "descriptor"    # Ljava/io/FileDescriptor;
+    .param p2, "encryptedInputStream"    # Ljava/io/InputStream;
+
+    .line 283
+    invoke-direct {p0, p1}, Ljava/io/FileInputStream;-><init>(Ljava/io/FileDescriptor;)V
+
+    .line 284
+    iput-object p2, p0, Landroidx/security/crypto/EncryptedFile$EncryptedFileInputStream;->mEncryptedInputStream:Ljava/io/InputStream;
+
+    .line 285
+    return-void
+.end method
+
+
+# virtual methods
+.method public available()I
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 309
+    iget-object v0, p0, Landroidx/security/crypto/EncryptedFile$EncryptedFileInputStream;->mEncryptedInputStream:Ljava/io/InputStream;
+
+    invoke-virtual {v0}, Ljava/io/InputStream;->available()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public close()V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 314
+    iget-object v0, p0, Landroidx/security/crypto/EncryptedFile$EncryptedFileInputStream;->mEncryptedInputStream:Ljava/io/InputStream;
+
+    invoke-virtual {v0}, Ljava/io/InputStream;->close()V
+
+    .line 315
+    return-void
+.end method
+
+.method public getChannel()Ljava/nio/channels/FileChannel;
+    .locals 2
+
+    .line 319
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
+
+    const-string v1, "For encrypted files, please open the relevant FileInput/FileOutputStream."
+
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public declared-synchronized mark(I)V
+    .locals 1
+    .param p1, "readlimit"    # I
+
+    monitor-enter p0
+
+    .line 325
+    :try_start_0
+    iget-object v0, p0, Landroidx/security/crypto/EncryptedFile$EncryptedFileInputStream;->mEncryptedInputStream:Ljava/io/InputStream;
+
+    invoke-virtual {v0, p1}, Ljava/io/InputStream;->mark(I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 326
+    monitor-exit p0
+
+    return-void
+
+    .line 324
+    .end local p0    # "this":Landroidx/security/crypto/EncryptedFile$EncryptedFileInputStream;
+    .end local p1    # "readlimit":I
+    :catchall_0
+    move-exception p1
+
+    monitor-exit p0
+
+    throw p1
+.end method
+
+.method public markSupported()Z
+    .locals 1
+
+    .line 335
+    iget-object v0, p0, Landroidx/security/crypto/EncryptedFile$EncryptedFileInputStream;->mEncryptedInputStream:Ljava/io/InputStream;
+
+    invoke-virtual {v0}, Ljava/io/InputStream;->markSupported()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public read()I
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 289
+    iget-object v0, p0, Landroidx/security/crypto/EncryptedFile$EncryptedFileInputStream;->mEncryptedInputStream:Ljava/io/InputStream;
+
+    invoke-virtual {v0}, Ljava/io/InputStream;->read()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public read([B)I
+    .locals 1
+    .param p1, "b"    # [B
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 294
+    iget-object v0, p0, Landroidx/security/crypto/EncryptedFile$EncryptedFileInputStream;->mEncryptedInputStream:Ljava/io/InputStream;
+
+    invoke-virtual {v0, p1}, Ljava/io/InputStream;->read([B)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public read([BII)I
+    .locals 1
+    .param p1, "b"    # [B
+    .param p2, "off"    # I
+    .param p3, "len"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 299
+    iget-object v0, p0, Landroidx/security/crypto/EncryptedFile$EncryptedFileInputStream;->mEncryptedInputStream:Ljava/io/InputStream;
+
+    invoke-virtual {v0, p1, p2, p3}, Ljava/io/InputStream;->read([BII)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public declared-synchronized reset()V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    monitor-enter p0
+
+    .line 330
+    :try_start_0
+    iget-object v0, p0, Landroidx/security/crypto/EncryptedFile$EncryptedFileInputStream;->mEncryptedInputStream:Ljava/io/InputStream;
+
+    invoke-virtual {v0}, Ljava/io/InputStream;->reset()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 331
+    monitor-exit p0
+
+    return-void
+
+    .line 329
+    .end local p0    # "this":Landroidx/security/crypto/EncryptedFile$EncryptedFileInputStream;
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
+.method public skip(J)J
+    .locals 2
+    .param p1, "n"    # J
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 304
+    iget-object v0, p0, Landroidx/security/crypto/EncryptedFile$EncryptedFileInputStream;->mEncryptedInputStream:Ljava/io/InputStream;
+
+    invoke-virtual {v0, p1, p2}, Ljava/io/InputStream;->skip(J)J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method

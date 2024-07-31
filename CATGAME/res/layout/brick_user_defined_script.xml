@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/brick_user_defined_script_brick" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:gravity="center_vertical" android:id="@id/brick_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <org.catrobat.catroid.ui.BrickLayout style="@style/BrickContainer.Script.Define">
+            <include layout="@layout/icon_brick_category_userbrick" />
+            <TextView android:paddingTop="0.0dip" android:paddingBottom="@dimen/material_design_spacing_small" android:text="@string/brick_user_defined_script_define" style="@style/BrickText.SingleLine.UserDefinedScript" />
+        </org.catrobat.catroid.ui.BrickLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/user_brick_space" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/script_spacing" />
+        <org.catrobat.catroid.ui.BrickLayout style="@style/BrickContainer.Script.As">
+            <include layout="@layout/icon_brick_category_userbrick" />
+            <Spinner android:id="@id/brick_set_screen_refresh_spinner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textDirection="locale" />
+            <TextView android:text="@string/brick_user_defined_script_screen_refresh_as" android:includeFontPadding="false" style="@style/BrickText.SingleLine.UserDefinedScript" />
+        </org.catrobat.catroid.ui.BrickLayout>
+    </LinearLayout>
+</LinearLayout>

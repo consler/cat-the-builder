@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">слоев</item>
+        <item quantity="one">слой</item>
+        <item quantity="few">слоев</item>
+        <item quantity="many">слоев</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">шагов</item>
+        <item quantity="one">Step</item>
+        <item quantity="few">шага</item>
+        <item quantity="many">Steps</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">Для каждых элементов</item>
+        <item quantity="one">Для каждого элемента</item>
+        <item quantity="few">Для каждых элементов</item>
+        <item quantity="many">Для каждых элементов</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">сохранены в переменных с таким же именем</item>
+        <item quantity="one">сохранена в переменной с таким же именем</item>
+        <item quantity="few">сохранены в переменных с таким же именем</item>
+        <item quantity="many">сохранены в переменных с таким же именем</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">Скопировано %d образов.</item>
+        <item quantity="one">Скопирован %d образ.</item>
+        <item quantity="few">Скопировано %d образов.</item>
+        <item quantity="many">Скопировано %d образов.</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">Скопировано %d NFC тегов.</item>
+        <item quantity="one">Скопирован %d NFC тег.</item>
+        <item quantity="few">Скопировано %d NFC тегов.</item>
+        <item quantity="many">Скопировано %d NFC тегов.</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">Скопировано %d сцен.</item>
+        <item quantity="one">Скопирована %d сцена.</item>
+        <item quantity="few">Скопировано %d сцен.</item>
+        <item quantity="many">Скопировано %d сцен.</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">Скопировано %d звуков.</item>
+        <item quantity="one">Скопирован %d звук.</item>
+        <item quantity="few">Скопировано %d звуков.</item>
+        <item quantity="many">Скопировано %d звуков.</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">Скопировано %d актеров или объектов.</item>
+        <item quantity="one">Скопирован %d актер или объект.</item>
+        <item quantity="few">Скопировано %d актеров или объектов.</item>
+        <item quantity="many">Скопировано %d актеров или объектов.</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d дней</item>
+        <item quantity="one">%d день</item>
+        <item quantity="few">%d дней</item>
+        <item quantity="many">%d дней</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">Удалить эти образы?</item>
+        <item quantity="one">Удалить этот образ?</item>
+        <item quantity="few">Удалить эти образы?</item>
+        <item quantity="many">Удалить эти образы?</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">Удалить эти теги?</item>
+        <item quantity="one">Удалить этот тег?</item>
+        <item quantity="few">Удалить эти теги?</item>
+        <item quantity="many">Удалить эти теги?</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">Удалить эти проекты?</item>
+        <item quantity="one">Удалить этот проект?</item>
+        <item quantity="few">Удалить эти проекты?</item>
+        <item quantity="many">Удалить эти проекты?</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">Удалить эти сцены?</item>
+        <item quantity="one">Удалить эту сцену?</item>
+        <item quantity="few">Удалить эти сцены?</item>
+        <item quantity="many">Удалить эти сцены?</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">Удалить эти скрипты?</item>
+        <item quantity="one">Удалить этот скрипт?</item>
+        <item quantity="few">Удалить эти скрипты?</item>
+        <item quantity="many">Удалить эти скрипты?</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">Удалить эти звуки?</item>
+        <item quantity="one">Удалить этот звук?</item>
+        <item quantity="few">Удалить эти звуки?</item>
+        <item quantity="many">Удалить эти звуки?</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">Удалить этих актеров или объектов?</item>
+        <item quantity="one">Удалить этого актера или объекта?</item>
+        <item quantity="few">Удалить этих актеров или объектов?</item>
+        <item quantity="many">Удалить этих актеров или объектов?</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">Удалено %d элементов.</item>
+        <item quantity="one">Удален %d элемент.</item>
+        <item quantity="few">Удалено %d элементов.</item>
+        <item quantity="many">Удалено %d элементов.</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">Удалено %d образов.</item>
+        <item quantity="one">Удален %d образ.</item>
+        <item quantity="few">Удалено %d образов.</item>
+        <item quantity="many">Удалено %d образов.</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">Удалено %d NFC тегов.</item>
+        <item quantity="one">Удален %d NFC тег.</item>
+        <item quantity="few">Удалено %d NFC тегов.</item>
+        <item quantity="many">Удалено %d NFC тегов.</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">Удалено %d проектов.</item>
+        <item quantity="one">Удален %d проект.</item>
+        <item quantity="few">Удалено %d проектов.</item>
+        <item quantity="many">Удалено %d проектов.</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">Удалено %d сцен.</item>
+        <item quantity="one">Удалена %d сцена.</item>
+        <item quantity="few">Удалено %d сцен.</item>
+        <item quantity="many">Удалено %d сцен.</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">Удалено %d скриптов.</item>
+        <item quantity="one">Удален %d скрипт.</item>
+        <item quantity="few">Удалено %d скриптов.</item>
+        <item quantity="many">Удалено %d скриптов.</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">Удалено %d звуков.</item>
+        <item quantity="one">Удален %d звук.</item>
+        <item quantity="few">Удалено %d звуков.</item>
+        <item quantity="many">Удалено %d звуков.</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">Удалено %d актеров или объектов.</item>
+        <item quantity="one">Удален %d актер или объект.</item>
+        <item quantity="few">Удалено %d актеров или объектов.</item>
+        <item quantity="many">Удалено %d актеров или объектов.</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">Вы не можете конвертировать более чем %d проектов одновременно. Пожалуйста, подождите завершения текущих конвертаций.</item>
+        <item quantity="one">Вы не можете конвертировать более чем %d проект одновременно. Пожалуйста, подождите завершения текущих конвертаций.</item>
+        <item quantity="few">Вы не можете конвертировать более чем %d проектов одновременно. Пожалуйста, подождите завершения текущих конвертаций.</item>
+        <item quantity="many">Вы не можете конвертировать более чем %d проектов одновременно. Пожалуйста, подождите завершения текущих конвертаций.</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d часов</item>
+        <item quantity="one">%d час</item>
+        <item quantity="few">%d часов</item>
+        <item quantity="many">%d часов</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">Импортировано %d проектов.</item>
+        <item quantity="one">Импортирован %d проект.</item>
+        <item quantity="few">Импортировано %d проектов.</item>
+        <item quantity="many">Импортировано %d проектов.</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d списки выбраны</item>
+        <item quantity="one">%d список выбран</item>
+        <item quantity="few">%d список выбран</item>
+        <item quantity="many">%d списки выбраны</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d минут</item>
+        <item quantity="one">%d минута</item>
+        <item quantity="few">%d минут</item>
+        <item quantity="many">%d минут</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">Упаковано %d образов.</item>
+        <item quantity="one">Упакован %d образ.</item>
+        <item quantity="few">Упаковано %d образов.</item>
+        <item quantity="many">Упаковано %d образов.</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">Упаковано %d сцен.</item>
+        <item quantity="one">Упакована %d сцена.</item>
+        <item quantity="few">Упаковано %d сцен.</item>
+        <item quantity="many">Упаковано %d сцен.</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">Упаковано %d звуков.</item>
+        <item quantity="one">Упакован %d звук.</item>
+        <item quantity="few">Упаковано %d звуков.</item>
+        <item quantity="many">Упаковано %d звуков.</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">Упаковано %d актеров или объектов.</item>
+        <item quantity="one">Упакован %d актер или объект.</item>
+        <item quantity="few">Упаковано %d актеров или объектов.</item>
+        <item quantity="many">Упаковано %d актеров или объектов.</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">%d Проектов Scratch добавлено в очередь…</item>
+        <item quantity="one">%d Проект Scratch добавлен в очередь…</item>
+        <item quantity="few">%d Проектов Scratch добавлено в очередь…</item>
+        <item quantity="many">%d Проектов Scratch добавлено в очередь…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">"секунд "</item>
+        <item quantity="one">"секунду "</item>
+        <item quantity="few">секунд</item>
+        <item quantity="many">секунд</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">Завершены: %d операции</item>
+        <item quantity="one">Завершены: %d операция</item>
+        <item quantity="few">Завершены: %d операций</item>
+        <item quantity="many">Завершены: %d операции</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">В процессе: %d операции</item>
+        <item quantity="one">В процессе: %d операция</item>
+        <item quantity="few">В процессе: %d операции</item>
+        <item quantity="many">В процессе: %d операции</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">разa</item>
+        <item quantity="one">раз</item>
+        <item quantity="few">разa</item>
+        <item quantity="many">раз</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">Распаковано %d образов.</item>
+        <item quantity="one">Распакован %d образ.</item>
+        <item quantity="few">Распаковано %d образов.</item>
+        <item quantity="many">Распаковано %d образов.</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">Распаковано %d сцен.</item>
+        <item quantity="one">Распакована %d сцена.</item>
+        <item quantity="few">Распаковано %d сцен.</item>
+        <item quantity="many">Распаковано %d сцен.</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">Распаковано %d скриптов.</item>
+        <item quantity="one">Распакован %d скрипт.</item>
+        <item quantity="few">Распаковано %d скриптов.</item>
+        <item quantity="many">Распаковано %d скриптов.</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">Распаковано %d звуков.</item>
+        <item quantity="one">Распакован %d звук.</item>
+        <item quantity="few">Распаковано %d звуков.</item>
+        <item quantity="many">Распаковано %d звуков.</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">Распаковано %d актеров или объектов.</item>
+        <item quantity="one">Распакован %d актер или объект.</item>
+        <item quantity="few">Распаковано %d актеров или объектов.</item>
+        <item quantity="many">Распаковано %d актеров или объектов.</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">Введите для этих кирпичей</item>
+        <item quantity="one">Введите для этого кирпича</item>
+        <item quantity="few">Введите для этих кирпичей</item>
+        <item quantity="many">Введите для этих кирпичей</item>
+    </plurals>
+</resources>

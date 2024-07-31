@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="color_alpha">Alpha</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_green">Green</string>
+    <string name="color_hex">HEX</string>
+    <string name="color_picker_apply">Apply</string>
+    <string name="color_picker_cancel">Cancel</string>
+    <string name="color_picker_tab_icon">Color Picker tab icon</string>
+    <string name="color_picker_title">Color Picker</string>
+    <string name="color_red">Red</string>
+</resources>

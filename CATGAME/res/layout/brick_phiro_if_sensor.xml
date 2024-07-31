@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:gravity="center_vertical" android:id="@id/brick_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <org.catrobat.catroid.ui.BrickLayout android:id="@id/brick_phiro_sensor_layout" style="@style/BrickContainer.Control.Big">
+        <include layout="@layout/icon_brick_category_phiro" />
+        <TextView android:id="@id/brick_phiro_sensor_label" android:text="@string/brick_phiro_sensor_begin" style="@style/BrickText.SingleLine" />
+        <Spinner android:id="@id/brick_phiro_sensor_action_spinner" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textDirection="locale" />
+        <TextView android:id="@id/phiro_sensor_label_second_part" android:text="@string/brick_phiro_sensor_second_part" style="@style/BrickText.SingleLine" />
+    </org.catrobat.catroid.ui.BrickLayout>
+</LinearLayout>

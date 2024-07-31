@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/project_options_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/divider" android:showDividers="end">
+            <com.google.android.material.textfield.TextInputLayout android:id="@id/project_options_name_layout" android:paddingTop="@dimen/dialog_content_area_padding_top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/project_name_label" android:paddingStart="@dimen/dialog_content_area_padding" android:paddingEnd="@dimen/dialog_content_area_padding" app:errorEnabled="true" app:hintEnabled="true">
+                <com.google.android.material.textfield.TextInputEditText android:id="@id/project_options_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:selectAllOnFocus="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/divider" android:showDividers="end">
+            <com.google.android.material.textfield.TextInputLayout android:id="@id/project_options_description_layout" android:paddingTop="@dimen/dialog_content_area_padding_top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/project_options_description" android:paddingStart="@dimen/dialog_content_area_padding" android:paddingEnd="@dimen/dialog_content_area_padding" app:errorEnabled="true" app:hintEnabled="true">
+                <com.google.android.material.textfield.TextInputEditText android:id="@id/project_options_description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:selectAllOnFocus="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/divider" android:showDividers="end">
+            <com.google.android.material.textfield.TextInputLayout android:id="@id/project_options_notes_and_credits_layout" android:paddingTop="@dimen/dialog_content_area_padding_top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/project_options_notes_and_credits" android:paddingStart="@dimen/dialog_content_area_padding" android:paddingEnd="@dimen/dialog_content_area_padding" app:errorEnabled="true" app:hintEnabled="true">
+                <com.google.android.material.textfield.TextInputEditText android:id="@id/project_options_notes_and_credits" android:layout_width="fill_parent" android:layout_height="wrap_content" android:selectAllOnFocus="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/tags" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/divider" android:showDividers="end">
+            <TextView android:paddingTop="@dimen/dialog_content_area_padding_top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/project_options_tags" android:paddingStart="@dimen/dialog_content_area_padding" android:paddingEnd="@dimen/dialog_content_area_padding" />
+            <com.google.android.material.chip.ChipGroup android:id="@id/chip_group_tags" android:paddingBottom="@dimen/dialog_content_area_padding_input" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/dialog_content_area_padding" android:paddingEnd="@dimen/dialog_content_area_padding" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/divider" android:showDividers="end">
+            <com.google.android.material.switchmaterial.SwitchMaterial android:textColor="#b2ffffff" android:id="@id/project_options_aspect_ratio" android:paddingTop="@dimen/material_design_spacing_x_large" android:paddingBottom="@dimen/material_design_spacing_x_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:checked="true" android:text="@string/project_options_aspect_ratio" android:paddingStart="@dimen/material_design_spacing_x_large" android:paddingEnd="@dimen/material_design_spacing_x_large" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/divider" android:showDividers="end">
+            <TextView android:id="@id/project_options_upload" android:background="@drawable/button_background_selector_dark" android:paddingTop="@dimen/material_design_spacing_x_large" android:paddingBottom="@dimen/material_design_spacing_x_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/upload_project_dialog_title" android:paddingStart="@dimen/material_design_spacing_x_large" android:paddingEnd="@dimen/material_design_spacing_x_large" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/divider" android:showDividers="end">
+            <TextView android:id="@id/project_options_save_external" android:background="@drawable/button_background_selector_dark" android:paddingTop="@dimen/material_design_spacing_x_large" android:paddingBottom="@dimen/material_design_spacing_x_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/save_to_external_storage_button" android:paddingStart="@dimen/material_design_spacing_x_large" android:paddingEnd="@dimen/material_design_spacing_x_large" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/divider" android:showDividers="end">
+            <TextView android:id="@id/project_options_more_details" android:background="@drawable/button_background_selector_dark" android:paddingTop="@dimen/material_design_spacing_x_large" android:paddingBottom="@dimen/material_design_spacing_x_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/project_options_more_details" android:paddingStart="@dimen/material_design_spacing_x_large" android:paddingEnd="@dimen/material_design_spacing_x_large" />
+        </LinearLayout>
+        <Button android:layout_gravity="center" android:id="@id/project_options_delete" android:layout_width="220.0dip" android:layout_height="wrap_content" android:layout_marginTop="@dimen/material_design_spacing_x_large" android:layout_marginBottom="@dimen/material_design_spacing_x_large" android:text="@string/project_options_delete_project" android:textAllCaps="true" android:backgroundTint="@color/red" />
+    </LinearLayout>
+</ScrollView>

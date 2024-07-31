@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/toolbar" />
+    <TextView android:textSize="@dimen/text_size_large" android:gravity="center" android:padding="@dimen/dialog_text_view_text_size_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/error_internet_connection" />
+</LinearLayout>

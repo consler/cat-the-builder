@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:layout_alignParentTop="true" android:layout_alignParentStart="true" style="@style/TextFieldTheme">
+        <com.google.android.material.textfield.TextInputEditText android:textStyle="bold" android:textColor="?colorAccent" android:gravity="center" android:id="@id/pocketpaint_font_size_text" android:background="@drawable/pocketpaint_round_rect_shape" android:padding="4.0dip" android:saveEnabled="false" android:layout_width="wrap_content" android:layout_height="40.0dip" android:minEms="3" android:inputType="number" android:imeOptions="actionDone" android:importantForAutofill="no" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:layout_marginTop="@dimen/toolbar_height" android:layout_alignParentTop="true" android:layout_alignParentRight="true">
+        <com.google.android.material.button.MaterialButtonToggleGroup android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.google.android.material.button.MaterialButton android:textSize="20.0sp" android:id="@id/pocketpaint_text_tool_dialog_toggle_underlined" android:layout_width="40.0dip" android:layout_height="40.0dip" android:text="@string/text_tool_dialog_underline_shortcut" style="@style/CircularToggleButtonStyle" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+        <Space style="@style/PocketPaintToolHorizontalSpace" />
+        <com.google.android.material.button.MaterialButtonToggleGroup android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.google.android.material.button.MaterialButton android:textSize="20.0sp" android:textStyle="italic" android:id="@id/pocketpaint_text_tool_dialog_toggle_italic" android:layout_width="40.0dip" android:layout_height="40.0dip" android:text="@string/text_tool_dialog_italic_shortcut" style="@style/CircularToggleButtonStyle" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+        <Space style="@style/PocketPaintToolHorizontalSpace" />
+        <com.google.android.material.button.MaterialButtonToggleGroup android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.google.android.material.button.MaterialButton android:textSize="20.0sp" android:textStyle="bold" android:id="@id/pocketpaint_text_tool_dialog_toggle_bold" android:layout_width="40.0dip" android:layout_height="40.0dip" android:text="@string/text_tool_dialog_bold_shortcut" style="@style/CircularToggleButtonStyle" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView android:orientation="horizontal" android:id="@id/pocketpaint_text_tool_dialog_list_font" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/pocketpaint_text_tool_dialog_input_text_layout" android:paddingStart="10.0dip" android:paddingEnd="10.0dip" />
+    <RelativeLayout android:id="@id/pocketpaint_text_tool_dialog_input_text_layout" android:background="@android:color/background_light" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:paddingStart="10.0dip" android:paddingEnd="10.0dip">
+        <EditText android:textColor="@android:color/black" android:id="@id/pocketpaint_text_tool_dialog_input_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/text_tool_dialog_input_hint" android:inputType="textMultiLine" android:imeOptions="flagNoExtractUi" android:backgroundTint="@color/backgroundtint_color_edittext_state_list" android:importantForAutofill="no" />
+    </RelativeLayout>
+</RelativeLayout>

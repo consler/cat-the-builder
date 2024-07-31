@@ -1,0 +1,59 @@
+.class public Lorg/apache/commons/collections4/sequence/InsertCommand;
+.super Lorg/apache/commons/collections4/sequence/EditCommand;
+.source "InsertCommand.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<T:",
+        "Ljava/lang/Object;",
+        ">",
+        "Lorg/apache/commons/collections4/sequence/EditCommand<",
+        "TT;>;"
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/Object;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TT;)V"
+        }
+    .end annotation
+
+    .line 42
+    .local p0, "this":Lorg/apache/commons/collections4/sequence/InsertCommand;, "Lorg/apache/commons/collections4/sequence/InsertCommand<TT;>;"
+    .local p1, "object":Ljava/lang/Object;, "TT;"
+    invoke-direct {p0, p1}, Lorg/apache/commons/collections4/sequence/EditCommand;-><init>(Ljava/lang/Object;)V
+
+    .line 43
+    return-void
+.end method
+
+
+# virtual methods
+.method public accept(Lorg/apache/commons/collections4/sequence/CommandVisitor;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lorg/apache/commons/collections4/sequence/CommandVisitor<",
+            "TT;>;)V"
+        }
+    .end annotation
+
+    .line 54
+    .local p0, "this":Lorg/apache/commons/collections4/sequence/InsertCommand;, "Lorg/apache/commons/collections4/sequence/InsertCommand<TT;>;"
+    .local p1, "visitor":Lorg/apache/commons/collections4/sequence/CommandVisitor;, "Lorg/apache/commons/collections4/sequence/CommandVisitor<TT;>;"
+    invoke-virtual {p0}, Lorg/apache/commons/collections4/sequence/InsertCommand;->getObject()Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-interface {p1, v0}, Lorg/apache/commons/collections4/sequence/CommandVisitor;->visitInsertCommand(Ljava/lang/Object;)V
+
+    .line 55
+    return-void
+.end method

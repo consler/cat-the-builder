@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">لایه های</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">قدم ها</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">برای هر مورد از</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">در متغیری با همین نام ذخیره می شود</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">%d نگاه کپی شد.</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">%d تگ NFC کپی شد.</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">%d صحنه کپی شد.</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">%d صدا کپی شد.</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">%d بازیگر یا شیء کپی شد.</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d روز</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">این نگاه حذف شود؟</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">این تگ حذف شود؟</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">این پروژه حذف شود؟</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">این صحنه حذف شود؟</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">این اسکریپت را حذف کنید؟</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">این صدا حذف شود؟</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">این بازیگر یا شی حذف شود؟</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">%d مورد حذف شد.</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">%d نگاه حذف شد.</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">%d برچسب NFC حذف شد.</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">%d پروژه حذف شد.</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">%d صحنه حذف شد.</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">%d اسکریپت حذف شد.</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">%d صدا حذف شد.</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">%d بازیگر یا شی حذف شد.</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">نمی توانید همزمان بیش از %d پروژه را تبدیل کنید. لطفاً ابتدا منتظر بمانید تا تبدیل‌های در حال اجرا تمام شوند.</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d ساعت</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">%d پروژه وارد شد.</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d لیست انتخاب شده است</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d دقیقه</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">ظاهر %d کوله‌پشتی.</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">%d صحنه کوله‌پشتی.</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">صدای %d کوله پشتی.</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">%d بازیگر یا شیء کوله‌پشتی.</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">%d پروژه Scratch به صف اضافه شد…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">ثانيه</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">تکمیل شده: %d کار</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">در حال پیش رفت: %d کار</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">زمان</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">ظاهر %d بسته بندی نشده است.</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">%d صحنه باز شد.</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">%d اسکریپت باز شد.</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">%d صدا باز شد.</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">%d بازیگر یا شی بازگشایی شد.</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">ورودی برای این آجر</item>
+    </plurals>
+</resources>

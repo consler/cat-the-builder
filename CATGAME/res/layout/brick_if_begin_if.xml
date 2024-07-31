@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBox android:gravity="center_vertical" android:id="@id/brick_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <org.catrobat.catroid.ui.BrickLayout android:id="@id/brick_if_begin_layout" style="@style/BrickContainer.Control.Small">
+        <include layout="@layout/icon_brick_category_control" />
+        <TextView android:id="@id/if_label" android:text="@string/brick_if_begin" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_if_begin_edit_text" style="@style/BrickEditText" />
+        <TextView android:id="@id/if_label_second_part" android:text="@string/brick_if_begin_second_part" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/if_else_prototype_punctuation" android:visibility="gone" android:text="@string/punctuation_mark" app:layout_newLine="true" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/if_prototype_else" android:visibility="gone" android:text="@string/brick_if_else" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/if_else_prototype_punctuation2" android:visibility="gone" android:text="@string/punctuation_mark" style="@style/BrickText.SingleLine" />
+    </org.catrobat.catroid.ui.BrickLayout>
+</LinearLayout>

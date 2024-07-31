@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:scrollbarAlwaysDrawVerticalTrack="true" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@id/pocketpaint_about_header" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/pocketpaint_logo_small" android:contentDescription="@string/pocketpaint_app_name" />
+            <TextView android:textSize="8.0sp" android:gravity="center" android:id="@id/pocketpaint_about_version" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            <TextView android:gravity="center" android:id="@id/pocketpaint_about_content" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:textSize="20.0sp" android:textColorLink="@color/pocketpaint_text_color_link" android:gravity="center" android:id="@id/pocketpaint_about_license_url" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" />
+            <TextView android:textSize="20.0sp" android:textColorLink="@color/pocketpaint_text_color_link" android:gravity="center" android:id="@id/pocketpaint_about_catrobat_url" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/view_holder_background" />
+    <TextView android:textColor="@color/view_holder_headline" android:padding="@dimen/view_holder_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/list_headline_sprites" />
+</LinearLayout>

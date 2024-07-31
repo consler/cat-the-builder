@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@id/fragment_add_user_defined_brick" android:background="@color/app_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:id="@id/user_brick_space" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" />
+        <Button android:id="@id/button_add_label" android:text="@string/brick_user_defined_add_label" style="@style/Button" />
+        <Button android:id="@id/button_add_input" android:text="@string/brick_user_defined_add_input" style="@style/Button" />
+    </LinearLayout>
+</ScrollView>

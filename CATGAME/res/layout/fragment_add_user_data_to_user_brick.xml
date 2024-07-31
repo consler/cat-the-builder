@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@id/fragment_add_user_data_to_user_brick" android:background="@color/app_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:id="@id/user_brick_space" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" />
+        <TextView android:textSize="?x_large" android:id="@id/brick_user_defined_add_user_data_description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:color="@color/accent" />
+        <com.google.android.material.textfield.TextInputLayout android:id="@id/user_data_user_brick_text_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip" android:layout_marginBottom="10.0dip" app:errorEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText android:textSize="?x_large" android:id="@id/user_data_user_brick_edit_field" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:selectAllOnFocus="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/bottom_constraint" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>

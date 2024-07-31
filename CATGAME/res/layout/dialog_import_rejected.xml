@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/dialog_content_area_padding_top" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/dialog_content_area_padding" android:paddingEnd="@dimen/dialog_content_area_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/import_conflicting_variables" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/material_design_spacing_large" android:text="@string/import_conflicting_variables" />
+    <TextView android:id="@id/import_conflicting_variables_reason" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/material_design_spacing_large" android:text="@string/import_conflicting_variables_reason" />
+    <TextView android:textColor="#ff000000" android:id="@id/conflicting_variables" android:background="#ffffffff" android:paddingLeft="24.0pt" android:paddingTop="14.0pt" android:paddingRight="24.0pt" android:paddingBottom="14.0pt" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/material_design_spacing_large" />
+    <TextView android:id="@id/import_conflicting_variables_try_again" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/material_design_spacing_large" android:text="@string/import_conflicting_variables_try_again" />
+</LinearLayout>

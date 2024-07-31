@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">slojevi</item>
+        <item quantity="one">sloj</item>
+        <item quantity="few">slojevi</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">koraka</item>
+        <item quantity="one">korak</item>
+        <item quantity="few">koraka</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">For each tuple of items of</item>
+        <item quantity="one">For each item of</item>
+        <item quantity="few">For each tuple of items of</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">stored in variables with the same names</item>
+        <item quantity="one">stored in variable with the same name</item>
+        <item quantity="few">stored in variables with the same names</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">Kopirao %d izgleda</item>
+        <item quantity="one">Kopirao %d izgled</item>
+        <item quantity="few">Kopirao %d izgleda</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">Copied %d NFC tags.</item>
+        <item quantity="one">Copied %d NFC tag.</item>
+        <item quantity="few">Copied %d NFC tags.</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">Kopirao %d scena</item>
+        <item quantity="one">Kopirao %d scenu</item>
+        <item quantity="few">Kopirao %d scene</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">Kopirao %d zvukova</item>
+        <item quantity="one">Kopirao %d zvuk</item>
+        <item quantity="few">Kopirao %d zvukova</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">Kopirao %d aktera ili objekata</item>
+        <item quantity="one">Kopirao %d aktera ili objekat</item>
+        <item quantity="few">Kopirao %d aktera ili objekata</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d dana</item>
+        <item quantity="one">%d dan</item>
+        <item quantity="few">%d dana</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">Obrišite ove izglede?</item>
+        <item quantity="one">Obrišite ovaj izgled?</item>
+        <item quantity="few">Obrišite ove izglede?</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">Delete these tags?</item>
+        <item quantity="one">Delete this tag?</item>
+        <item quantity="few">Delete these tags?</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">Obriši ove projekte?</item>
+        <item quantity="one">Obriši ovaj projekat?</item>
+        <item quantity="few">Obriši ove projekte?</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">Obrišite ove scene?</item>
+        <item quantity="one">Obrišite scenu?</item>
+        <item quantity="few">Obriši scene?</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">Obriši ove skripte?</item>
+        <item quantity="one">Obriši ovu skriptu?</item>
+        <item quantity="few">Obriši ove skripte?</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">Obriši ove zvukove?</item>
+        <item quantity="one">Obriši ovaj zvuk?</item>
+        <item quantity="few">Obriši ove zvukove?</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">Delete these actors or objects?</item>
+        <item quantity="one">Delete this actor or object?</item>
+        <item quantity="few">Delete these actors or objects?</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">Deleted %d items.</item>
+        <item quantity="one">Deleted %d item.</item>
+        <item quantity="few">Deleted %d items.</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">Deleted %d looks.</item>
+        <item quantity="one">Deleted %d look.</item>
+        <item quantity="few">Deleted %d looks.</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">Deleted %d NFC tags.</item>
+        <item quantity="one">Deleted %d NFC tag.</item>
+        <item quantity="few">Deleted %d NFC tags.</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">Obrisao %d projekata.</item>
+        <item quantity="one">Obrisao %d projekat.</item>
+        <item quantity="few">Obrisao %d projekata.</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">Obrisao %d scena.</item>
+        <item quantity="one">Obrisao %d scenu.</item>
+        <item quantity="few">Obrisao %d scena.</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">Obrisao %d skripti</item>
+        <item quantity="one">Obrisao %d skriptu</item>
+        <item quantity="few">Obrisao %d skripte</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">Deleted %d sounds.</item>
+        <item quantity="one">Deleted %d sound.</item>
+        <item quantity="few">Deleted %d sounds.</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">Deleted %d actors or objects.</item>
+        <item quantity="one">Deleted %d actor or object.</item>
+        <item quantity="few">Deleted %d actors or objects.</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">You cannot convert more than %d projects at the same time. Please wait for the running conversions to finish first.</item>
+        <item quantity="one">You cannot convert more than %d project at the same time. Please wait for the running conversions to finish first.</item>
+        <item quantity="few">You cannot convert more than %d projects at the same time. Please wait for the running conversions to finish first.</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d sati</item>
+        <item quantity="one">%d sat</item>
+        <item quantity="few">%d sata</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">Imported %d projects.</item>
+        <item quantity="one">Imported %d project.</item>
+        <item quantity="few">Imported %d projects.</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d lists selected</item>
+        <item quantity="one">%d list selected</item>
+        <item quantity="few">%d lists selected</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d minuta</item>
+        <item quantity="one">%d minuta</item>
+        <item quantity="few">%d minuta</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">Backpacked %d looks.</item>
+        <item quantity="one">Backpacked %d look.</item>
+        <item quantity="few">Backpacked %d looks.</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">Backpacked %d scenes.</item>
+        <item quantity="one">Backpacked %d scene.</item>
+        <item quantity="few">Backpacked %d scenes.</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">Backpacked %d sounds.</item>
+        <item quantity="one">Backpacked %d sound.</item>
+        <item quantity="few">Backpacked %d sounds.</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">Backpacked %d actors or objects.</item>
+        <item quantity="one">Backpacked %d actor or object.</item>
+        <item quantity="few">Backpacked %d actors or objects.</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">Added %d Scratch projects to the queue…</item>
+        <item quantity="one">Added %d Scratch project to the queue…</item>
+        <item quantity="few">Added %d Scratch projects to the queue…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">sekundi</item>
+        <item quantity="one">sekunda</item>
+        <item quantity="few">sekunde</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">Završio: %d poslova</item>
+        <item quantity="one">Završio: %d posao</item>
+        <item quantity="few">Završio: %d poslova</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">U toku: %d poslova</item>
+        <item quantity="one">U toku: %d posao</item>
+        <item quantity="few">U toku: %d poslova</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">puta</item>
+        <item quantity="one">puta</item>
+        <item quantity="few">puta</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">Otpakovao %d izgleda</item>
+        <item quantity="one">Otpakovao %d izgled</item>
+        <item quantity="few">Otpakovao %d izgleda</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">Otpakovao %d scena</item>
+        <item quantity="one">Otpakovao %d scenu</item>
+        <item quantity="few">Otpakovao %d scene</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">Otpakovao %d skripti</item>
+        <item quantity="one">Otpakovao %d skriptu</item>
+        <item quantity="few">Otpakovao %d skripte</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">Otpakovao %d zvukova</item>
+        <item quantity="one">Otpakovao %d zvuk</item>
+        <item quantity="few">Otpakovao %d zvukova</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">Unpacked %d actors or objects.</item>
+        <item quantity="one">Unpacked %d actor or object.</item>
+        <item quantity="few">Unpacked %d actors or objects.</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">Inputs for this brick</item>
+        <item quantity="one">Input for this brick</item>
+        <item quantity="few">Inputs for this brick</item>
+    </plurals>
+</resources>

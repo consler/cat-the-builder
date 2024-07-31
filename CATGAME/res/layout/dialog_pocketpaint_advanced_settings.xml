@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="?dialogPreferredPadding" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.google.android.material.switchmaterial.SwitchMaterial android:theme="@style/CustomSwitchTheme" android:textColor="@color/design_default_color_on_secondary" android:id="@id/pocketpaint_antialiasing" android:layout_width="fill_parent" android:layout_height="fill_parent" android:checked="true" android:text="@string/dialog_antialiasing" />
+    <Space android:layout_width="0.0dip" android:layout_height="16.0dip" />
+    <com.google.android.material.switchmaterial.SwitchMaterial android:theme="@style/CustomSwitchTheme" android:textColor="@color/design_default_color_on_secondary" android:id="@id/pocketpaint_smoothing" android:layout_width="fill_parent" android:layout_height="fill_parent" android:checked="true" android:text="@string/dialog_smoothing" />
+</LinearLayout>

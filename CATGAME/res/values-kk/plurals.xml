@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">layers</item>
+        <item quantity="one">layer</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">steps</item>
+        <item quantity="one">step</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">For each tuple of items of</item>
+        <item quantity="one">For each item of</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">stored in variables with the same names</item>
+        <item quantity="one">stored in variable with the same name</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">%d сурет көшірілді.</item>
+        <item quantity="one">%d сурет көшірілді.</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">%d NFC тег көшірілді.</item>
+        <item quantity="one">%d NFC тег көшірілді.</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">%d сахна көшірілді.</item>
+        <item quantity="one">%d сахна көшірілді.</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">%d дыбыс көшірілді.</item>
+        <item quantity="one">%d дыбыс көшірілді.</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">%d актер немесе объект көшірілді.</item>
+        <item quantity="one">%d актер немесе объект көшірілді.</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d күн</item>
+        <item quantity="one">%d күн</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">Осы суреттерді жою керек пе?</item>
+        <item quantity="one">Осы суретті жою керек пе?</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">Осы тегтерді жою керек пе?</item>
+        <item quantity="one">Осы тегті жою керек пе?</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">Осы жобаларды жою керек пе?</item>
+        <item quantity="one">Осы жобаны жою керек пе?</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">Осы сахналарды жою керек пе?</item>
+        <item quantity="one">Осы сахнаны жою керек пе?</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">Осы скриптілерді жою керек пе?</item>
+        <item quantity="one">Осы скриптті жою керек пе?</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">Осы дыбыстарды жою керек пе?</item>
+        <item quantity="one">Осы дыбысты жою керек пе?</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">Осы актерлерді немесе объектілерді жою керек пе?</item>
+        <item quantity="one">Осы актерды немесе объектіні жою керек пе?</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">%d элемент жойылды.</item>
+        <item quantity="one">%d элемент жойылды.</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">%d сурет жойылды.</item>
+        <item quantity="one">%d сурет жойылды.</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">%d NFC тег жойылды.</item>
+        <item quantity="one">%d NFC тег жойылды.</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">%d жоба жойылды.</item>
+        <item quantity="one">%d жоба жойылды.</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">%d сахна жойылды.</item>
+        <item quantity="one">%d сахна жойылды.</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">%d скрипт жойылды.</item>
+        <item quantity="one">%d скрипт жойылды.</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">%d дыбыс жойылды.</item>
+        <item quantity="one">%d дыбыс жойылды.</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">%d спрайт жойылды.</item>
+        <item quantity="one">%d спрайт жойылды.</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">Бір уақытта %d санынан көп жобаларды түрлендіре алмайсыз. Алдымен жүргізіліп жатқан түрлендіру аяқталғанша күте тұрыңыз.</item>
+        <item quantity="one">Бір уақытта %d санынан көп жобаны түрлендіре алмайсыз. Алдымен жүргізіліп жатқан түрлендіру аяқталғанша күте тұрыңыз.</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d сағат</item>
+        <item quantity="one">%d сағат</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">Imported %d projects.</item>
+        <item quantity="one">Imported %d project.</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d lists selected</item>
+        <item quantity="one">%d list selected</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d минут</item>
+        <item quantity="one">%d минут</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">%d сурет салынды.</item>
+        <item quantity="one">%d сурет салынды.</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">%d сахна салынды.</item>
+        <item quantity="one">%d сахна салынды.</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">%d дыбыс салынды.</item>
+        <item quantity="one">%d дыбыс салынды.</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">%d актер немесе объект салынды.</item>
+        <item quantity="one">%d актер немесе объект салынды.</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">%d Scratch жобалары кезекке қосылды…</item>
+        <item quantity="one">%d Scratch жобасы кезекке қосылды…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">seconds</item>
+        <item quantity="one">second</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">Орындалды: %d операциялар</item>
+        <item quantity="one">Орындалды: %d операция</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">Орындалуда: %d операциялар</item>
+        <item quantity="one">Орындалуда: %d операция</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">times</item>
+        <item quantity="one">time</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">%d сурет шығарылды.</item>
+        <item quantity="one">%d сурет шығарылды.</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">%d сахна шығарылды.</item>
+        <item quantity="one">%d сахна шығарылды.</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">%d скрипт шығарылды.</item>
+        <item quantity="one">%d скрипт шығарылды.</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">%d дыбыс шығарылды.</item>
+        <item quantity="one">%d дыбыс шығарылды.</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">%d актер немесе объект шығарылды.</item>
+        <item quantity="one">%d актер немесе объект шығарылды.</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">Inputs for this brick</item>
+        <item quantity="one">Input for this brick</item>
+    </plurals>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="top" android:orientation="vertical" android:paddingTop="@dimen/pocketpaint_welcome_margin_top" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentTop="true" android:paddingStart="@dimen/pocketpaint_welcome_margin_side" android:paddingEnd="@dimen/pocketpaint_welcome_margin_side" android:layout_alignParentStart="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/pocketpaint_intro_welcome_head" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/welcome_to_pocket_paint" android:minLines="2" style="@style/PocketPaintWelcomeHeader" />
+    <TextView android:id="@id/pocketpaint_intro_welcome_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/pocketpaint_welcome_margin_top_text" android:text="@string/intro_welcome_text" android:layout_below="@id/pocketpaint_intro_welcome_head" style="@style/PocketPaintWelcomeText" />
+</RelativeLayout>

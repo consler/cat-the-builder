@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/pocketpaint_outline_view_text_view" android:text="@string/dialog_brush_width_text" style="@style/PocketPaintToolSubtitle" />
+        <View android:id="@id/pocketpaint_outline_view_border" style="@style/PocketPaintToolSectionDivider" />
+        <LinearLayout android:orientation="horizontal" style="@style/PocketPaintToolSection">
+            <SeekBar android:id="@id/pocketpaint_shape_stroke_width_seek_bar" android:layout_width="0.0dip" android:layout_height="wrap_content" android:max="100" android:layout_weight="1.0" />
+            <Space style="@style/PocketPaintToolHorizontalSpace" />
+            <EditText android:textSize="14.0sp" android:textStyle="bold" android:textColor="?colorAccent" android:id="@id/pocketpaint_shape_outline_edit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minEms="3" android:inputType="number" android:imeOptions="actionDone" android:importantForAutofill="no" />
+        </LinearLayout>
+        <TextView android:id="@id/pocketpaint_shape_tool_fill_outline" android:text="@string/shape_tool_dialog_fill_title" style="@style/PocketPaintToolSubtitle" />
+        <View style="@style/PocketPaintToolSectionDivider" />
+        <LinearLayout android:layout_gravity="center" android:layout_width="wrap_content" style="@style/PocketPaintToolSection">
+            <ImageButton android:id="@id/pocketpaint_shape_ibtn_fill" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_pocketpaint_rectangle" android:contentDescription="@string/shape_tool_dialog_rect_title" style="@style/PocketPaintSelectableButton" />
+            <ImageButton android:id="@id/pocketpaint_shape_ibtn_outline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_pocketpaint_rectangle_out" android:contentDescription="@string/shape_tool_dialog_outline_title" style="@style/PocketPaintSelectableButton" />
+        </LinearLayout>
+        <TextView android:id="@id/pocketpaint_shape_tool_dialog_title" android:text="@string/shape_tool_dialog_rect_title" style="@style/PocketPaintToolSubtitle" />
+        <View style="@style/PocketPaintToolSectionDivider" />
+        <LinearLayout android:id="@id/pocketpaint_shapes_container" style="@style/PocketPaintToolSection">
+            <ImageButton android:id="@id/pocketpaint_shapes_square_btn" android:layout_width="0.0dip" android:layout_height="wrap_content" android:src="@drawable/ic_pocketpaint_rectangle" android:layout_weight="1.0" android:contentDescription="@string/shape_tool_dialog_rect_title" style="@style/PocketPaintSelectableButton" />
+            <ImageButton android:id="@id/pocketpaint_shapes_circle_btn" android:layout_width="0.0dip" android:layout_height="wrap_content" android:src="@drawable/ic_pocketpaint_circle" android:layout_weight="1.0" android:contentDescription="@string/shape_tool_dialog_ellipse_title" style="@style/PocketPaintSelectableButton" />
+            <ImageButton android:id="@id/pocketpaint_shapes_heart_btn" android:layout_width="0.0dip" android:layout_height="wrap_content" android:src="@drawable/ic_pocketpaint_heart" android:layout_weight="1.0" android:contentDescription="@string/shape_tool_dialog_heart_title" style="@style/PocketPaintSelectableButton" />
+            <ImageButton android:id="@id/pocketpaint_shapes_star_btn" android:layout_width="0.0dip" android:layout_height="wrap_content" android:src="@drawable/ic_pocketpaint_star" android:layout_weight="1.0" android:contentDescription="@string/shape_tool_dialog_star_title" style="@style/PocketPaintSelectableButton" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

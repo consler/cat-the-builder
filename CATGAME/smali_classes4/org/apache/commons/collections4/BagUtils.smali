@@ -1,0 +1,307 @@
+.class public Lorg/apache/commons/collections4/BagUtils;
+.super Ljava/lang/Object;
+.source "BagUtils.java"
+
+
+# static fields
+.field public static final EMPTY_BAG:Lorg/apache/commons/collections4/Bag;
+
+.field public static final EMPTY_SORTED_BAG:Lorg/apache/commons/collections4/Bag;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .line 42
+    new-instance v0, Lorg/apache/commons/collections4/bag/HashBag;
+
+    invoke-direct {v0}, Lorg/apache/commons/collections4/bag/HashBag;-><init>()V
+
+    invoke-static {v0}, Lorg/apache/commons/collections4/bag/UnmodifiableBag;->unmodifiableBag(Lorg/apache/commons/collections4/Bag;)Lorg/apache/commons/collections4/Bag;
+
+    move-result-object v0
+
+    sput-object v0, Lorg/apache/commons/collections4/BagUtils;->EMPTY_BAG:Lorg/apache/commons/collections4/Bag;
+
+    .line 48
+    new-instance v0, Lorg/apache/commons/collections4/bag/TreeBag;
+
+    invoke-direct {v0}, Lorg/apache/commons/collections4/bag/TreeBag;-><init>()V
+
+    .line 49
+    invoke-static {v0}, Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;->unmodifiableSortedBag(Lorg/apache/commons/collections4/SortedBag;)Lorg/apache/commons/collections4/SortedBag;
+
+    move-result-object v0
+
+    sput-object v0, Lorg/apache/commons/collections4/BagUtils;->EMPTY_SORTED_BAG:Lorg/apache/commons/collections4/Bag;
+
+    .line 48
+    return-void
+.end method
+
+.method private constructor <init>()V
+    .locals 0
+
+    .line 54
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method public static collectionBag(Lorg/apache/commons/collections4/Bag;)Lorg/apache/commons/collections4/Bag;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<E:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lorg/apache/commons/collections4/Bag<",
+            "TE;>;)",
+            "Lorg/apache/commons/collections4/Bag<",
+            "TE;>;"
+        }
+    .end annotation
+
+    .line 153
+    .local p0, "bag":Lorg/apache/commons/collections4/Bag;, "Lorg/apache/commons/collections4/Bag<TE;>;"
+    invoke-static {p0}, Lorg/apache/commons/collections4/bag/CollectionBag;->collectionBag(Lorg/apache/commons/collections4/Bag;)Lorg/apache/commons/collections4/Bag;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static emptyBag()Lorg/apache/commons/collections4/Bag;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<E:",
+            "Ljava/lang/Object;",
+            ">()",
+            "Lorg/apache/commons/collections4/Bag<",
+            "TE;>;"
+        }
+    .end annotation
+
+    .line 256
+    sget-object v0, Lorg/apache/commons/collections4/BagUtils;->EMPTY_BAG:Lorg/apache/commons/collections4/Bag;
+
+    return-object v0
+.end method
+
+.method public static emptySortedBag()Lorg/apache/commons/collections4/SortedBag;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<E:",
+            "Ljava/lang/Object;",
+            ">()",
+            "Lorg/apache/commons/collections4/SortedBag<",
+            "TE;>;"
+        }
+    .end annotation
+
+    .line 267
+    sget-object v0, Lorg/apache/commons/collections4/BagUtils;->EMPTY_SORTED_BAG:Lorg/apache/commons/collections4/Bag;
+
+    check-cast v0, Lorg/apache/commons/collections4/SortedBag;
+
+    return-object v0
+.end method
+
+.method public static predicatedBag(Lorg/apache/commons/collections4/Bag;Lorg/apache/commons/collections4/Predicate;)Lorg/apache/commons/collections4/Bag;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<E:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lorg/apache/commons/collections4/Bag<",
+            "TE;>;",
+            "Lorg/apache/commons/collections4/Predicate<",
+            "-TE;>;)",
+            "Lorg/apache/commons/collections4/Bag<",
+            "TE;>;"
+        }
+    .end annotation
+
+    .line 118
+    .local p0, "bag":Lorg/apache/commons/collections4/Bag;, "Lorg/apache/commons/collections4/Bag<TE;>;"
+    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
+    invoke-static {p0, p1}, Lorg/apache/commons/collections4/bag/PredicatedBag;->predicatedBag(Lorg/apache/commons/collections4/Bag;Lorg/apache/commons/collections4/Predicate;)Lorg/apache/commons/collections4/bag/PredicatedBag;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static predicatedSortedBag(Lorg/apache/commons/collections4/SortedBag;Lorg/apache/commons/collections4/Predicate;)Lorg/apache/commons/collections4/SortedBag;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<E:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lorg/apache/commons/collections4/SortedBag<",
+            "TE;>;",
+            "Lorg/apache/commons/collections4/Predicate<",
+            "-TE;>;)",
+            "Lorg/apache/commons/collections4/SortedBag<",
+            "TE;>;"
+        }
+    .end annotation
+
+    .line 221
+    .local p0, "bag":Lorg/apache/commons/collections4/SortedBag;, "Lorg/apache/commons/collections4/SortedBag<TE;>;"
+    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
+    invoke-static {p0, p1}, Lorg/apache/commons/collections4/bag/PredicatedSortedBag;->predicatedSortedBag(Lorg/apache/commons/collections4/SortedBag;Lorg/apache/commons/collections4/Predicate;)Lorg/apache/commons/collections4/bag/PredicatedSortedBag;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static synchronizedBag(Lorg/apache/commons/collections4/Bag;)Lorg/apache/commons/collections4/Bag;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<E:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lorg/apache/commons/collections4/Bag<",
+            "TE;>;)",
+            "Lorg/apache/commons/collections4/Bag<",
+            "TE;>;"
+        }
+    .end annotation
+
+    .line 85
+    .local p0, "bag":Lorg/apache/commons/collections4/Bag;, "Lorg/apache/commons/collections4/Bag<TE;>;"
+    invoke-static {p0}, Lorg/apache/commons/collections4/bag/SynchronizedBag;->synchronizedBag(Lorg/apache/commons/collections4/Bag;)Lorg/apache/commons/collections4/bag/SynchronizedBag;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static synchronizedSortedBag(Lorg/apache/commons/collections4/SortedBag;)Lorg/apache/commons/collections4/SortedBag;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<E:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lorg/apache/commons/collections4/SortedBag<",
+            "TE;>;)",
+            "Lorg/apache/commons/collections4/SortedBag<",
+            "TE;>;"
+        }
+    .end annotation
+
+    .line 185
+    .local p0, "bag":Lorg/apache/commons/collections4/SortedBag;, "Lorg/apache/commons/collections4/SortedBag<TE;>;"
+    invoke-static {p0}, Lorg/apache/commons/collections4/bag/SynchronizedSortedBag;->synchronizedSortedBag(Lorg/apache/commons/collections4/SortedBag;)Lorg/apache/commons/collections4/bag/SynchronizedSortedBag;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static transformingBag(Lorg/apache/commons/collections4/Bag;Lorg/apache/commons/collections4/Transformer;)Lorg/apache/commons/collections4/Bag;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<E:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lorg/apache/commons/collections4/Bag<",
+            "TE;>;",
+            "Lorg/apache/commons/collections4/Transformer<",
+            "-TE;+TE;>;)",
+            "Lorg/apache/commons/collections4/Bag<",
+            "TE;>;"
+        }
+    .end annotation
+
+    .line 140
+    .local p0, "bag":Lorg/apache/commons/collections4/Bag;, "Lorg/apache/commons/collections4/Bag<TE;>;"
+    .local p1, "transformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TE;+TE;>;"
+    invoke-static {p0, p1}, Lorg/apache/commons/collections4/bag/TransformedBag;->transformingBag(Lorg/apache/commons/collections4/Bag;Lorg/apache/commons/collections4/Transformer;)Lorg/apache/commons/collections4/Bag;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static transformingSortedBag(Lorg/apache/commons/collections4/SortedBag;Lorg/apache/commons/collections4/Transformer;)Lorg/apache/commons/collections4/SortedBag;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<E:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lorg/apache/commons/collections4/SortedBag<",
+            "TE;>;",
+            "Lorg/apache/commons/collections4/Transformer<",
+            "-TE;+TE;>;)",
+            "Lorg/apache/commons/collections4/SortedBag<",
+            "TE;>;"
+        }
+    .end annotation
+
+    .line 245
+    .local p0, "bag":Lorg/apache/commons/collections4/SortedBag;, "Lorg/apache/commons/collections4/SortedBag<TE;>;"
+    .local p1, "transformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TE;+TE;>;"
+    invoke-static {p0, p1}, Lorg/apache/commons/collections4/bag/TransformedSortedBag;->transformingSortedBag(Lorg/apache/commons/collections4/SortedBag;Lorg/apache/commons/collections4/Transformer;)Lorg/apache/commons/collections4/bag/TransformedSortedBag;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static unmodifiableBag(Lorg/apache/commons/collections4/Bag;)Lorg/apache/commons/collections4/Bag;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<E:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lorg/apache/commons/collections4/Bag<",
+            "+TE;>;)",
+            "Lorg/apache/commons/collections4/Bag<",
+            "TE;>;"
+        }
+    .end annotation
+
+    .line 98
+    .local p0, "bag":Lorg/apache/commons/collections4/Bag;, "Lorg/apache/commons/collections4/Bag<+TE;>;"
+    invoke-static {p0}, Lorg/apache/commons/collections4/bag/UnmodifiableBag;->unmodifiableBag(Lorg/apache/commons/collections4/Bag;)Lorg/apache/commons/collections4/Bag;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static unmodifiableSortedBag(Lorg/apache/commons/collections4/SortedBag;)Lorg/apache/commons/collections4/SortedBag;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<E:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lorg/apache/commons/collections4/SortedBag<",
+            "TE;>;)",
+            "Lorg/apache/commons/collections4/SortedBag<",
+            "TE;>;"
+        }
+    .end annotation
+
+    .line 199
+    .local p0, "bag":Lorg/apache/commons/collections4/SortedBag;, "Lorg/apache/commons/collections4/SortedBag<TE;>;"
+    invoke-static {p0}, Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;->unmodifiableSortedBag(Lorg/apache/commons/collections4/SortedBag;)Lorg/apache/commons/collections4/SortedBag;
+
+    move-result-object v0
+
+    return-object v0
+.end method

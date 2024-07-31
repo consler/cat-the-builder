@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBox android:gravity="center_vertical" android:id="@id/brick_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <org.catrobat.catroid.ui.BrickLayout android:id="@id/brick_set_nfc_tag_layout" style="@style/BrickContainer.Device.Big">
+        <include layout="@layout/icon_brick_category_device" />
+        <TextView android:id="@id/brick_set_nfc_tag_label" android:text="@string/brick_set_nfc_tag" android:labelFor="@id/brick_set_nfc_tag_edit_text" style="@style/BrickText.SingleLine" />
+        <EditText android:gravity="start" android:id="@id/brick_set_nfc_tag_edit_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="3" android:minLines="1" android:importantForAutofill="no" app:layout_newLine="true" style="@style/BrickEditText" />
+        <TextView android:id="@id/brick_set_nfc_tag_ndef_record_textview" android:text="@string/ndef_record_label" style="@style/BrickText.SingleLine" />
+        <Spinner android:id="@id/brick_set_nfc_tag_ndef_record_spinner" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textDirection="locale" app:layout_newLine="true" />
+    </org.catrobat.catroid.ui.BrickLayout>
+</LinearLayout>

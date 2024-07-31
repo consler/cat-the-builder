@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">طبقات</item>
+        <item quantity="zero">طبقة</item>
+        <item quantity="one">طبقات</item>
+        <item quantity="two">طبقات</item>
+        <item quantity="few">طبقات</item>
+        <item quantity="many">طبقات</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">خطوة</item>
+        <item quantity="zero">خطوة</item>
+        <item quantity="one">خطوة</item>
+        <item quantity="two">خطوتان</item>
+        <item quantity="few">خطوات</item>
+        <item quantity="many">خطوات</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">لكل مجموعة من العناصر</item>
+        <item quantity="zero">لكل عنصر من</item>
+        <item quantity="one">لكل عنصر من</item>
+        <item quantity="two">لكل عنصر من</item>
+        <item quantity="few">لكل عنصر من</item>
+        <item quantity="many">لكل عنصر من</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">مخزنة في متغيرات بنفس الأسماء</item>
+        <item quantity="zero">مخزنة في متغير بنفس الاسم</item>
+        <item quantity="one">مخزنة في متغير بنفس الاسم</item>
+        <item quantity="two">مخزنة في متغير بنفس الاسم</item>
+        <item quantity="few">مخزنة في متغير بنفس الاسم</item>
+        <item quantity="many">مخزنة في متغير بنفس الاسم</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">تم نسخ %d مناظر!</item>
+        <item quantity="zero">تم نسخ %d منظر!</item>
+        <item quantity="one">تم نسخ %d منظر!</item>
+        <item quantity="two">تم نسخ %d منظرين!</item>
+        <item quantity="few">تم نسخ %d مناظر!</item>
+        <item quantity="many">تم نسخ %d مناظر!</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">تم نسخ %d وسوم NFC!</item>
+        <item quantity="zero">تم نسخ %d وسم NFC!</item>
+        <item quantity="one">تم نسخ %d وسم NFC!</item>
+        <item quantity="two">تم نسخ %d وسمين NFC!</item>
+        <item quantity="few">تم نسخ %d وسوم NFC!</item>
+        <item quantity="many">تم نسخ %d وسوم NFC!</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">تم نسخ %d مشاهد!</item>
+        <item quantity="zero">تم نسخ %d مشهد!</item>
+        <item quantity="one">تم نسخ %d مشهد!</item>
+        <item quantity="two">تم نسخ %d مشهدين!</item>
+        <item quantity="few">تم نسخ %d مشاهد!</item>
+        <item quantity="many">تم نسخ %d مشاهد!</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">تم نسخ %d ملفات صوتية!</item>
+        <item quantity="zero">تم نسخ %d ملف صوتي!</item>
+        <item quantity="one">تم نسخ %d ملف صوتي!</item>
+        <item quantity="two">تم نسخ %d ملفين صوتيين!</item>
+        <item quantity="few">تم نسخ %d ملفات صوتية!</item>
+        <item quantity="many">تم نسخ %d ملفات صوتية!</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">تم نسخ %d كائنات!</item>
+        <item quantity="zero">تم نسخ %d كائن!</item>
+        <item quantity="one">تم نسخ %d كائن!</item>
+        <item quantity="two">تم نسخ %d كائنين!</item>
+        <item quantity="few">تم نسخ %d كائنات!</item>
+        <item quantity="many">تم نسخ %d كائنات!</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d أيام</item>
+        <item quantity="zero">%d يوم</item>
+        <item quantity="one">%d يوم</item>
+        <item quantity="two">%d أيام</item>
+        <item quantity="few">%d أيام</item>
+        <item quantity="many">%d أيام</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">هل تريد حذف هذه المناظر؟</item>
+        <item quantity="zero">هل تريد حذف هذا المنظر؟</item>
+        <item quantity="one">هل تريد حذف هذا المنظر؟</item>
+        <item quantity="two">هل تريد حذف هذين المنظرين؟</item>
+        <item quantity="few">هل تريد حذف هذه المناظر؟</item>
+        <item quantity="many">هل تريد حذف هذه المناظر؟</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">هل تريد حذف هذه الأوسمة؟</item>
+        <item quantity="zero">هل تريد حذف هذا الوسم؟</item>
+        <item quantity="one">هل تريد حذف هذا الوسم؟</item>
+        <item quantity="two">هل تريد حذف هذين الوسمين؟</item>
+        <item quantity="few">هل تريد حذف هذه الأوسمة؟</item>
+        <item quantity="many">هل تريد حذف هذه الأوسمة؟</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">هل تريد حذف هذه المشاريع؟</item>
+        <item quantity="zero">هل تريد حذف هذا المشروع؟</item>
+        <item quantity="one">هل تريد حذف هذا المشروع؟</item>
+        <item quantity="two">هل تريد حذف هذين المشروعين؟</item>
+        <item quantity="few">هل تريد حذف هذه المشاريع؟</item>
+        <item quantity="many">هل تريد حذف هذه المشاريع؟</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">هل تريد حذف هذه المشاهد؟</item>
+        <item quantity="zero">هل تريد حذف هذا المشهد؟</item>
+        <item quantity="one">هل تريد حذف هذا المشهد؟</item>
+        <item quantity="two">هل تريد حذف هذين المشهدين؟</item>
+        <item quantity="few">هل تريد حذف هذه المشاهد؟</item>
+        <item quantity="many">هل تريد حذف هذه المشاهد؟</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">هل تريد حذف هذه النصوص البرمجية؟</item>
+        <item quantity="zero">هل تريد حذف هذا النص البرمجي؟</item>
+        <item quantity="one">هل تريد حذف هذا النص البرمجي؟</item>
+        <item quantity="two">هل تريد حذف هذين النصين البرمجيين؟</item>
+        <item quantity="few">هل تريد حذف هذه النصوص البرمجية؟</item>
+        <item quantity="many">هل تريد حذف هذه النصوص البرمجية؟</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">هل تريد حذف هذه الملفات الصوتية؟</item>
+        <item quantity="zero">هل تريد حذف هذا الملف الصوتي؟</item>
+        <item quantity="one">هل تريد حذف هذا الملف الصوتي؟</item>
+        <item quantity="two">هل تريد حذف هذين الملفين الصوتيين؟</item>
+        <item quantity="few">هل تريد حذف هذه الملفات الصوتية؟</item>
+        <item quantity="many">هل تريد حذف هذه الملفات الصوتية؟</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">هل تريد حذف هذه الكائنات؟</item>
+        <item quantity="zero">هل تريد حذف هذا الكائن؟</item>
+        <item quantity="one">هل تريد حذف هذا الكائن؟</item>
+        <item quantity="two">هل تريد حذف هذين الكائنين؟</item>
+        <item quantity="few">هل تريد حذف هذه الكائنات؟</item>
+        <item quantity="many">هل تريد حذف هذه الكائنات؟</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">تم حدف %d عناصر!</item>
+        <item quantity="zero">تم حدف %d عنصر!</item>
+        <item quantity="one">تم حدف %d عنصر!</item>
+        <item quantity="two">تم حدف %d عناصر!</item>
+        <item quantity="few">تم حدف %d عناصر!</item>
+        <item quantity="many">تم حدف %d عناصر!</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">تم حذف %d مناظر!</item>
+        <item quantity="zero">تم حذف %d منظر!</item>
+        <item quantity="one">تم حذف %d منظر!</item>
+        <item quantity="two">تم حذف %d منظرين!</item>
+        <item quantity="few">تم حذف %d مناظر!</item>
+        <item quantity="many">تم حذف %d مناظر!</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">تم حذف %d وسوم NFC!</item>
+        <item quantity="zero">تم حذف %d وسم NFC!</item>
+        <item quantity="one">تم حذف %d وسم NFC!</item>
+        <item quantity="two">تم حذف %d وسمين NFC!</item>
+        <item quantity="few">تم حذف %d وسوم NFC!</item>
+        <item quantity="many">تم حذف %d وسوم NFC!</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">تم حذف %d مشاريع!</item>
+        <item quantity="zero">تم حذف %d مشروع!</item>
+        <item quantity="one">تم حذف %d مشروع!</item>
+        <item quantity="two">تم حذف %d مشروعين!</item>
+        <item quantity="few">تم حذف %d مشاريع!</item>
+        <item quantity="many">تم حذف %d مشاريع!</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">تم حذف %d مشاهد!</item>
+        <item quantity="zero">تم حذف %d مشهد!</item>
+        <item quantity="one">تم حذف %d مشهد!</item>
+        <item quantity="two">تم حذف %d مشهدين!</item>
+        <item quantity="few">تم حذف %d مشاهد!</item>
+        <item quantity="many">تم حذف %d مشاهد!</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">تم حذف %d كائنات!</item>
+        <item quantity="zero">تم حذف %d كائن!</item>
+        <item quantity="one">تم حذف %d كائن!</item>
+        <item quantity="two">تم حذف %d كائنين!</item>
+        <item quantity="few">تم حذف %d كائنات!</item>
+        <item quantity="many">تم حذف %d كائنات!</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">تم حذف %d ملفات صوتية!</item>
+        <item quantity="zero">تم حذف %d ملف صوتي!</item>
+        <item quantity="one">تم حذف %d ملف صوتي!</item>
+        <item quantity="two">تم حذف %d ملفين صوتيين!</item>
+        <item quantity="few">تم حذف %d ملفات صوتية!</item>
+        <item quantity="many">تم حذف %d ملفات صوتية!</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">تم حذف %d كائنات!</item>
+        <item quantity="zero">تم حذف %d كائن!</item>
+        <item quantity="one">تم حذف %d كائن!</item>
+        <item quantity="two">تم حذف %d كائنين!</item>
+        <item quantity="few">تم حذف %d كائنات!</item>
+        <item quantity="many">تم حذف %d كائنات!</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">لا يمكنك تحويل أكثر من%d برنامج في نفس الوقت. من فضلك انتظر أولاً انتهاء تحويل البرامج قيد التشغيل.</item>
+        <item quantity="zero">لا يمكنك تحويل أكثر من%d برنامج في نفس الوقت. من فضلك انتظر أولاً انتهاء تحويل البرامج قيد التشغيل.</item>
+        <item quantity="one">لا يمكنك تحويل أكثر من%d برنامج في نفس الوقت. من فضلك انتظر أولاً انتهاء تحويل البرامج قيد التشغيل.</item>
+        <item quantity="two">لا يمكنك تحويل أكثر من%d برنامج في نفس الوقت. من فضلك انتظر أولاً انتهاء تحويل البرامج قيد التشغيل.</item>
+        <item quantity="few">لا يمكنك تحويل أكثر من%d برنامج في نفس الوقت. من فضلك انتظر أولاً انتهاء تحويل البرامج قيد التشغيل.</item>
+        <item quantity="many">لا يمكنك تحويل أكثر من%d برنامج في نفس الوقت. من فضلك انتظر أولاً انتهاء تحويل البرامج قيد التشغيل.</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d ساعات</item>
+        <item quantity="zero">%d ساعة</item>
+        <item quantity="one">%d ساعة</item>
+        <item quantity="two">%d ساعات</item>
+        <item quantity="few">%d ساعات</item>
+        <item quantity="many">%d ساعات</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">تم استيراد%d مشروع.</item>
+        <item quantity="zero">تم استيراد مشروع%d.</item>
+        <item quantity="one">تم استيراد مشروع%d.</item>
+        <item quantity="two">تم استيراد%d مشروع.</item>
+        <item quantity="few">تم استيراد%d مشروع.</item>
+        <item quantity="many">تم استيراد%d مشروع.</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d قائمة محددة</item>
+        <item quantity="zero">تم تحديد %d قائمة</item>
+        <item quantity="one">تم تحديد %d قائمة</item>
+        <item quantity="two">تم تحديد %d قائمة</item>
+        <item quantity="few">تم تحديد %d قائمة</item>
+        <item quantity="many">تم تحديد %d قائمة</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d دقائق</item>
+        <item quantity="zero">%d دقيقة</item>
+        <item quantity="one">%d دقيقة</item>
+        <item quantity="two">%d دقائق</item>
+        <item quantity="few">%d دقائق</item>
+        <item quantity="many">%d دقائق</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">تم حزم %d مناظر!</item>
+        <item quantity="zero">تم حزم %d منظر!</item>
+        <item quantity="one">تم حزم %d منظر!</item>
+        <item quantity="two">تم حزم %d منظرين!</item>
+        <item quantity="few">تم حزم %d مناظر!</item>
+        <item quantity="many">تم حزم %d مناظر!</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">تم حزم %d مشاهد!</item>
+        <item quantity="zero">تم حزم %d مشهد!</item>
+        <item quantity="one">تم حزم %d مشهد!</item>
+        <item quantity="two">تم حزم %d مشهدين!</item>
+        <item quantity="few">تم حزم %d مشاهد!</item>
+        <item quantity="many">تم حزم %d مشاهد!</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">تم حزم %d ملفات صوتية!</item>
+        <item quantity="zero">تم حزم %d ملف صوتي!</item>
+        <item quantity="one">تم حزم %d ملف صوتي!</item>
+        <item quantity="two">تم حزم %d ملفين صوتيين!</item>
+        <item quantity="few">تم حزم %d ملفات صوتية!</item>
+        <item quantity="many">تم حزم %d ملفات صوتية!</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">تم حزم %d كائنات!</item>
+        <item quantity="zero">تم حزم %d كائن!</item>
+        <item quantity="one">تم حزم %d كائن!</item>
+        <item quantity="two">تم حزم %d كائنين!</item>
+        <item quantity="few">تم حزم %d كائنات!</item>
+        <item quantity="many">تم حزم %d كائنات!</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">تم إضافة %d برامج سكراتش لقائمة الإنتظار…</item>
+        <item quantity="zero">تم إضافة %d برامج سكراتش لقائمة الإنتظار…</item>
+        <item quantity="one">تم إضافة %d برامج سكراتش لقائمة الإنتظار…</item>
+        <item quantity="two">تم إضافة %d برامج سكراتش لقائمة الإنتظار…</item>
+        <item quantity="few">تم إضافة %d برامج سكراتش لقائمة الإنتظار…</item>
+        <item quantity="many">تم إضافة %d برامج سكراتش لقائمة الإنتظار…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">"ثانية "</item>
+        <item quantity="zero">"ثانية "</item>
+        <item quantity="one">"ثانية "</item>
+        <item quantity="two">"ثانية "</item>
+        <item quantity="few">"ثوان "</item>
+        <item quantity="many">"ثوان "</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">إكتملت: %d مهام</item>
+        <item quantity="zero">إكتملت: %d مهمة</item>
+        <item quantity="one">إكتملت: %d مهمة</item>
+        <item quantity="two">إكتملت: %d مهام</item>
+        <item quantity="few">إكتملت: %d مهام</item>
+        <item quantity="many">إكتملت: %d مهام</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">قيد المعالجة: %d مهمات</item>
+        <item quantity="zero">قيد المعالجة: %d مهمة</item>
+        <item quantity="one">قيد المعالجة: %d مهمة</item>
+        <item quantity="two">قيد المعالجة: %d مهمة</item>
+        <item quantity="few">قيد المعالجة: %d مهمات</item>
+        <item quantity="many">قيد المعالجة: %d مهمات</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">مرات</item>
+        <item quantity="zero">مرة</item>
+        <item quantity="one">مرة</item>
+        <item quantity="two">مرتان</item>
+        <item quantity="few">مرات</item>
+        <item quantity="many">مرات</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">فك حزم %d مناظر!</item>
+        <item quantity="zero">فك حزم %d منظر!</item>
+        <item quantity="one">فك حزم %d منظر!</item>
+        <item quantity="two">فك حزم %d منظرين!</item>
+        <item quantity="few">فك حزم %d مناظر!</item>
+        <item quantity="many">فك حزم %d مناظر!</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">فك حزم %d مشاهد!</item>
+        <item quantity="zero">فك حزم %d مشهد!</item>
+        <item quantity="one">فك حزم %d مشهد!</item>
+        <item quantity="two">فك حزم %d مشهدين!</item>
+        <item quantity="few">فك حزم %d مشاهد!</item>
+        <item quantity="many">فك حزم %d مشاهد!</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">فك حزم %d نصوص برمجية!</item>
+        <item quantity="zero">فك حزم %d نص برمجي!</item>
+        <item quantity="one">فك حزم %d نص برمجي!</item>
+        <item quantity="two">فك حزم %d نصين برمجيين!</item>
+        <item quantity="few">فك حزم %d نصوص برمجية!</item>
+        <item quantity="many">فك حزم %d نصوص برمجية!</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">فك حزم %d ملفات صوتية!</item>
+        <item quantity="zero">فك حزم %d ملف صوتي!</item>
+        <item quantity="one">فك حزم %d ملف صوتي!</item>
+        <item quantity="two">فك حزم %d ملفين صوتيين!</item>
+        <item quantity="few">فك حزم %d ملفات صوتية!</item>
+        <item quantity="many">فك حزم %d ملفات صوتية!</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">فك حزم %d كائنات!</item>
+        <item quantity="zero">فك حزم %d كائن!</item>
+        <item quantity="one">فك حزم %d كائن!</item>
+        <item quantity="two">فك حزم %d كائنين!</item>
+        <item quantity="few">فك حزم %d كائنات!</item>
+        <item quantity="many">فك حزم %d كائنات!</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">المدخلات لهذه الطوبة</item>
+        <item quantity="zero">الإدخال لهذه الطوبة</item>
+        <item quantity="one">الإدخال لهذه الطوبة</item>
+        <item quantity="two">الإدخال لهذه الطوبة</item>
+        <item quantity="few">الإدخال لهذه الطوبة</item>
+        <item quantity="many">الإدخال لهذه الطوبة</item>
+    </plurals>
+</resources>

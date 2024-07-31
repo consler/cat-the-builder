@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/ic_cast_white" android:id="@id/cast_button" android:visible="false" android:title="@string/cast_button_menu_item_title" app:showAsAction="ifRoom" />
+    <item android:id="@id/backpack" android:title="@string/backpack" app:showAsAction="never" />
+    <item android:id="@id/copy" android:title="@string/copy" app:showAsAction="never" />
+    <item android:id="@id/delete" android:title="@string/delete" app:showAsAction="never" />
+    <item android:id="@id/rename" android:title="@string/rename" app:showAsAction="never" />
+    <item android:id="@id/new_group" android:title="@string/new_group" app:showAsAction="never" />
+    <item android:id="@id/new_scene" android:title="@string/new_scene" app:showAsAction="never" />
+    <item android:id="@id/show_details" android:title="@string/show_details" app:showAsAction="never" />
+    <item android:id="@id/project_options" android:title="@string/project_options" app:showAsAction="never" />
+    <item android:id="@id/from_library" android:visible="false" android:title="@string/from_library" app:showAsAction="never" />
+    <item android:id="@id/from_local" android:visible="false" android:title="@string/from_local" app:showAsAction="never" />
+</menu>

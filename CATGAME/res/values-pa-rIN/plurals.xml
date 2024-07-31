@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">ਪਰਤਾਂ</item>
+        <item quantity="one">ਪਰਤ</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">ਕਦਮ</item>
+        <item quantity="one">ਕਦਮ</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">ਦੀਆਂ ਚੀਜ਼ਾਂ ਦੇ ਹਰੇਕ ਕੰਮ ਲਈ</item>
+        <item quantity="one">ਦੀ ਹਰ ਇਕਾਈ ਲਈ</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">ਉਸੀ ਨਾਮ ਨਾਲ ਵੇਰੀਏਬਲ ਵਿੱਚ ਸਟੋਰ</item>
+        <item quantity="one">ਉਸੇ ਨਾਮ ਨਾਲ ਵੇਰੀਏਬਲ ਵਿੱਚ ਸਟੋਰ</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">%d ਦਿਖਾਈ ਗਈ ਹੈ.</item>
+        <item quantity="one">%d ਲੁੱਕ ਨਕਲ ਕੀਤਾ.</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">%d ਐਨਐਫਸੀ ਟੈਗ ਦੀ ਨਕਲ ਕੀਤੀ.</item>
+        <item quantity="one">%d NFC ਟੈਗ ਦੀ ਨਕਲ ਕੀਤੀ.</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">%d ਦ੍ਰਿਸ਼ ਨਕਲ ਕੀਤੇ.</item>
+        <item quantity="one">%d ਸੀਨ ਦੀ ਨਕਲ ਕੀਤੀ.</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">%d ਧੁਨੀਆਂ ਦੀ ਨਕਲ ਕੀਤੀ.</item>
+        <item quantity="one">%d ਧੁਨੀ ਨਕਲ ਕੀਤੀ.</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">%d ਅਦਾਕਾਰ ਜਾਂ ਆਬਜੈਕਟ ਕਾਪੀ ਕੀਤੇ ਗਏ.</item>
+        <item quantity="one">%d ਅਦਾਕਾਰ ਜਾਂ ਆਬਜੈਕਟ ਦੀ ਨਕਲ ਕੀਤੀ.</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d ਦਿਨ</item>
+        <item quantity="one">%d ਦਿਨ</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">ਕੀ ਇਹ ਦਿੱਖ ਮਿਟਾਉਣੇ ਹਨ?</item>
+        <item quantity="one">ਇਸ ਦਿੱਖ ਨੂੰ ਮਿਟਾਉਣਾ ਹੈ?</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">ਕੀ ਇਹ ਟੈਗ ਮਿਟਾਉਣੇ ਹਨ?</item>
+        <item quantity="one">ਇਸ ਟੈਗ ਨੂੰ ਮਿਟਾਉਣਾ ਹੈ?</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">ਇਹ ਪ੍ਰੋਜੈਕਟ ਹਟਾਓ?</item>
+        <item quantity="one">ਇਸ ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਮਿਟਾਉਣਾ ਹੈ?</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">ਇਹ ਦ੍ਰਿਸ਼ ਮਿਟਾਉਣੇ ਹਨ?</item>
+        <item quantity="one">ਇਸ ਸੀਨ ਨੂੰ ਮਿਟਾਉਣਾ ਹੈ?</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">ਇਹ ਸਕ੍ਰਿਪਟਾਂ ਮਿਟਾਉਣੀਆਂ ਹਨ?</item>
+        <item quantity="one">ਇਸ ਸਕ੍ਰਿਪਟ ਨੂੰ ਮਿਟਾਉਣਾ ਹੈ?</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">ਕੀ ਇਹ ਆਵਾਜ਼ਾਂ ਨੂੰ ਮਿਟਾਉਣਾ ਹੈ?</item>
+        <item quantity="one">ਇਸ ਆਵਾਜ਼ ਨੂੰ ਮਿਟਾਉਣਾ ਹੈ?</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">ਇਹ ਅਦਾਕਾਰਾਂ ਜਾਂ ਆਬਜੈਕਟਸ ਨੂੰ ਮਿਟਾਓ?</item>
+        <item quantity="one">ਇਸ ਅਭਿਨੇਤਾ ਜਾਂ ਆਬਜੈਕਟ ਨੂੰ ਮਿਟਾਓ?</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">%d ਆਈਟਮਾਂ ਨੂੰ ਮਿਟਾਇਆ ਗਿਆ.</item>
+        <item quantity="one">%d ਆਈਟਮ ਮਿਟਾਈ ਗਈ.</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">ਹਟਾਈਆਂ %d ਦਿੱਸੀਆਂ.</item>
+        <item quantity="one">%d ਲੁੱਕ ਮਿਟਾਈ ਗਈ.</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">%d NFC ਟੈਗਸ ਮਿਟਾਏ ਗਏ.</item>
+        <item quantity="one">%d NFC ਟੈਗ ਮਿਟਾਇਆ ਗਿਆ.</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">%d ਪ੍ਰੋਜੈਕਟ ਹਟਾਏ ਗਏ.</item>
+        <item quantity="one">ਪ੍ਰੋਜੈਕਟ %d ਹਟਾਇਆ.</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">%d ਸੀਨ ਹਟਾਏ ਗਏ.</item>
+        <item quantity="one">%d ਸੀਨ ਹਟਾਇਆ ਗਿਆ.</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">%d ਸਕ੍ਰਿਪਟਾਂ ਨੂੰ ਮਿਟਾਇਆ ਗਿਆ.</item>
+        <item quantity="one">%d ਸਕ੍ਰਿਪਟ ਮਿਟਾਈ ਗਈ.</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">%d ਆਵਾਜ਼ਾਂ ਮਿਟਾ ਦਿੱਤੀਆਂ.</item>
+        <item quantity="one">%d ਆਵਾਜ਼ ਮਿਟਾਈ ਗਈ.</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">%d ਸਪ੍ਰਾਈਟਸ ਮਿਟਾਏ ਗਏ.</item>
+        <item quantity="one">%d ਸਪ੍ਰਾਈਟ ਮਿਟਾਇਆ ਗਿਆ.</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">ਤੁਸੀਂ ਇੱਕੋ ਸਮੇਂ %d ਪ੍ਰੋਜੈਕਟਾਂ ਤੋਂ ਵੱਧ ਨਹੀਂ ਬਦਲ ਸਕਦੇ. ਲਈ ਉਡੀਕ ਕਰੋ ਜੀ ਪਹਿਲਾਂ ਖਤਮ ਕਰਨ ਲਈ ਚਲ ਰਹੇ ਪਰਿਵਰਤਨ.</item>
+        <item quantity="one">ਤੁਸੀਂ ਇੱਕੋ ਸਮੇਂ %d ਪ੍ਰੋਜੈਕਟ ਤੋਂ ਵੱਧ ਨਹੀਂ ਬਦਲ ਸਕਦੇ. ਲਈ ਉਡੀਕ ਕਰੋ ਜੀ ਪਹਿਲਾਂ ਖਤਮ ਕਰਨ ਲਈ ਚਲ ਰਹੇ ਪਰਿਵਰਤਨ.</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d ਘੰਟੇ</item>
+        <item quantity="one">%d ਘੰਟਾ</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">%d ਪ੍ਰੋਜੈਕਟ ਆਯਾਤ ਕੀਤੇ ਗਏ।</item>
+        <item quantity="one">%d ਪ੍ਰੋਜੈਕਟ ਆਯਾਤ ਕੀਤਾ ਗਿਆ.</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d ਸੂਚੀਆਂ ਚੁਣੀਆਂ ਗਈਆਂ</item>
+        <item quantity="one">%d ਸੂਚੀ ਚੁਣੀ ਗਈ</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d ਮਿੰਟ</item>
+        <item quantity="one">%d ਮਿੰਟ</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">ਬੈਕਪੈਕਡ %d ਦਿਖਾਈ ਦਿੰਦਾ ਹੈ.</item>
+        <item quantity="one">ਬੈਕਪੈਕਡ %d ਲੁੱਕ.</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">ਬੈਕਪੈਕਡ %d ਦ੍ਰਿਸ਼.</item>
+        <item quantity="one">ਬੈਕਪੈਕਡ %d ਸੀਨ.</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">ਬੈਕਪੈਕਡ %d ਆਵਾਜ਼ਾਂ.</item>
+        <item quantity="one">ਬੈਕਪੈਕਡ %d ਅਵਾਜ਼.</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">ਬੈਕਪੈਕਡ %d ਅਦਾਕਾਰ ਜਾਂ ਆਬਜੈਕਟ.</item>
+        <item quantity="one">ਬੈਕਪੈਕਡ %d ਅਦਾਕਾਰ ਜਾਂ ਆਬਜੈਕਟ.</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">%d ਸਕ੍ਰੈਚ ਪ੍ਰੋਜੈਕਟਾਂ ਨੂੰ ਕਤਾਰ ਵਿੱਚ ਸ਼ਾਮਲ ਕੀਤਾ ਗਿਆ…</item>
+        <item quantity="one">%d ਸਕ੍ਰੈਚ ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਕਤਾਰ ਵਿੱਚ ਸ਼ਾਮਲ ਕੀਤਾ ਗਿਆ…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">ਸਕਿੰਟ</item>
+        <item quantity="one">ਦੂਜਾ</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">ਮੁਕੰਮਲ: %d ਨੌਕਰੀਆਂ</item>
+        <item quantity="one">ਮੁਕੰਮਲ:%d ਨੌਕਰੀ</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">ਤਰੱਕੀ ਵਿੱਚ:%d ਨੌਕਰੀਆਂ</item>
+        <item quantity="one">ਤਰੱਕੀ ਵਿੱਚ: %d ਨੌਕਰੀ</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">ਵਾਰ</item>
+        <item quantity="one">ਸਮਾਂ</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">ਅਨਪੈਕਡ %d ਦਿੱਖ.</item>
+        <item quantity="one">ਅਨਪੈਕਡ %d ਲੁੱਕ.</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">ਪੈਕ ਕੀਤੇ %d ਦ੍ਰਿਸ਼.</item>
+        <item quantity="one">ਅਨਪੈਕਡ %d ਸੀਨ.</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">ਅਨਪੈਕਡ %d ਸਕ੍ਰਿਪਟਾਂ.</item>
+        <item quantity="one">ਅਨਪੈਕਡ %d ਸਕ੍ਰਿਪਟ.</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">ਅਨਪੈਕਡ %d ਆਵਾਜ਼ਾਂ.</item>
+        <item quantity="one">ਅਨਪੈਕਡ %d ਆਵਾਜ਼.</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">ਅਨਪੈਕਡ %d ਅਦਾਕਾਰ ਜਾਂ ਆਬਜੈਕਟ</item>
+        <item quantity="one">ਅਨਪੈਕਡ %d ਅਦਾਕਾਰ ਜਾਂ ਆਬਜੈਕਟ.</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">ਇਸ ਇੱਟ ਲਈ ਜਾਣਕਾਰੀ</item>
+        <item quantity="one">ਇਸ ਇੱਟ ਲਈ ਇੰਪੁੱਟ</item>
+    </plurals>
+</resources>

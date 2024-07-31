@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:scrollbarAlwaysDrawVerticalTrack="true" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="2.0">
+            <LinearLayout android:id="@id/pocketpaint_dialog_import_gallery" android:background="?selectableItemBackground" style="@style/PocketPaintToolSelectionButton">
+                <ImageView android:layout_gravity="center" android:layout_width="50.0dip" android:layout_height="50.0dip" android:src="@drawable/ic_pocketpaint_tool_import" android:contentDescription="@string/gallery" app:tint="@android:color/black" />
+                <TextView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gallery" />
+            </LinearLayout>
+            <LinearLayout android:id="@id/pocketpaint_dialog_import_stickers" android:background="?selectableItemBackground" style="@style/PocketPaintToolSelectionButton">
+                <ImageView android:layout_gravity="center" android:layout_width="50.0dip" android:layout_height="50.0dip" android:src="@drawable/ic_catrobat_logo_black" android:contentDescription="@string/stickers" />
+                <TextView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/stickers" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

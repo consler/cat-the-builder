@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_horizontal" android:id="@id/scratch_share_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/material_design_spacing_large" android:layout_marginBottom="@dimen/material_design_spacing_large"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/scratch_project_favorites_icon" android:layout_width="28.0dip" android:layout_height="28.0dip" android:src="@drawable/ic_scratch_favorites" android:layout_marginEnd="8.0dip" />
+    <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/scratch_project_favorites_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" android:layout_marginEnd="22.0dip" android:layout_toEndOf="@id/scratch_project_favorites_icon" />
+    <ImageView android:id="@id/scratch_project_loves_icon" android:layout_width="28.0dip" android:layout_height="28.0dip" android:src="@drawable/ic_scratch_loves" android:layout_marginEnd="8.0dip" android:layout_toEndOf="@id/scratch_project_favorites_text" />
+    <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/scratch_project_loves_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" android:layout_marginEnd="22.0dip" android:layout_toEndOf="@id/scratch_project_loves_icon" />
+    <ImageView android:id="@id/scratch_project_views_icon" android:layout_width="28.0dip" android:layout_height="28.0dip" android:src="@drawable/ic_scratch_views" android:layout_marginEnd="8.0dip" android:layout_toEndOf="@id/scratch_project_loves_text" />
+    <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/scratch_project_views_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" android:layout_toEndOf="@id/scratch_project_views_icon" />
+</RelativeLayout>

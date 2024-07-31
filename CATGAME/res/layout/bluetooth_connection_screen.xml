@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:paddingTop="@dimen/material_design_spacing_small" android:paddingBottom="@dimen/material_design_spacing_small" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/material_design_spacing_large" android:paddingEnd="@dimen/material_design_spacing_large"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textColor="@color/bluetooth_device_color" android:id="@id/bluetooth_device" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+    <TextView android:id="@id/bluetooth_address" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="0.0" android:textAlignment="textEnd" />
+</LinearLayout>

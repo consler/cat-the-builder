@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:padding="@dimen/dialog_content_area_padding" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/text_size_large" android:textStyle="bold" android:id="@id/welcome" android:paddingBottom="@dimen/material_design_spacing_large" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/disclaimer_privacy_police_header_headline" />
+        <TextView android:id="@id/dialog_privacy_policy_disclaimer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/disclaimer_privacy_policy_header" />
+        <TextView android:id="@id/dialog_privacy_policy_text_view_url" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>

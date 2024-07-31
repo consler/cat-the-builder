@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/preference_title_enable_mindstorms_ev3_bricks" android:key="setting_ev3_screen" android:summary="@string/preference_description_mindstorms_ev3_bricks"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:title="@string/preference_title_enable_mindstorms_ev3_bricks" android:key="settings_mindstorms_ev3_bricks_enabled" android:summary="@string/preference_description_mindstorms_ev3_bricks" android:defaultValue="@string/FEATURE_MINDSTORMS_PREFERENCES_ENABLED" />
+    <CheckBoxPreference android:title="@string/preference_disable_nxt_info_dialog" android:key="settings_mindstorms_ev3_show_sensor_info_box_disabled" android:summary="@string/preference_disable_ev3_info_dialog_description" android:defaultValue="false" />
+    <PreferenceCategory android:title="@string/preference_title_mindstorms_ev3_sensors" android:key="setting_ev3_category">
+        <Preference android:summary="@string/preference_title_mindstorms_ev3_sensors_description" />
+        <ListPreference android:entries="@array/ev3_sensor_chooser" android:title="@string/ev3_choose_sensor_1" android:key="setting_mindstorms_ev3_sensor_1" android:summary="%s" android:defaultValue="NO_SENSOR" android:entryValues="@array/ev3_sensor_chooser" />
+        <ListPreference android:entries="@array/ev3_sensor_chooser" android:title="@string/ev3_choose_sensor_2" android:key="setting_mindstorms_ev3_sensor_2" android:summary="%s" android:defaultValue="NO_SENSOR" android:entryValues="@array/ev3_sensor_chooser" />
+        <ListPreference android:entries="@array/ev3_sensor_chooser" android:title="@string/ev3_choose_sensor_3" android:key="setting_mindstorms_ev3_sensor_3" android:summary="%s" android:defaultValue="NO_SENSOR" android:entryValues="@array/ev3_sensor_chooser" />
+        <ListPreference android:entries="@array/ev3_sensor_chooser" android:title="@string/ev3_choose_sensor_4" android:key="setting_mindstorms_ev3_sensor_4" android:summary="%s" android:defaultValue="NO_SENSOR" android:entryValues="@array/ev3_sensor_chooser" />
+    </PreferenceCategory>
+</PreferenceScreen>

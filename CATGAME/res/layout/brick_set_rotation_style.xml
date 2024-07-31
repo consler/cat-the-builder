@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:gravity="center_vertical" android:id="@id/brick_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <org.catrobat.catroid.ui.BrickLayout android:id="@id/brick_set_rotation_style_normal_layout" style="@style/BrickContainer.Motion.Medium">
+        <include layout="@layout/icon_brick_category_motion" />
+        <TextView android:id="@id/brick_set_rotation_style_normal_text_view" android:text="@string/brick_set_rotation_style" style="@style/BrickText.SingleLine" />
+        <Spinner android:id="@id/brick_set_rotation_style_spinner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textDirection="locale" />
+    </org.catrobat.catroid.ui.BrickLayout>
+</LinearLayout>

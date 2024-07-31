@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:paddingTop="@dimen/dialog_content_area_padding_top" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/dialog_content_area_padding" android:paddingEnd="@dimen/dialog_content_area_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/dialog_about_license_info" />
+        <TextView android:id="@id/dialog_about_text_view_url" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:id="@id/dialog_about_text_catrobat_url" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:textSize="8.0sp" android:gravity="end" android:id="@id/dialog_about_text_view_version_name" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:textSize="8.0sp" android:gravity="end" android:id="@id/dialog_about_text_view_catrobat_version_name" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>

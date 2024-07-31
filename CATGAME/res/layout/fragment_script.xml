@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/fragment_script" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <org.catrobat.catroid.ui.ScriptFinder android:id="@id/findview" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <org.catrobat.catroid.ui.dragndrop.BrickListView android:id="@android:id/list" android:clickable="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:divider="@android:color/transparent" android:dividerHeight="@dimen/script_spacing" />
+    <RelativeLayout android:id="@android:id/empty" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="?x_large" android:gravity="center" android:id="@id/fragment_script_text_description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/fragment_script_text_description" android:layout_centerInParent="true" />
+    </RelativeLayout>
+</LinearLayout>

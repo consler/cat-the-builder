@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:paddingTop="@dimen/dialog_content_area_padding_top" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/dialog_content_area_padding_input" android:paddingEnd="@dimen/dialog_content_area_padding_input"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputLayout android:id="@id/dialog_register_username" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/username" app:errorEnabled="true" app:hintEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText android:layout_width="fill_parent" android:layout_height="wrap_content" android:selectAllOnFocus="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout android:id="@id/dialog_register_email" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/accountName" app:errorEnabled="true" app:hintEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText android:layout_width="fill_parent" android:layout_height="wrap_content" android:selectAllOnFocus="true" android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout android:id="@id/dialog_register_password" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/password" app:errorEnabled="true" app:hintEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText android:layout_width="fill_parent" android:layout_height="wrap_content" android:selectAllOnFocus="true" android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout android:id="@id/dialog_register_password_confirm" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/password_confirm" app:errorEnabled="true" app:hintEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText android:layout_width="fill_parent" android:layout_height="wrap_content" android:selectAllOnFocus="true" android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <CheckBox android:gravity="center" android:id="@id/show_password" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/show_password" />
+    </LinearLayout>
+</ScrollView>

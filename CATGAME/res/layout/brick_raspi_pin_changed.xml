@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBox android:gravity="center_vertical" android:id="@id/brick_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <org.catrobat.catroid.ui.BrickLayout android:id="@id/brick_raspi_when_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/BrickContainer.Script.Medium">
+        <include layout="@layout/icon_brick_category_raspberrypi" />
+        <TextView android:id="@id/raspi_when_label" android:text="@string/brick_raspi_when_begin" style="@style/BrickText.SingleLine" />
+        <Spinner android:id="@id/brick_raspi_when_pinspinner" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textDirection="locale" />
+        <TextView android:id="@id/brick_raspi_when_label_second_part" android:text="@string/brick_raspi_when_equals" app:layout_newLine="true" style="@style/BrickText.SingleLine" />
+        <Spinner android:id="@id/brick_raspi_when_valuespinner" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textDirection="locale" />
+    </org.catrobat.catroid.ui.BrickLayout>
+</LinearLayout>

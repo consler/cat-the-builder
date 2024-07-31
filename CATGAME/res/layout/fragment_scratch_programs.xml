@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include layout="@layout/progress_bar" />
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@id/programs_in_progress" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:padding="@dimen/material_design_spacing_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/scratch_programs_in_progress_title" />
+                <androidx.recyclerview.widget.RecyclerView android:id="@id/recycler_view_in_progress" android:layout_width="fill_parent" android:layout_height="fill_parent" app:layoutManager="LinearLayoutManager" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/programs_finished" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/programs_in_progress">
+                <TextView android:padding="@dimen/material_design_spacing_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/scratch_programs_finished_title" />
+                <androidx.recyclerview.widget.RecyclerView android:id="@id/recycler_view_finished" android:layout_width="fill_parent" android:layout_height="fill_parent" app:layoutManager="LinearLayoutManager" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

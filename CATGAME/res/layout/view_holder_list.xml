@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@drawable/button_background_selector" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="?element_spacing" android:layout_marginBottom="?element_spacing" android:minHeight="@dimen/user_data_view_holder_height" android:paddingStart="@dimen/view_holder_padding" android:paddingEnd="@dimen/view_holder_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:layout_gravity="center_vertical" android:id="@id/checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="0.0" android:layout_marginEnd="@dimen/checkbox_margin" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="?large" android:textColor="@color/view_holder_item_title" android:ellipsize="end" android:id="@id/title_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/data_view_space" android:maxLines="1" android:layout_weight="1.0" android:paddingEnd="@dimen/details_spacing" />
+        <Spinner android:textColor="@color/solid_white" android:id="@id/spinner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/data_view_space_spinner_text" android:layout_weight="1.0" />
+        <ImageButton android:gravity="center_vertical" android:id="@id/settings_button" android:background="@drawable/ic_more_vert" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="0.0" android:backgroundTint="@color/accent" />
+    </LinearLayout>
+</LinearLayout>

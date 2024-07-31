@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingTop="@dimen/pocketpaint_welcome_margin_top" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/pocketpaint_intro_landscape_head" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/landscape" android:minLines="2" android:layout_marginStart="@dimen/pocketpaint_welcome_margin_side" android:layout_marginEnd="@dimen/pocketpaint_welcome_margin_side" style="@style/PocketPaintWelcomeHeader" />
+    <TextView android:id="@id/pocketpaint_intro_landscape_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/pocketpaint_welcome_margin_top_text" android:text="@string/intro_landscape_text" android:layout_below="@id/pocketpaint_intro_landscape_head" android:layout_marginStart="@dimen/pocketpaint_welcome_margin_side" android:layout_marginEnd="@dimen/pocketpaint_welcome_margin_side" style="@style/PocketPaintWelcomeText" />
+    <ImageView android:id="@id/pocketpaint_image_landscape" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="20.0dip" android:src="@drawable/pocketpaint_intro_landscape" android:layout_below="@id/pocketpaint_intro_landscape_text" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:contentDescription="@string/pocketpaint_intro" />
+</RelativeLayout>

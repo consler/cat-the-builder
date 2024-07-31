@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">vrstiev</item>
+        <item quantity="one">vrstva</item>
+        <item quantity="few">vrstvy</item>
+        <item quantity="many">layers</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">krokov</item>
+        <item quantity="one">krok</item>
+        <item quantity="few">kroky</item>
+        <item quantity="many">steps</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">For each tuple of items of</item>
+        <item quantity="one">For each item of</item>
+        <item quantity="few">For each tuple of items of</item>
+        <item quantity="many">For each tuple of items of</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">stored in variables with the same names</item>
+        <item quantity="one">stored in variable with the same name</item>
+        <item quantity="few">stored in variables with the same names</item>
+        <item quantity="many">stored in variables with the same names</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">Skopírovaných %d vzhľadov!</item>
+        <item quantity="one">Skopírovaný %d vzhľad!</item>
+        <item quantity="few">Skopírované %d vzhľady!</item>
+        <item quantity="many">Copied %d looks.</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">Skopírovaných %d NFC Tagov!</item>
+        <item quantity="one">Skopírovaný %d NFC Tag!</item>
+        <item quantity="few">Skopírované %d NFC Tagy!</item>
+        <item quantity="many">Copied %d NFC tags.</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">Skopírovaných %d scén!</item>
+        <item quantity="one">Skopírovaná %d scéna!</item>
+        <item quantity="few">Skopírované %d scény!</item>
+        <item quantity="many">Copied %d scenes.</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">Skopírovaných %d zvukov!</item>
+        <item quantity="one">Skopírovaný %d zvuk!</item>
+        <item quantity="few">Skopírované %d zvuky!</item>
+        <item quantity="many">Copied %d sounds.</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">Skopírovaných %d objektov!</item>
+        <item quantity="one">Skopírovaný %d objekt!</item>
+        <item quantity="few">Skopírované %d objekty!</item>
+        <item quantity="many">Copied %d actors or objects.</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d days</item>
+        <item quantity="one">%d day</item>
+        <item quantity="few">%d days</item>
+        <item quantity="many">%d days</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">Odstrániť tieto vzhľady?</item>
+        <item quantity="one">Odstrániť tento vzhľad?</item>
+        <item quantity="few">Odstrániť tieto vzhľady?</item>
+        <item quantity="many">Delete these looks?</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">Odstrániť tieto tagy?</item>
+        <item quantity="one">Odstrániť tento tag?</item>
+        <item quantity="few">Odstrániť tieto tagy?</item>
+        <item quantity="many">Delete these tags?</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">Odstrániť tieto projekty?</item>
+        <item quantity="one">Odstrániť tento projekt?</item>
+        <item quantity="few">Odstrániť tieto projekty?</item>
+        <item quantity="many">Delete these projects?</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">Odstrániť tieto scény?</item>
+        <item quantity="one">Odstrániť túto scénu?</item>
+        <item quantity="few">Odstrániť tieto scény?</item>
+        <item quantity="many">Delete these scenes?</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">Odstrániť tieto skripty?</item>
+        <item quantity="one">Odstrániť tento skript?</item>
+        <item quantity="few">Odstrániť tieto skripty?</item>
+        <item quantity="many">Delete these scripts?</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">Odstrániť tieto zvuky?</item>
+        <item quantity="one">Odstrániť tento zvuk?</item>
+        <item quantity="few">Odstrániť tieto zvuky?</item>
+        <item quantity="many">Delete these sounds?</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">Odstrániť tieto objekty?</item>
+        <item quantity="one">Odstrániť tento objekt?</item>
+        <item quantity="few">Odstrániť tieto objekty?</item>
+        <item quantity="many">Delete these actors or objects?</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">Deleted %d items.</item>
+        <item quantity="one">Deleted %d item.</item>
+        <item quantity="few">Deleted %d items.</item>
+        <item quantity="many">Deleted %d items.</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">Odstránených %d vzhľadov!</item>
+        <item quantity="one">Odstránený %d vzhľad!</item>
+        <item quantity="few">Odstránené %d vzhľady!</item>
+        <item quantity="many">Deleted %d looks.</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">Odstránených %d NFC Tagov!</item>
+        <item quantity="one">Odstránený %d NFC Tag!</item>
+        <item quantity="few">Odstránené %d NFC Tagy!</item>
+        <item quantity="many">Deleted %d NFC tags.</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">Odstránených %d projektov!</item>
+        <item quantity="one">Odstránený %d projekt!</item>
+        <item quantity="few">Odstránené %d projekty!</item>
+        <item quantity="many">Deleted %d projects.</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">Odstránených %d scén!</item>
+        <item quantity="one">Odstránená %d scéna!</item>
+        <item quantity="few">Odstránené %d scény!</item>
+        <item quantity="many">Deleted %d scenes.</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">Odstránených %d skriptov!</item>
+        <item quantity="one">Odstránený %d skript!</item>
+        <item quantity="few">Odstránené %d skripty!</item>
+        <item quantity="many">Deleted %d scripts.</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">Odstránených %d zvukov!</item>
+        <item quantity="one">Odstránený %d zvuk!</item>
+        <item quantity="few">Odstránené %d zvuky!</item>
+        <item quantity="many">Deleted %d sounds.</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">Odstránených %d objektov!</item>
+        <item quantity="one">Odstránený %d objekt!</item>
+        <item quantity="few">Odstránené %d objekty!</item>
+        <item quantity="many">Deleted %d actors or objects.</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">You cannot convert more than %d projects at the same time. Please wait for the running conversions to finish first.</item>
+        <item quantity="one">You cannot convert more than %d project at the same time. Please wait for the running conversions to finish first.</item>
+        <item quantity="few">You cannot convert more than %d projects at the same time. Please wait for the running conversions to finish first.</item>
+        <item quantity="many">You cannot convert more than %d projects at the same time. Please wait for the running conversions to finish first.</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d hours</item>
+        <item quantity="one">%d hour</item>
+        <item quantity="few">%d hours</item>
+        <item quantity="many">%d hours</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">Imported %d projects.</item>
+        <item quantity="one">Imported %d project.</item>
+        <item quantity="few">Imported %d projects.</item>
+        <item quantity="many">Imported %d projects.</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d lists selected</item>
+        <item quantity="one">%d list selected</item>
+        <item quantity="few">%d lists selected</item>
+        <item quantity="many">%d lists selected</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d minutes</item>
+        <item quantity="one">%d minute</item>
+        <item quantity="few">%d minutes</item>
+        <item quantity="many">%d minutes</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">%d vzhľadov uložených do batohu!</item>
+        <item quantity="one">%d vzhľad uložený do batohu!</item>
+        <item quantity="few">%d vzhľady uložené do batohu!</item>
+        <item quantity="many">Backpacked %d looks.</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">%d scén uložených do batohu!</item>
+        <item quantity="one">%d scéna uložená do batohu!</item>
+        <item quantity="few">%d scény uložené do batohu!</item>
+        <item quantity="many">Backpacked %d scenes.</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">%d zvukov uložených do batohu!</item>
+        <item quantity="one">%d zvuk uložený do batohu!</item>
+        <item quantity="few">%d zvuky uložené do batohu!</item>
+        <item quantity="many">Backpacked %d sounds.</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">%d objektov uložených do batohu!</item>
+        <item quantity="one">%d objekt uložený do batohu!</item>
+        <item quantity="few">%d objekty uložené do batohu!</item>
+        <item quantity="many">Backpacked %d actors or objects.</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">Added %d Scratch projects to the queue…</item>
+        <item quantity="one">Added %d Scratch project to the queue…</item>
+        <item quantity="few">Added %d Scratch projects to the queue…</item>
+        <item quantity="many">Added %d Scratch projects to the queue…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">"sekúnd "</item>
+        <item quantity="one">"sekunda "</item>
+        <item quantity="few">"sekundy "</item>
+        <item quantity="many">seconds</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">Completed: %d jobs</item>
+        <item quantity="one">Completed: %d job</item>
+        <item quantity="few">Completed: %d jobs</item>
+        <item quantity="many">Completed: %d jobs</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">In progress: %d jobs</item>
+        <item quantity="one">In progress: %d job</item>
+        <item quantity="few">In progress: %d jobs</item>
+        <item quantity="many">In progress: %d jobs</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">krát</item>
+        <item quantity="one">krát</item>
+        <item quantity="few">krát</item>
+        <item quantity="many">times</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">Vybratých %d vzhľadov!</item>
+        <item quantity="one">Vybratý %d vzhľad!</item>
+        <item quantity="few">Vybraté %d vzhľady!</item>
+        <item quantity="many">Unpacked %d looks.</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">Vybratých %d scén!</item>
+        <item quantity="one">Vybratá %d scéna!</item>
+        <item quantity="few">Vybraté %d scény!</item>
+        <item quantity="many">Unpacked %d scenes.</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">Rozbalených %d skriptov!</item>
+        <item quantity="one">Rozbalený %d skript!</item>
+        <item quantity="few">Rozbalené %d skripty!</item>
+        <item quantity="many">Unpacked %d scripts.</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">Rozbalených %d zvukov!</item>
+        <item quantity="one">Rozbalený %d zvuk!</item>
+        <item quantity="few">Rozbalené %d zvuky!</item>
+        <item quantity="many">Unpacked %d sounds.</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">Vybratých %d objektov!</item>
+        <item quantity="one">Vybratý %d objekt!</item>
+        <item quantity="few">Vybraté %d objekty!</item>
+        <item quantity="many">Unpacked %d actors or objects.</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">Inputs for this brick</item>
+        <item quantity="one">Input for this brick</item>
+        <item quantity="few">Inputs for this brick</item>
+        <item quantity="many">Inputs for this brick</item>
+    </plurals>
+</resources>

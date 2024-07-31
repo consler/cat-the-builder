@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include layout="@layout/toolbar" />
+    <include layout="@layout/progress_bar" />
+    <LinearLayout android:orientation="vertical" android:id="@id/upload_layout" android:paddingTop="@dimen/dialog_content_area_padding_top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/dialog_content_area_padding" android:paddingEnd="@dimen/dialog_content_area_padding">
+        <ImageView android:id="@id/project_image_view" android:layout_width="100.0dip" android:layout_height="100.0dip" android:layout_marginBottom="@dimen/details_spacing" android:scaleType="centerCrop" android:cropToPadding="true" android:layout_marginStart="@dimen/dialog_input_offset" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:id="@id/project_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/size_of_project" android:paddingStart="@dimen/dialog_input_offset" android:paddingEnd="@dimen/details_spacing" />
+                <TextView android:id="@id/project_size_view" android:paddingBottom="@dimen/details_spacing" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout android:id="@id/input_project_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/project_name_label" app:errorEnabled="true" app:hintEnabled="true">
+                <com.google.android.material.textfield.TextInputEditText android:id="@id/project_upload_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:selectAllOnFocus="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout android:id="@id/input_project_description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/upload_description" app:hintEnabled="true">
+                <com.google.android.material.textfield.TextInputEditText android:id="@id/project_description_upload" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minLines="1" android:selectAllOnFocus="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView android:id="@id/project_notes_and_credits_explanation" android:paddingBottom="@dimen/material_design_spacing_large" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/upload_notes_and_credits_explanation" android:paddingStart="@dimen/dialog_input_offset" android:paddingEnd="@dimen/details_spacing" />
+            <com.google.android.material.textfield.TextInputLayout android:id="@id/input_project_notes_and_credits" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/upload_notes_and_credits" app:hintEnabled="true">
+                <com.google.android.material.textfield.TextInputEditText android:id="@id/project_notes_and_credits_upload" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minLines="1" android:selectAllOnFocus="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

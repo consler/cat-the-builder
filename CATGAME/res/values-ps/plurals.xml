@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">پرتونه</item>
+        <item quantity="one">طبقه</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">ګامونه</item>
+        <item quantity="one">ګام</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">د هرې برخې لپاره</item>
+        <item quantity="one">د هر توکي لپاره</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">په متغیرونو کې د ورته نومونو سره زیرمه شوي</item>
+        <item quantity="one">په متغیر کې د ورته نوم سره زیرمه شوی</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">کاپي شوي %d ښکاري.</item>
+        <item quantity="one">کاپي شوی %d لید.</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">کاپي شوی %d NFC ټګ.</item>
+        <item quantity="one">کاپي شوی %d NFC ټګ.</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">کاپي شوي %d صحنې.</item>
+        <item quantity="one">Copied %d scene.</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">کاپي شوي %d غږونه</item>
+        <item quantity="one">کاپي شوی%d غږ</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">کاپي شوي %dلوبغاړي یا توکي.</item>
+        <item quantity="one">Copied %d actor or object.</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d ورځې</item>
+        <item quantity="one">%d ورځ</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">دا ښکاري ړنګ کړئ؟</item>
+        <item quantity="one">Delete this look?</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">دا ټګونه حذف کړئ؟</item>
+        <item quantity="one">Delete this tag?</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">دا پروژې ړنګې کړئ؟</item>
+        <item quantity="one">Delete this project?</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">دا صحنې حذف کړئ؟</item>
+        <item quantity="one">Delete this scene?</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">دا سکریپټونه ړنګ کړئ؟</item>
+        <item quantity="one">دا سکریپټ ړنګ کړئ؟</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">دا غږونه حذف کړئ؟</item>
+        <item quantity="one">Delete this sound?</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">دا لوبغاړي یا توکي حذف کړئ؟</item>
+        <item quantity="one">Delete this actor or object?</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">%d توکي ړنګ کړل.</item>
+        <item quantity="one">%d توکي ړنګ کړل.</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">%d ړنګول.</item>
+        <item quantity="one">%d لید ړنګ شوی.</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">%d NFC ټاګونه ړنګ کړل.</item>
+        <item quantity="one">%d NFC ټاګ حذف شوی.</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">%d پروژې ړنګې شوې.</item>
+        <item quantity="one">%d پروژه ړنګه شوه.</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">%d صحنه ړنګه شوه.</item>
+        <item quantity="one">%d صحنه ړنګه شوه.</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">%d سکریپټ ړنګ شو.</item>
+        <item quantity="one">%d سکریپټ ړنګ شو.</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">%d غږونه حذف شوي.</item>
+        <item quantity="one">%d غږ ړنګ شو.</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">%d لوبغاړی یا څیز حذف شوی.</item>
+        <item quantity="one">%d لوبغاړی یا څیز حذف شوی.</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">تاسو نشئ کولی په ورته وخت کې له %d څخه ډیر پروژې بدل کړئ. مهرباني وکړئ د روانو تبادلو لپاره انتظار وکړئ چې لومړی پای ته ورسیږي.</item>
+        <item quantity="one">You cannot convert more than %d project at the same time. Please wait for the running conversions to finish first.</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d ساعتونه</item>
+        <item quantity="one">%d hour</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">وارد شوی %d پروژه.</item>
+        <item quantity="one">وارد شوی %d پروژه.</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d لیستونه غوره شوي</item>
+        <item quantity="one">%d لیست غوره شوی</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d دقیقې</item>
+        <item quantity="one">%d minute</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">بیک پیک شوی %d ښکاري.</item>
+        <item quantity="one">Backpacked %d look.</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">شاته %d صحنې.</item>
+        <item quantity="one">Backpacked %d scene.</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">شاته %d غږونه.</item>
+        <item quantity="one">Backpacked %d sound.</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">شاته %d لوبغاړي یا توکي.</item>
+        <item quantity="one">Backpacked %d actor or object.</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">په کتار کې د %d سکریچ پروژې اضافه شوې…</item>
+        <item quantity="one">Added %d Scratch project to the queue…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">"دوهم "</item>
+        <item quantity="one">دوهم</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">بشپړ شوي: %d دندې</item>
+        <item quantity="one">Completed: %d job</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">په پرمختګ کې: %d دندې</item>
+        <item quantity="one">In progress: %d job</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">وختونه</item>
+        <item quantity="one">وختونه</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">بې پیکه %d ښکاري.</item>
+        <item quantity="one">Unpacked %d look.</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">%d صحنې خلاصې شوې.</item>
+        <item quantity="one">Unpacked %d scene.</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">خلاص شوي %d سکریپټونه.</item>
+        <item quantity="one">Unpacked %d script.</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">خلاص شوي %d غږونه.</item>
+        <item quantity="one">Unpacked %d sound.</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">%d اداکاران یا توکي خلاص کړل.</item>
+        <item quantity="one">Unpacked %d actor or object.</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">د دې خښتې لپاره داخل کړئ</item>
+        <item quantity="one">د دې خښتې لپاره داخل کړئ</item>
+    </plurals>
+</resources>

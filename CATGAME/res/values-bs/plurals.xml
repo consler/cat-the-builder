@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">slojevi</item>
+        <item quantity="one">sloj</item>
+        <item quantity="few">slojevi</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">koraci</item>
+        <item quantity="one">korak</item>
+        <item quantity="few">koraci</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">For each tuple of items of</item>
+        <item quantity="one">For each item of</item>
+        <item quantity="few">For each tuple of items of</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">stored in variables with the same names</item>
+        <item quantity="one">stored in variable with the same name</item>
+        <item quantity="few">stored in variables with the same names</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">Kopirano %d izgleda.</item>
+        <item quantity="one">Kopiran %d izgled.</item>
+        <item quantity="few">Kopirano %d izgleda.</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">Kopirano %d NFC oznaka.</item>
+        <item quantity="one">Kopirana %d NFC oznaka.</item>
+        <item quantity="few">Kopirano %d NFC oznaka.</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">Kopirano %d scena.</item>
+        <item quantity="one">Kopirana %d scena.</item>
+        <item quantity="few">Kopirano %d scena.</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">Kopirano %d zvukova.</item>
+        <item quantity="one">Kopiran %d zvuk.</item>
+        <item quantity="few">Kopirano %d zvukova.</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">Kopirano %d učesnika ili objekata.</item>
+        <item quantity="one">Kopiran %d učesnik ili objekat.</item>
+        <item quantity="few">Kopirano %d učesnika ili objekata.</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d dana</item>
+        <item quantity="one">%d dan</item>
+        <item quantity="few">%d dana</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">Obrisati ove izglede?</item>
+        <item quantity="one">Obrisati ovaj izgled?</item>
+        <item quantity="few">Obrisati ove izglede?</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">Obrisati ove oznake?</item>
+        <item quantity="one">Obrisati ovu oznaku?</item>
+        <item quantity="few">Obrisati ove oznake?</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">Obrišite ove projekte?</item>
+        <item quantity="one">Obrišite ovaj projekat?</item>
+        <item quantity="few">Obrišite ove projekte?</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">Obrišite ove scene?</item>
+        <item quantity="one">Obrišite ovu scenu?</item>
+        <item quantity="few">Obrišite ove scene?</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">Obrisati ove skripte?</item>
+        <item quantity="one">Obrisati ovu skriptu?</item>
+        <item quantity="few">Obrisati ove skripte?</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">Obrisati ove zvukove?</item>
+        <item quantity="one">Obrisati ovaj zvuk?</item>
+        <item quantity="few">Obrisati ove zvukove?</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">Obrisati ove učesnike ili objekte?</item>
+        <item quantity="one">Obrisati ovog učesnika ili objekat?</item>
+        <item quantity="few">Obrisati ove učesnike ili objekte?</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">Obrisano %d stvari.</item>
+        <item quantity="one">Obrisana %d stvar.</item>
+        <item quantity="few">Obrisano %d stvari.</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">Obrisano %d izgleda.</item>
+        <item quantity="one">Obrisan %d izgled.</item>
+        <item quantity="few">Obrisano %d izgleda.</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">Obrisano %d NFC oznaka.</item>
+        <item quantity="one">Obrisana %d NFC oznaka.</item>
+        <item quantity="few">Obrisano %d NFC oznaka.</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">Obrisano %d projekata.</item>
+        <item quantity="one">Obrisan %d projekat.</item>
+        <item quantity="few">Obrisano %d projekata.</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">Obrisano %d scena.</item>
+        <item quantity="one">Obrisana %d scena.</item>
+        <item quantity="few">Obrisano %d scena.</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">Obrisano %d skripti.</item>
+        <item quantity="one">Obrisana %d skripta.</item>
+        <item quantity="few">Obrisano %d skripti.</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">Obrisano %d zvukova.</item>
+        <item quantity="one">Obrisan %d zvuk.</item>
+        <item quantity="few">Obrisano %d zvukova.</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">Deleted %d actors or objects.</item>
+        <item quantity="one">Deleted %d actor or object.</item>
+        <item quantity="few">Deleted %d actors or objects.</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">You cannot convert more than %d projects at the same time. Please wait for the running conversions to finish first.</item>
+        <item quantity="one">You cannot convert more than %d project at the same time. Please wait for the running conversions to finish first.</item>
+        <item quantity="few">You cannot convert more than %d projects at the same time. Please wait for the running conversions to finish first.</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d sati</item>
+        <item quantity="one">%d sat</item>
+        <item quantity="few">%d sati</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">Imported %d projects.</item>
+        <item quantity="one">Imported %d project.</item>
+        <item quantity="few">Imported %d projects.</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d lists selected</item>
+        <item quantity="one">%d list selected</item>
+        <item quantity="few">%d lists selected</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d minuta</item>
+        <item quantity="one">%d minuta</item>
+        <item quantity="few">%d minuta</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">Spakovano %d izgleda u ruksak.</item>
+        <item quantity="one">Spakovan %d izgled u ruksak.</item>
+        <item quantity="few">Spakovano %d izgleda u ruksak.</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">Spakovano %d scena u ruksak.</item>
+        <item quantity="one">Spakovana %d scena u ruksak.</item>
+        <item quantity="few">Spakovano %d scena u ruksak.</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">Spakovano %d zvukova u ruksak.</item>
+        <item quantity="one">Spakovan %d zvuk u ruksak.</item>
+        <item quantity="few">Spakovano %d zvukova u ruksak.</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">Spakovano %d učesnika ili objekata u ruksak.</item>
+        <item quantity="one">Spakovan %d učesnik ili objekat u ruksak.</item>
+        <item quantity="few">Spakovano %d učesnika ili objekata u ruksak.</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">Added %d Scratch projects to the queue…</item>
+        <item quantity="one">Added %d Scratch project to the queue…</item>
+        <item quantity="few">Added %d Scratch projects to the queue…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">"sekunde "</item>
+        <item quantity="one">"sekunda "</item>
+        <item quantity="few">sekunde</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">Završeno: %d poslova</item>
+        <item quantity="one">Završeno: %d posao</item>
+        <item quantity="few">Završeno: %d posla</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">U toku: %d poslova</item>
+        <item quantity="one">U toku: %d posao</item>
+        <item quantity="few">U toku: %d posla</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">vremena</item>
+        <item quantity="one">vrijeme</item>
+        <item quantity="few">vremena</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">Otpakovano %d izgleda.</item>
+        <item quantity="one">Otpakovan %d izgled.</item>
+        <item quantity="few">Otpakovano %d izgleda.</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">Otpakovano %d scena.</item>
+        <item quantity="one">Otpakovana %d scena.</item>
+        <item quantity="few">Otpakovano %d scena.</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">Otpakovano %d skripti.</item>
+        <item quantity="one">Otpakovana %d skripta.</item>
+        <item quantity="few">Otpakovano %d skripti.</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">Otpakovano %d zvukova.</item>
+        <item quantity="one">Otpakovan %d zvuk.</item>
+        <item quantity="few">Otpakovano %d zvukova.</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">Otpakovano %d učesnika ili objekata.</item>
+        <item quantity="one">Otpakovan %d učesnik ili objekat.</item>
+        <item quantity="few">Otpakovano %d učesnika ili objekata.</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">Inputs for this brick</item>
+        <item quantity="one">Input for this brick</item>
+        <item quantity="few">Inputs for this brick</item>
+    </plurals>
+</resources>

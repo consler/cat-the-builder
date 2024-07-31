@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">warstw</item>
+        <item quantity="one">warstwa</item>
+        <item quantity="few">warstwy</item>
+        <item quantity="many">warstw</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">kroków</item>
+        <item quantity="one">krok</item>
+        <item quantity="few">kroki</item>
+        <item quantity="many">kroków</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">Dla każdej krotki elementów</item>
+        <item quantity="one">Dla każdej pozycji</item>
+        <item quantity="few">Dla każdej pozycji</item>
+        <item quantity="many">Dla każdej pozycji</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">przechowywane w zmiennych o tych samych nazwach</item>
+        <item quantity="one">przechowywane w zmiennej o tej samej nazwie</item>
+        <item quantity="few">przechowywane w zmiennej o tej samej nazwie</item>
+        <item quantity="many">przechowywane w zmiennej o tej samej nazwie</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">Skopiowano %d wyglądów!</item>
+        <item quantity="one">Skopiowano %d wygląd!</item>
+        <item quantity="few">Skopiowano %d wyglądy!</item>
+        <item quantity="many">Skopiowano %d wyglądów!</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">Skopiowano %d tagów NFC!</item>
+        <item quantity="one">Skopiowano %d tag NFC!</item>
+        <item quantity="few">Skopiowano %d tagi NFC!</item>
+        <item quantity="many">Skopiowano %d tagów NFC!</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">Skopiowano %d scen!</item>
+        <item quantity="one">Skopiowano %d scenę!</item>
+        <item quantity="few">Skopiowano %d sceny!</item>
+        <item quantity="many">Skopiowano %d scen!</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">Skopiowano %d dźwięków!</item>
+        <item quantity="one">Skopiowano %d dźwięk!</item>
+        <item quantity="few">Skopiowano %d dźwięki!</item>
+        <item quantity="many">Skopiowano %d dźwięków!</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">Skopiowano %d aktorów lub obiektów!</item>
+        <item quantity="one">Skopiowano %d aktora lub obiekt!</item>
+        <item quantity="few">Skopiowano %d aktorów lub obiekty!</item>
+        <item quantity="many">Skopiowano %d aktorów lub obiektów!</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d dni</item>
+        <item quantity="one">%d dzień</item>
+        <item quantity="few">%d dni</item>
+        <item quantity="many">%d dni</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">Usunąć te wyglądy?</item>
+        <item quantity="one">Usunąć ten wygląd?</item>
+        <item quantity="few">Usunąć te wyglądy?</item>
+        <item quantity="many">Usunąć te wyglądy?</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">Usunąć te tagi?</item>
+        <item quantity="one">Usunąć ten tag?</item>
+        <item quantity="few">Usunąć te tagi?</item>
+        <item quantity="many">Usunąć te tagi?</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">Usunąć te projekty?</item>
+        <item quantity="one">Usunąć ten projekt?</item>
+        <item quantity="few">Usunąć te projekty?</item>
+        <item quantity="many">Usunąć te projekty?</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">Usunąć te sceny?</item>
+        <item quantity="one">Usunąć tę scenę?</item>
+        <item quantity="few">Usunąć te sceny?</item>
+        <item quantity="many">Usunąć te sceny?</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">Usunąć te skrypty?</item>
+        <item quantity="one">Usunąć ten skrypt?</item>
+        <item quantity="few">Usunąć te skrypty?</item>
+        <item quantity="many">Usunąć te skrypty?</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">Usunąć te dźwięki?</item>
+        <item quantity="one">Usunąć ten dźwięk?</item>
+        <item quantity="few">Usunąć te dźwięki?</item>
+        <item quantity="many">Usunąć te dźwięki?</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">Usunąć tych aktorów lub obiekty?</item>
+        <item quantity="one">Usunąć tego aktora lub obiekt?</item>
+        <item quantity="few">Usunąć tych aktorów lub obiekty?</item>
+        <item quantity="many">Usunąć tych aktorów lub obiekty?</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">Usunięto %d elementów!</item>
+        <item quantity="one">Usunięto %d element!</item>
+        <item quantity="few">Usunięto %d elementy!</item>
+        <item quantity="many">Usunięto %d elementów!</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">Usunięto %d wyglądów!</item>
+        <item quantity="one">Usunięto %d wygląd!</item>
+        <item quantity="few">Usunięto %d wyglądy!</item>
+        <item quantity="many">Usunięto %d wyglądów!</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">Usunięto %d tagów NFC!</item>
+        <item quantity="one">Usunięto %d tag NFC!</item>
+        <item quantity="few">Usunięto %d tagi NFC!</item>
+        <item quantity="many">Usunięto %d tagów NFC!</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">Usunięto %d projektów!</item>
+        <item quantity="one">Usunięto %d projekt!</item>
+        <item quantity="few">Usunięto %d projekty!</item>
+        <item quantity="many">Usunięto %d projektów!</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">Usunięto %d scen!</item>
+        <item quantity="one">Usunięto %d scenę!</item>
+        <item quantity="few">Usunięto %d sceny!</item>
+        <item quantity="many">Usunięto %d scen!</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">Usunięto %d skryptów!</item>
+        <item quantity="one">Usunięto %d skrypt!</item>
+        <item quantity="few">Usunięto %d skrypty!</item>
+        <item quantity="many">Usunięto %d skryptów!</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">Usunięto %d dźwięków!</item>
+        <item quantity="one">Usunięto %d dźwięk!</item>
+        <item quantity="few">Usunięto %d dźwięki!</item>
+        <item quantity="many">Usunięto %d dźwięków!</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">Usunięto %d duszków!</item>
+        <item quantity="one">Usunięto %d duszka!</item>
+        <item quantity="few">Usunięto %d duszki!</item>
+        <item quantity="many">Usunięto %d duszków!</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">Nie można przekonwertować więcej niż %d programów w tym samym czasie. Poczekaj, aż uruchomione programy zostaną przekonwertowane.</item>
+        <item quantity="one">Nie można przekonwertować więcej niż %d programu w tym samym czasie. Poczekaj, aż uruchomione programy zostaną przekonwertowane.</item>
+        <item quantity="few">Nie można przekonwertować więcej niż %d programów w tym samym czasie. Poczekaj, aż uruchomione programy zostaną przekonwertowane.</item>
+        <item quantity="many">Nie można przekonwertować więcej niż %d programów w tym samym czasie. Poczekaj, aż uruchomione programy zostaną przekonwertowane.</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d godzin</item>
+        <item quantity="one">%d godzina</item>
+        <item quantity="few">%d godziny</item>
+        <item quantity="many">%d godzin</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">Zaimportowano %d projektów.</item>
+        <item quantity="one">Zaimportowano %d projekt.</item>
+        <item quantity="few">Zaimportowano %d projektów.</item>
+        <item quantity="many">Zaimportowano %d projekt.</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d wybranych list</item>
+        <item quantity="one">%d wybrana lista</item>
+        <item quantity="few">%d wybrane listy</item>
+        <item quantity="many">%d wybranych list</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d minut</item>
+        <item quantity="one">%d minuta</item>
+        <item quantity="few">%d minuty</item>
+        <item quantity="many">%d minut</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">Spakowano %d wyglądów!</item>
+        <item quantity="one">Spakowano %d wygląd!</item>
+        <item quantity="few">Spakowano %d wyglądy!</item>
+        <item quantity="many">Spakowano %d wyglądów!</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">Spakowano %d scen!</item>
+        <item quantity="one">Spakowano %d scenę!</item>
+        <item quantity="few">Spakowano %d sceny!</item>
+        <item quantity="many">Spakowano %d scen!</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">Spakowano %d dźwięków!</item>
+        <item quantity="one">Spakowano %d dźwięk!</item>
+        <item quantity="few">Spakowano %d dźwięki!</item>
+        <item quantity="many">Spakowano %d dźwięków!</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">Spakowano %d aktorów lub obiektów!</item>
+        <item quantity="one">Spakowano %d aktora lub obiekt!</item>
+        <item quantity="few">Spakowano %d aktorów lub obiekty!</item>
+        <item quantity="many">Spakowano %d aktorów lub obiektów!</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">Dodano %d programów w Scratchu do kolejki…</item>
+        <item quantity="one">Dodano %d program w Scratchu do kolejki…</item>
+        <item quantity="few">Dodano %d programy w Scratchu do kolejki…</item>
+        <item quantity="many">Dodano %d programów w Scratchu do kolejki…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">"s. "</item>
+        <item quantity="one">"s. "</item>
+        <item quantity="few">"s. "</item>
+        <item quantity="many">"s. "</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">Ukończono: %d zadań</item>
+        <item quantity="one">Ukończono: %d zadanie</item>
+        <item quantity="few">Ukończono: %d zadania</item>
+        <item quantity="many">Ukończono: %d zadań</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">W toku: %d zadań</item>
+        <item quantity="one">W toku: %d zadanie</item>
+        <item quantity="few">W toku: %d zadania</item>
+        <item quantity="many">W toku: %d zadań</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">razy</item>
+        <item quantity="one">raz</item>
+        <item quantity="few">razy</item>
+        <item quantity="many">razy</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">Rozpakowano %d wyglądów!</item>
+        <item quantity="one">Rozpakowano %d wygląd!</item>
+        <item quantity="few">Rozpakowano %d wyglądy!</item>
+        <item quantity="many">Rozpakowano %d wyglądów!</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">Rozpakowano %d scen!</item>
+        <item quantity="one">Rozpakowano %d scenę!</item>
+        <item quantity="few">Rozpakowano %d sceny!</item>
+        <item quantity="many">Rozpakowano %d scen!</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">Rozpakowano %d skryptów!</item>
+        <item quantity="one">Rozpakowano %d skrypt!</item>
+        <item quantity="few">Rozpakowano %d skrypty!</item>
+        <item quantity="many">Rozpakowano %d skryptów!</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">Rozpakowano %d dźwięków!</item>
+        <item quantity="one">Rozpakowano %d dźwięk!</item>
+        <item quantity="few">Rozpakowano %d dźwięki!</item>
+        <item quantity="many">Rozpakowano %d dźwięków!</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">Rozpakowano %d aktorów lub obiektów!</item>
+        <item quantity="one">Rozpakowano %d aktora lub obiekt!</item>
+        <item quantity="few">Rozpakowano %d obiekty!</item>
+        <item quantity="many">Rozpakowano %d aktorów lub obiektów!</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">Dodaj dane wejściowe dla tego bloku:</item>
+        <item quantity="one">Dodaj dane wejściowe dla tego bloku:</item>
+        <item quantity="few">Dodaj dane wejściowe dla tych bloków:</item>
+        <item quantity="many">Dodaj dane wejściowe dla tego bloku:</item>
+    </plurals>
+</resources>

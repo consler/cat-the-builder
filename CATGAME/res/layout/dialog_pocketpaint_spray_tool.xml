@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="16.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.google.android.material.textfield.TextInputLayout android:id="@id/pocketpaint_spray_radius_text_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentStart="true" style="@style/OptionsViewTextFieldTheme">
+        <com.google.android.material.textfield.TextInputEditText android:textStyle="bold" android:textColor="?colorAccent" android:id="@id/pocketpaint_radius_text" android:background="@drawable/pocketpaint_round_rect_shape" android:padding="4.0dip" android:saveEnabled="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minEms="3" android:inputType="number" android:imeOptions="actionDone" android:textAlignment="center" android:layoutDirection="ltr" android:importantForAutofill="no" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <SeekBar android:id="@id/pocketpaint_spray_radius_seek_bar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:max="100" android:minHeight="30.0dip" android:layout_alignTop="@id/pocketpaint_spray_radius_text_layout" android:layout_alignBottom="@id/pocketpaint_spray_radius_text_layout" android:layout_toEndOf="@id/pocketpaint_spray_radius_text_layout" android:layout_alignParentEnd="true" />
+</RelativeLayout>

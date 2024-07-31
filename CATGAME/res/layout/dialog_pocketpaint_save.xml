@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="?dialogPreferredPadding" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="12.0sp" android:id="@id/pocketpaint_save_info_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:text="@string/dialog_save_image_name" />
+        <EditText android:textSize="14.0sp" android:layout_gravity="fill_vertical" android:id="@id/pocketpaint_image_name_save_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="19.0dip" android:inputType="text" android:importantForAutofill="no" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dip">
+        <TextView android:textSize="12.0sp" android:id="@id/pocketpaint_image_format_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dialog_save_image_format" android:layout_toStartOf="@id/pocketpaint_btn_save_info" android:layout_alignParentStart="true" />
+        <Spinner android:theme="@style/CustomTextViewStyle" android:textSize="14.0sp" android:id="@id/pocketpaint_save_dialog_spinner" android:layout_width="157.0dip" android:layout_height="wrap_content" android:layout_below="@id/pocketpaint_image_format_title" android:spinnerMode="dropdown" style="@style/PocketpaintSpinnerTheme" />
+        <ImageButton android:id="@id/pocketpaint_btn_save_info" android:layout_width="25.0dip" android:layout_height="wrap_content" android:src="@drawable/ic_pocketpaint_save_info" android:contentDescription="@string/button_info" android:layout_alignParentEnd="true" style="@style/PocketPaintSelectableButton" />
+        <View android:background="@color/pocketpaint_main_drawing_surface_inactive" android:layout_width="151.0dip" android:layout_height="1.0dip" android:layout_below="@id/pocketpaint_save_dialog_spinner" android:layout_marginStart="3.0dip" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/pocketpaint_save_format_specific_options" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

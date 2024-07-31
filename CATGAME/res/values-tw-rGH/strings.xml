@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="color_alpha">Alpha</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_green">Green</string>
+    <string name="color_hex">HEX</string>
+    <string name="color_picker_apply">Apply</string>
+    <string name="color_picker_cancel">Cancel</string>
+    <string name="color_picker_current_color">current</string>
+    <string name="color_picker_new_color">new</string>
+    <string name="color_picker_no">no</string>
+    <string name="color_picker_pipette">Pipette</string>
+    <string name="color_picker_save_dialog_msg">Do you want to save your changes?</string>
+    <string name="color_picker_save_dialog_title">Save changes?</string>
+    <string name="color_picker_tab_icon">Color Picker tab icon</string>
+    <string name="color_picker_title">Color Picker</string>
+    <string name="color_picker_yes">yes</string>
+    <string name="color_red">Red</string>
+</resources>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">layers</item>
+        <item quantity="one">அடுக்கு</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">steps</item>
+        <item quantity="one">படி</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">For each tuple of items of</item>
+        <item quantity="one">For each item of</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">stored in variables with the same names</item>
+        <item quantity="one">stored in variable with the same name</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">நகலெடுக்கப்பட்ட%d தோற்றம்.</item>
+        <item quantity="one">%d தோற்றம் நகலெடுக்கப்பட்டது.</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">%d NFC குறிச்சொற்கள் நகலெடுக்கப்பட்டன.</item>
+        <item quantity="one">%d NFC குறிச்சொல் நகலெடுக்கப்பட்டது.</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">%d காட்சிகள் நகலெடுக்கப்பட்டன.</item>
+        <item quantity="one">%d காட்சி நகலெடுக்கப்பட்டது.</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">%d ஒலிகளை நகலெடுத்தது.</item>
+        <item quantity="one">%d ஒலி நகலெடுக்கப்பட்டது.</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">%d நடிகர்கள் அல்லது பொருள்கள் நகலெடுக்கப்பட்டன.</item>
+        <item quantity="one">%d நடிகர் அல்லது பொருள் நகலெடுக்கப்பட்டது.</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d நாட்கள்</item>
+        <item quantity="one">%d நாள்</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">Delete these looks?</item>
+        <item quantity="one">இந்த தோற்றத்தை நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">இந்த டேக்கை நீக்கவா?</item>
+        <item quantity="one">இந்த இணைப்பை நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">Delete these projects?</item>
+        <item quantity="one">இந்த திட்டத்தை நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">Delete these scenes?</item>
+        <item quantity="one">இந்த காட்சியை நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">Delete these scripts?</item>
+        <item quantity="one">இந்த ஸ்கிரிப்டை நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">Delete these sounds?</item>
+        <item quantity="one">இந்த ஒலியைத் நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">Delete these actors or objects?</item>
+        <item quantity="one">இந்த நடிகர் அல்லது பொருளை நீக்கவா?</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">%d உருப்படிகளை நீக்கியது.</item>
+        <item quantity="one">%d உருப்படி நீக்கப்பட்டது.</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">%d காட்சிகள் நீக்கப்பட்டன.</item>
+        <item quantity="one">%d காட்சி நீக்கப்பட்டது.</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">%d NFC குறிச்சொற்கள் நீக்கப்பட்டது.</item>
+        <item quantity="one">%d NFC குறிச்சொல் நீக்கப்பட்டது.</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">%d திட்டங்கள் நீக்கப்பட்டன.</item>
+        <item quantity="one">%d திட்டம் நீக்கப்பட்டது.</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">%d காட்சிகள் நீக்கப்பட்டன.</item>
+        <item quantity="one">%d காட்சி நீக்கப்பட்டது.</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">%d ஸ்பிரிட்டுகள் நீக்கப்பட்டன.</item>
+        <item quantity="one">%d ஸ்பிரிட் நீக்கப்பட்டது.</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">%d ஒலிகளை நீக்கப்பட்டன.</item>
+        <item quantity="one">%d ஒலி நீக்கப்பட்டது.</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">%d ஸ்பிரிட்டுகள் நீக்கப்பட்டன.</item>
+        <item quantity="one">%d ஸ்பிரிட் நீக்கப்பட்டது.</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">நீங்கள் ஒரே நேரத்தில் %d திட்டத்தை விட அதிகமாக மாற்ற முடியாது. தயவுசெய்து காத்திருங்கள் முதலில் முடித்த மாற்றங்களை இயக்குகிறது.</item>
+        <item quantity="one">நீங்கள் ஒரே நேரத்தில் %d திட்டத்தை விட அதிகமாக மாற்ற முடியாது. தயவுசெய்து காத்திருங்கள் முதலில் முடித்த மாற்றங்களை இயக்குகிறது.</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d மணிநேரம்</item>
+        <item quantity="one">%d மணி</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">Imported %d projects.</item>
+        <item quantity="one">Imported %d project.</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d lists selected</item>
+        <item quantity="one">%d list selected</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d நிமிடங்கள்</item>
+        <item quantity="one">%d நிமிடம்</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">பேக் பேக் செய்யப்பட்ட%d தோற்றங்கள்.</item>
+        <item quantity="one">பேக் பேக் செய்யப்பட்ட%d தோற்றம்.</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">பேக் பேக் செய்யப்பட்ட%d காட்சிகள்.</item>
+        <item quantity="one">பேக் பேக் செய்யப்பட்ட%d காட்சி.</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">பேக் பேக் செய்யப்பட்ட%d ஒலிகள்.</item>
+        <item quantity="one">பேக் பேக் செய்யப்பட்ட%d ஒலி.</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">பேக் பேக் செய்யப்பட்ட%d நடிகர்கள் அல்லது பொருள்கள்.</item>
+        <item quantity="one">பேக் பேக் செய்யப்பட்ட%d நடிகர் அல்லது பொருள்.</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">வரிசையில் %d கீறல் திட்டம் சேர்க்கப்பட்டது…</item>
+        <item quantity="one">வரிசையில் %d கீறல் திட்டம் சேர்க்கப்பட்டது…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">seconds</item>
+        <item quantity="one">வினாடி</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">முடிந்தது: %d வேலை</item>
+        <item quantity="one">முடிந்தது: %d வேலை</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">செயலில் உள்ளது: %d வேலை</item>
+        <item quantity="one">செயலில் உள்ளது: %d வேலை</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">times</item>
+        <item quantity="one">நேரம்</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">தொகுக்கப்படாத %d தோற்றம்.</item>
+        <item quantity="one">தொகுக்கப்படாத %d தோற்றங்கள்.</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">தொகுக்கப்படாத %d காட்சிகள்.</item>
+        <item quantity="one">தொகுக்கப்படாத %d காட்சி.</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">தொகுக்கப்படாத %d ஸ்கிரிப்ட்கள்.</item>
+        <item quantity="one">தொகுக்கப்படாத %d ஸ்கிரிப்ட்.</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">தொகுக்கப்படாத %d ஒலிகள்.</item>
+        <item quantity="one">தொகுக்கப்படாத %d ஒலி.</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">தொகுக்கப்படாத %d நடிகர்கள் அல்லது பொருள்கள்.</item>
+        <item quantity="one">தொகுக்கப்படாத %d நடிகர் அல்லது பொருள்.</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">Inputs for this brick</item>
+        <item quantity="one">Input for this brick</item>
+    </plurals>
+</resources>

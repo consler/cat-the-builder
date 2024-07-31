@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout android:id="@id/pocketpaint_layout_top_bar" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.Toolbar android:theme="@style/PocketPaintTheme" android:id="@id/pocketpaint_toolbar" android:layout_width="fill_parent" android:layout_height="wrap_content" app:popupTheme="@style/DropdownMenu" app:title="@string/pocketpaint_app_name">
+        <LinearLayout android:layout_gravity="end" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageButton android:id="@id/pocketpaint_btn_top_undo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_pocketpaint_undo_selector" android:tint="@android:color/white" android:contentDescription="@string/button_undo" style="actionButtonStyle" />
+            <ImageButton android:id="@id/pocketpaint_btn_top_redo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_pocketpaint_redo_selector" android:tint="@android:color/white" android:contentDescription="@string/button_redo" style="actionButtonStyle" />
+            <ImageButton android:id="@id/pocketpaint_btn_top_plus" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" android:src="@drawable/ic_pocketpaint_plus_enabled" android:tint="@android:color/white" android:layout_weight="1.0" android:contentDescription="@string/button_checkmark" style="actionButtonStyle" />
+            <ImageButton android:id="@id/pocketpaint_btn_top_checkmark" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" android:src="@drawable/ic_pocketpaint_checkmark" android:tint="@android:color/white" android:layout_weight="1.0" android:contentDescription="@string/button_checkmark" style="actionButtonStyle" />
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+</com.google.android.material.appbar.AppBarLayout>

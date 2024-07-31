@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBox android:gravity="center_vertical" android:id="@id/brick_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <org.catrobat.catroid.ui.BrickLayout android:id="@id/brick_replace_item_in_userlist_layout" style="@style/BrickContainer.UserVariables.Big">
+        <include layout="@layout/icon_brick_category_data" />
+        <TextView android:id="@id/brick_replace_item_in_userlist_label" android:text="@string/brick_replace_item_in_userlist_replace_in_list" style="@style/BrickText.SingleLine" />
+        <Spinner android:id="@id/replace_item_in_userlist_spinner" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textDirection="locale" app:layout_newLine="true" />
+        <TextView android:id="@id/brick_replace_item_in_userlist_textview" android:text="@string/brick_replace_item_in_userlist_item_at_index" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_replace_item_in_userlist_at_index_edit_text" style="@style/BrickEditText" />
+        <TextView android:id="@id/brick_replace_item_in_userlist_with_value_textview" android:text="@string/brick_replace_item_in_userlist_with_value" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_replace_item_in_userlist_value_edit_text" style="@style/BrickEditText" />
+    </org.catrobat.catroid.ui.BrickLayout>
+</LinearLayout>

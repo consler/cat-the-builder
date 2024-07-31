@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.tabs.TabLayout android:id="@id/tab_layout" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.google.android.material.tabs.TabItem android:icon="@drawable/ic_program_menu_scripts" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.google.android.material.tabs.TabItem android:icon="@drawable/ic_program_menu_looks" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.google.android.material.tabs.TabItem android:icon="@drawable/ic_program_menu_sounds" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</com.google.android.material.tabs.TabLayout>

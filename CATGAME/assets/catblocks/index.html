@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catblocks 2D view</title>
+  <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+<div id="catroid-catblocks-container"></div>
+<script type="text/javascript"
+        src="https://appassets.androidplatform.net/assets/catblocks/CatBlocks.js"></script>
+
+<script>
+      window.onload = function () {
+        CatBlocks.init({
+          container: 'catroid-catblocks-container',
+          renderSize: 0.75,
+          language: Android.getCurrentLanguage(),
+          rtl: Android.isRTL(),
+          shareRoot: 'https://appassets.androidplatform.net/assets/catblocks',
+          media: 'https://appassets.androidplatform.net/assets/catblocks/media',
+          i18n: 'https://appassets.androidplatform.net/assets/catblocks/i18n',
+          noImageFound: 'No_Image_Available.jpg',
+          renderLooks: false,
+          renderSounds: false,
+          readOnly: false
+        }).then(() => {
+          const programXML = Android.getCurrentProject();
+
+          const scene = Android.getSceneNameToDisplay();
+          const object = Android.getSpriteNameToDisplay();
+          const brickIDToFocus = Android.getBrickIDToFocus();
+          CatBlocks.render(programXML, scene, object, brickIDToFocus);
+        });
+      };
+    </script>
+</body>
+</html>

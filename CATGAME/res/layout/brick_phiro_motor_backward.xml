@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBox android:gravity="center_vertical" android:id="@id/brick_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <org.catrobat.catroid.ui.BrickLayout android:id="@id/brick_phiro_motor_backward_action_layout" style="@style/BrickContainer.Phiro.Big">
+        <include layout="@layout/icon_brick_category_phiro" />
+        <TextView android:text="@string/brick_phiro_motor_backward_action" style="@style/BrickText.SingleLine" />
+        <Spinner android:id="@id/brick_phiro_motor_backward_action_spinner" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textDirection="locale" />
+        <TextView android:text="@string/phiro_motor_speed" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_phiro_motor_backward_action_speed_edit_text" style="@style/BrickEditText" />
+        <TextView android:text="@string/percent_symbol" style="@style/BrickText" />
+    </org.catrobat.catroid.ui.BrickLayout>
+</LinearLayout>

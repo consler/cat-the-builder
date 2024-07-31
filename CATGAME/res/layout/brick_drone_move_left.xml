@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBox android:gravity="center_vertical" android:id="@id/brick_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <org.catrobat.catroid.ui.BrickLayout android:id="@id/brick_drone_move_left_layout" style="@style/BrickContainer.Motion.Medium">
+        <include layout="@layout/icon_brick_category_ardrone" />
+        <TextView android:id="@id/brick_drone_move_left_label" android:text="@string/brick_drone_move_left" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_drone_move_left_edit_text_second" app:layout_newLine="true" style="@style/BrickEditText" />
+        <TextView android:id="@id/brick_seconds_label" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_drone_move_left_text_with" android:text="@string/brick_drone_with." style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_drone_move_left_edit_text_power" style="@style/BrickEditText" />
+        <TextView android:id="@id/brick_drone_move_left_percent" android:text="@string/percent_symbol" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_drone_move_left_power" android:text="@string/brick_drone_power" style="@style/BrickText.SingleLine" />
+    </org.catrobat.catroid.ui.BrickLayout>
+</LinearLayout>

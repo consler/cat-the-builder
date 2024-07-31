@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBox android:gravity="center_vertical" android:id="@id/brick_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <org.catrobat.catroid.ui.BrickLayout android:id="@id/brick_think_for_bubble_layout" style="@style/BrickContainer.Look.Medium">
+        <include layout="@layout/icon_brick_category_look" />
+        <TextView android:text="@string/brick_think_bubble" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_for_bubble_edit_text_text" style="@style/BrickEditText" />
+        <TextView android:text="@string/brick_think_say_for_text" app:layout_newLine="true" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_for_bubble_edit_text_duration" android:layout_width="fill_parent" style="@style/BrickEditText" />
+        <TextView android:id="@id/brick_seconds_label" android:text="@string/phiro_seconds" style="@style/BrickText.SingleLine" />
+    </org.catrobat.catroid.ui.BrickLayout>
+</LinearLayout>

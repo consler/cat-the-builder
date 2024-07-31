@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">Ebenen</item>
+        <item quantity="one">Ebene</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">Schritte</item>
+        <item quantity="one">Schritt</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">Für jedes Tupel von Gegenständen von</item>
+        <item quantity="one">Für jeden Gegenstand von</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">in gleichnamigen Variablen gespeichert</item>
+        <item quantity="one">in Variable mit dem gleichen Namen gespeichert</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">%d Aussehen kopiert.</item>
+        <item quantity="one">%d Aussehen kopiert.</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">%d NFC Tags kopiert.</item>
+        <item quantity="one">%d NFC Tag kopiert.</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">%d Szenen kopiert.</item>
+        <item quantity="one">%d Szene kopiert.</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">%d Klänge kopiert.</item>
+        <item quantity="one">%d Klang kopiert.</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">%d Figuren oder Objekte kopiert.</item>
+        <item quantity="one">%d Figur oder Objekt kopiert.</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d Tage</item>
+        <item quantity="one">%d Tag</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">Diese Aussehen löschen?</item>
+        <item quantity="one">Dieses Aussehen löschen?</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">Diesen NFC-Tag löschen?</item>
+        <item quantity="one">Diesen NFC-Tag löschen?</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">Diese Projekte löschen?</item>
+        <item quantity="one">Dieses Projekt löschen?</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">Diese Szenen löschen?</item>
+        <item quantity="one">Diese Szene löschen?</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">Diese Skripte löschen?</item>
+        <item quantity="one">Dieses Skript löschen?</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">Diese Klänge löschen?</item>
+        <item quantity="one">Diesen Klang löschen?</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">Diese Figuren oder Objekte löschen?</item>
+        <item quantity="one">Dieses Objekt löschen?</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">%d Elemente wurden gelöscht.</item>
+        <item quantity="one">%d Elemente wurden gelöscht.</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">%d Aussehen gelöscht.</item>
+        <item quantity="one">%d Aussehen gelöscht.</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">%d NFC Tags gelöscht.</item>
+        <item quantity="one">%d NFC Tag gelöscht.</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">%d Projekte gelöscht.</item>
+        <item quantity="one">%d Projekt gelöscht.</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">%d Szenen gelöscht.</item>
+        <item quantity="one">%d Szene gelöscht.</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">%d Skripte gelöscht.</item>
+        <item quantity="one">%d Skript gelöscht.</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">%d Klänge gelöscht.</item>
+        <item quantity="one">%d Klang gelöscht.</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">%d Figuren oder Objekte gelöscht.</item>
+        <item quantity="one">%d Figur und Objekt gelöscht.</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">Du kannst nicht mehr als %d Programm gleichzeitig konvertieren. Bitte warte, bis die laufende Programme, zuerst zu beenden.</item>
+        <item quantity="one">Du kannst nicht mehr als %d Projekte gleichzeitig konvertieren. Bitte warte, bis die laufende Projekte fertig konvertiert sind.</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d Stunden</item>
+        <item quantity="one">%d Stunde</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">%d Projekte importiert.</item>
+        <item quantity="one">%d Projekt importiert.</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d Listen gewählt</item>
+        <item quantity="one">%d Liste gewählt</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d Minuten</item>
+        <item quantity="one">%d Minute</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">%d Aussehen eingepackt.</item>
+        <item quantity="one">%d Aussehen eingepackt.</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">%d Szenen eingepackt.</item>
+        <item quantity="one">%d Szene eingepackt.</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">%d Klänge eingepackt.</item>
+        <item quantity="one">%d Klang eingepackt.</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">%d Figuren oder Objekte eingepackt.</item>
+        <item quantity="one">%d Figur oder Objekt eingepackt.</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">Hinzufügen von %d Scratch Projekte zur Warteliste…</item>
+        <item quantity="one">Hinzufügen von %d Scratch Projekte zur Warteliste…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">"Sekunden "</item>
+        <item quantity="one">"Sekunde "</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">Abgeschlossen: %d Projekte</item>
+        <item quantity="one">Abgeschlossen: %d Projekt</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">In Bearbeitung: %d Projekte</item>
+        <item quantity="one">In Bearbeitung: %d Projekt</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">mal</item>
+        <item quantity="one">mal</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">%d Aussehen ausgepackt.</item>
+        <item quantity="one">%d Aussehen ausgepackt.</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">%d Szenen ausgepackt.</item>
+        <item quantity="one">%d Szene ausgepackt.</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">%d Skripte ausgepackt.</item>
+        <item quantity="one">%d Skript ausgepackt.</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">%d Klänge ausgepackt.</item>
+        <item quantity="one">%d Klang ausgepackt.</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">%d Figuren oder Objekte ausgepackt.</item>
+        <item quantity="one">%d Figur oder Objekt ausgepackt.</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">Eingaben für diesen Baustein</item>
+        <item quantity="one">Eingabe für diesen Baustein</item>
+    </plurals>
+</resources>

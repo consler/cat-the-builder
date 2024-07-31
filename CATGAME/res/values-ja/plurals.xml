@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="brick_go_back_layer_plural">
+        <item quantity="other">レイヤー</item>
+    </plurals>
+    <plurals name="brick_move_n_step_plural">
+        <item quantity="other">ステップ</item>
+    </plurals>
+    <plurals name="brick_parameterized_foreach_plural">
+        <item quantity="other">アイテムのタプル毎に</item>
+    </plurals>
+    <plurals name="brick_parameterized_stored_plural">
+        <item quantity="other">同じ名前の変数に保存されています</item>
+    </plurals>
+    <plurals name="copied_looks">
+        <item quantity="other">%d ルックをコピーしました。</item>
+    </plurals>
+    <plurals name="copied_nfc_tags">
+        <item quantity="other">%d NFC タグをコピーしました。</item>
+    </plurals>
+    <plurals name="copied_scenes">
+        <item quantity="other">%d シーンをコピーしました。</item>
+    </plurals>
+    <plurals name="copied_sounds">
+        <item quantity="other">%d のサウンドをコピーしました。</item>
+    </plurals>
+    <plurals name="copied_sprites">
+        <item quantity="other">%d 人のアクターまたはオブジェクトをコピーしました。</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d 日</item>
+    </plurals>
+    <plurals name="delete_looks">
+        <item quantity="other">これらの外見を削除しますか？</item>
+    </plurals>
+    <plurals name="delete_nfc_tags">
+        <item quantity="other">これらのタグを削除しますか？</item>
+    </plurals>
+    <plurals name="delete_projects">
+        <item quantity="other">これらのプロジェクトを削除しますか？</item>
+    </plurals>
+    <plurals name="delete_scenes">
+        <item quantity="other">これらのシーンを削除しますか？</item>
+    </plurals>
+    <plurals name="delete_scripts">
+        <item quantity="other">これらのスクリプトを削除しますか？</item>
+    </plurals>
+    <plurals name="delete_sounds">
+        <item quantity="other">これらのサウンドを削除しますか？</item>
+    </plurals>
+    <plurals name="delete_sprites">
+        <item quantity="other">これらのアクターやオブジェクトを削除しますか？</item>
+    </plurals>
+    <plurals name="deleted_Items">
+        <item quantity="other">%d アイテムを削除しました。</item>
+    </plurals>
+    <plurals name="deleted_looks">
+        <item quantity="other">%d ルックを削除しました。</item>
+    </plurals>
+    <plurals name="deleted_nfc_tags">
+        <item quantity="other">%d NFC タグを削除しました。</item>
+    </plurals>
+    <plurals name="deleted_projects">
+        <item quantity="other">%d 件のプロジェクトを削除しました。</item>
+    </plurals>
+    <plurals name="deleted_scenes">
+        <item quantity="other">%d シーンを削除しました。</item>
+    </plurals>
+    <plurals name="deleted_scripts">
+        <item quantity="other">%d 個のスクリプトを削除しました。</item>
+    </plurals>
+    <plurals name="deleted_sounds">
+        <item quantity="other">%d のサウンドを削除しました。</item>
+    </plurals>
+    <plurals name="deleted_sprites">
+        <item quantity="other">%d 個のスプライトを削除しました。</item>
+    </plurals>
+    <plurals name="error_cannot_convert_more_than_x_programs">
+        <item quantity="other">同時に %d 件以上のプロジェクトを変換することはできません。 最初に変換が完了するまでお待ちください。</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d 時間</item>
+    </plurals>
+    <plurals name="imported_projects">
+        <item quantity="other">インポートされた %d プロジェクト。</item>
+    </plurals>
+    <plurals name="list_selection_plural">
+        <item quantity="other">%d リストを選択しました</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d 分</item>
+    </plurals>
+    <plurals name="packed_looks">
+        <item quantity="other">%d の外見をバックパックしました。</item>
+    </plurals>
+    <plurals name="packed_scenes">
+        <item quantity="other">%d シーンをバックパック。</item>
+    </plurals>
+    <plurals name="packed_sounds">
+        <item quantity="other">%d のサウンドをバックパックしました。</item>
+    </plurals>
+    <plurals name="packed_sprites">
+        <item quantity="other">%d 人のアクターまたはオブジェクトをバックパックしました。</item>
+    </plurals>
+    <plurals name="scratch_conversion_scheduled_x">
+        <item quantity="other">キューに %d Scratch プロジェクトを追加しました…</item>
+    </plurals>
+    <plurals name="second_plural">
+        <item quantity="other">秒待つ</item>
+    </plurals>
+    <plurals name="status_completed_x_jobs">
+        <item quantity="other">完了: %d ジョブ</item>
+    </plurals>
+    <plurals name="status_in_progress_x_jobs">
+        <item quantity="other">進行中: %d ジョブ</item>
+    </plurals>
+    <plurals name="time_plural">
+        <item quantity="other">回</item>
+    </plurals>
+    <plurals name="unpacked_looks">
+        <item quantity="other">%d ルックを解凍しました。</item>
+    </plurals>
+    <plurals name="unpacked_scenes">
+        <item quantity="other">%d シーンを解凍しました。</item>
+    </plurals>
+    <plurals name="unpacked_scripts">
+        <item quantity="other">%d 個のスクリプトを解凍しました。</item>
+    </plurals>
+    <plurals name="unpacked_sounds">
+        <item quantity="other">%d サウンドを解凍しました。</item>
+    </plurals>
+    <plurals name="unpacked_sprites">
+        <item quantity="other">%d 人のアクターまたはオブジェクトを解凍します。</item>
+    </plurals>
+    <plurals name="user_defined_brick_input_headline">
+        <item quantity="other">このブロックの入力</item>
+    </plurals>
+</resources>

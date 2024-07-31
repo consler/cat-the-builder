@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/fragment_user_defined_brick_list" android:background="@color/app_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ListView android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:cacheColorHint="#00000000" android:divider="@android:color/transparent" />
+    <LinearLayout android:id="@android:id/empty" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="?x_large" android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/brick_user_defined_list_empty" />
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton android:theme="@style/Theme.AppCompat" android:id="@id/button_add_user_brick" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/material_design_spacing_large" android:src="@drawable/ic_plus" android:tint="@color/solid_white" android:layout_alignParentBottom="true" android:onClick="handleAddButton" android:layout_marginEnd="@dimen/material_design_spacing_large" android:layout_alignParentEnd="true" app:backgroundTint="@color/action_button" app:elevation="10.0dip" />
+</RelativeLayout>

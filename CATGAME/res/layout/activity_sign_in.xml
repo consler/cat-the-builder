@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:paddingBottom="@dimen/dialog_content_area_padding" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Button android:textSize="?x_large" android:id="@id/sign_in_login" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/login" android:onClick="onButtonClick" style="@style/Widget.AppCompat.Button.Borderless" />
+    <Button android:textSize="?x_large" android:id="@id/sign_in_register" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/register" android:onClick="onButtonClick" style="@style/Widget.AppCompat.Button.Borderless" />
+    <com.google.android.gms.common.SignInButton android:layout_gravity="center" android:id="@id/sign_in_google_login_button" android:layout_width="wrap_content" android:layout_height="wrap_content" app:buttonSize="wide" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/material_design_spacing_x_large">
+        <TextView android:gravity="bottom|center" android:id="@id/register_terms" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/register_terms" />
+        <TextView android:gravity="bottom|center" android:id="@id/register_terms_link" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/register_code_terms_of_use_text" />
+    </LinearLayout>
+</LinearLayout>

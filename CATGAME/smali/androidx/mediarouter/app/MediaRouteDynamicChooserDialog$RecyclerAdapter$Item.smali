@@ -1,0 +1,99 @@
+.class Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter$Item;
+.super Ljava/lang/Object;
+.source "MediaRouteDynamicChooserDialog.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "Item"
+.end annotation
+
+
+# instance fields
+.field private final mData:Ljava/lang/Object;
+
+.field private final mType:I
+
+.field final synthetic this$1:Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter;
+
+
+# direct methods
+.method constructor <init>(Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter;Ljava/lang/Object;)V
+    .locals 1
+    .param p2, "data"    # Ljava/lang/Object;
+
+    .line 416
+    iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter$Item;->this$1:Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 417
+    iput-object p2, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter$Item;->mData:Ljava/lang/Object;
+
+    .line 419
+    instance-of p1, p2, Ljava/lang/String;
+
+    if-eqz p1, :cond_0
+
+    .line 420
+    const/4 p1, 0x1
+
+    iput p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter$Item;->mType:I
+
+    goto :goto_0
+
+    .line 421
+    :cond_0
+    instance-of p1, p2, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+
+    if-eqz p1, :cond_1
+
+    .line 422
+    const/4 p1, 0x2
+
+    iput p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter$Item;->mType:I
+
+    goto :goto_0
+
+    .line 424
+    :cond_1
+    const/4 p1, 0x0
+
+    iput p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter$Item;->mType:I
+
+    .line 425
+    const-string p1, "RecyclerAdapter"
+
+    const-string v0, "Wrong type of data passed to Item constructor"
+
+    invoke-static {p1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 427
+    :goto_0
+    return-void
+.end method
+
+
+# virtual methods
+.method public getData()Ljava/lang/Object;
+    .locals 1
+
+    .line 430
+    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter$Item;->mData:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method public getType()I
+    .locals 1
+
+    .line 434
+    iget v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter$Item;->mType:I
+
+    return v0
+.end method

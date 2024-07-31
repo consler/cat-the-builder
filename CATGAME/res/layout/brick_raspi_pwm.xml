@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBox android:gravity="center_vertical" android:id="@id/brick_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <org.catrobat.catroid.ui.BrickLayout android:id="@id/brick_raspi_pwm_layout" style="@style/BrickContainer.Arduino.Medium">
+        <include layout="@layout/icon_brick_category_raspberrypi" />
+        <TextView android:text="@string/brick_raspi_set_pwm" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_raspi_pwm_pin_edit_text" style="@style/BrickEditText" />
+        <TextView android:text="@string/brick_arduino_set_pin_value_to" app:layout_newLine="true" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_raspi_pwm_percentage_edit_text" style="@style/BrickEditText" />
+        <TextView android:text="@string/percent_symbol" app:layout_newLine="true" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_raspi_pwm_frequency_edit_text" style="@style/BrickEditText" />
+        <TextView android:text="@string/hertz_symbol" app:layout_newLine="true" style="@style/BrickText.SingleLine" />
+    </org.catrobat.catroid.ui.BrickLayout>
+</LinearLayout>

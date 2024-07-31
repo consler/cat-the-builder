@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textSize="@dimen/plus_button_size" android:textColor="@color/solid_white" android:gravity="center" android:background="@color/app_background" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/plus"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

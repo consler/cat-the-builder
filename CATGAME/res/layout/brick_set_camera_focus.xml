@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBox android:gravity="center_vertical" android:id="@id/brick_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <org.catrobat.catroid.ui.BrickLayout android:id="@id/brick_set_camera_focus_layout" style="@style/BrickContainer.Look.Big">
+        <include layout="@layout/icon_brick_category_look" />
+        <TextView android:id="@id/brick_set_camera_focus_point_label" android:text="@string/brick_focus_point" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_set_camera_focus_horizontal_input" app:layout_newLine="true" style="@style/BrickEditText" />
+        <TextView android:id="@id/brick_set_camera_focus_horizontal_percent" android:text="@string/percent_symbol" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_set_camera_focus_horizontal_label" android:text="@string/brick_horizontal_and" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_set_camera_focus_vertical_input" app:layout_newLine="true" style="@style/BrickEditText" />
+        <TextView android:id="@id/brick_set_camera_focus_vertical_percent" android:text="@string/percent_symbol" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_set_camera_focus_vertical_label" android:text="@string/brick_vertical_flex" style="@style/BrickText.SingleLine" />
+    </org.catrobat.catroid.ui.BrickLayout>
+</LinearLayout>

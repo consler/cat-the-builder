@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:gravity="center_vertical" android:id="@id/brick_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <org.catrobat.catroid.ui.BrickLayout android:id="@id/brick_when_gamepad_button_layout" style="@style/BrickContainer.Script.Medium">
+        <include layout="@layout/icon_brick_category_event" />
+        <TextView android:id="@id/brick_when_gamepad_button_text" android:text="@string/brick_when_gamepad_button" style="@style/BrickText.SingleLine" />
+        <Spinner android:id="@id/brick_when_gamepad_button_spinner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:textDirection="locale" android:layout_alignParentEnd="true" />
+        <TextView android:id="@id/brick_when_gamepad_button_text_pressed" android:text="@string/brick_when_gamepad_button_tapped" style="@style/BrickText.SingleLine" />
+    </org.catrobat.catroid.ui.BrickLayout>
+</LinearLayout>

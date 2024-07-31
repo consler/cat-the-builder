@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:paddingTop="@dimen/dialog_content_area_padding_top" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/dialog_content_area_padding_input" android:paddingEnd="@dimen/dialog_content_area_padding_input"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.textfield.TextInputLayout android:id="@id/input" android:layout_width="fill_parent" android:layout_height="wrap_content" app:errorEnabled="true" app:hintEnabled="true">
+        <com.google.android.material.textfield.TextInputEditText android:id="@id/input_edit_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:selectAllOnFocus="true" />
+    </com.google.android.material.textfield.TextInputLayout>
+</LinearLayout>

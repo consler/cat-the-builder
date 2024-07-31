@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.textfield.TextInputLayout android:id="@id/pocketpaint_stroke_width_width_text_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:layout_alignParentTop="true" android:layout_alignParentStart="true" style="@style/TextFieldTheme">
+        <com.google.android.material.textfield.TextInputEditText android:textStyle="bold" android:textColor="?colorAccent" android:gravity="center" android:id="@id/pocketpaint_stroke_width_width_text" android:background="@drawable/pocketpaint_round_rect_shape" android:padding="4.0dip" android:saveEnabled="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minEms="3" android:inputType="number" android:imeOptions="actionDone" android:layoutDirection="ltr" android:importantForAutofill="no" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <SeekBar android:id="@id/pocketpaint_stroke_width_seek_bar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:max="100" android:minHeight="30.0dip" android:layout_alignTop="@id/pocketpaint_stroke_width_width_text_layout" android:layout_alignBottom="@id/pocketpaint_stroke_width_width_text_layout" android:layout_marginEnd="10.0dip" android:layout_toEndOf="@id/pocketpaint_stroke_width_width_text_layout" android:layout_alignParentEnd="true" />
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="50.0dip" android:layout_alignParentBottom="true" android:layout_alignParentEnd="true">
+        <org.catrobat.paintroid.ui.tools.BrushToolView android:id="@id/pocketpaint_brush_tool_preview" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="0.5" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <com.google.android.material.chip.ChipGroup android:id="@id/pocketpaint_stroke_types" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layoutDirection="ltr" android:layout_marginStart="8.0dip" android:layout_marginEnd="8.0dip" app:singleLine="true" app:singleSelection="true">
+            <com.google.android.material.chip.Chip android:id="@id/pocketpaint_stroke_ibtn_circle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:checkable="true" app:chipIcon="@drawable/ic_pocketpaint_tool_circle" style="@style/ChipTheme" />
+            <com.google.android.material.chip.Chip android:id="@id/pocketpaint_stroke_ibtn_rect" android:layout_width="wrap_content" android:layout_height="wrap_content" app:chipIcon="@drawable/ic_pocketpaint_tool_square" style="@style/ChipTheme" />
+        </com.google.android.material.chip.ChipGroup>
+        <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:orientation="vertical" android:background="@android:color/white" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:id="@id/pocketpaint_smudge_tool_dialog_pressure_input_text_view" android:text="@string/smudge_tool_dialog_pressure_title" android:labelFor="@id/pocketpaint_smudge_tool_dialog_pressure_input" style="@style/PocketPaintToolSubtitle" />
+                <View style="@style/PocketPaintToolSectionDivider" />
+                <LinearLayout style="@style/PocketPaintToolSection">
+                    <SeekBar android:id="@id/pocketpaint_pressure_seek_bar" android:layout_width="0.0dip" android:layout_height="wrap_content" android:max="100" android:minHeight="30.0dip" android:layout_weight="1.0" />
+                    <Space style="@style/PocketPaintToolHorizontalSpace" />
+                    <EditText android:textSize="14.0sp" android:textStyle="bold" android:textColor="?colorAccent" android:id="@id/pocketpaint_smudge_tool_dialog_pressure_input" android:saveEnabled="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minEms="3" android:inputType="number" android:imeOptions="actionDone" android:textCursorDrawable="@null" android:importantForAutofill="no" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+        <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:orientation="vertical" android:background="@android:color/white" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:id="@id/pocketpaint_smudge_tool_dialog_drag_input_text_view" android:text="@string/smudge_tool_dialog_drag_title" android:labelFor="@id/pocketpaint_smudge_tool_dialog_drag_input" style="@style/PocketPaintToolSubtitle" />
+                <View style="@style/PocketPaintToolSectionDivider" />
+                <LinearLayout style="@style/PocketPaintToolSection">
+                    <SeekBar android:id="@id/pocketpaint_drag_seek_bar" android:layout_width="0.0dip" android:layout_height="wrap_content" android:max="100" android:minHeight="30.0dip" android:layout_weight="1.0" />
+                    <Space style="@style/PocketPaintToolHorizontalSpace" />
+                    <EditText android:textSize="14.0sp" android:textStyle="bold" android:textColor="?colorAccent" android:id="@id/pocketpaint_smudge_tool_dialog_drag_input" android:saveEnabled="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minEms="3" android:inputType="number" android:imeOptions="actionDone" android:textCursorDrawable="@null" android:importantForAutofill="no" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

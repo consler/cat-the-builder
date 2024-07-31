@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/preference_title_accessibility" android:key="setting_accessibility_screen" android:summary="@string/preference_description_accessibility"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/preference_title_accessibility_profiles" android:key="setting_accessibility_profiles_category">
+        <PreferenceScreen android:title="@string/preference_title_accessibility_profile" android:key="setting_accessibility_profile_screen" android:summary="@string/preference_description_accessibility_profiles" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preference_title_accessibility_text_appearance" android:key="setting_text_appearance_category">
+        <CheckBoxPreference android:title="@string/preference_title_accessibility_large_text" android:key="accessibility_large_text" android:summary="@string/preference_description_accessibility_large_text" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/preference_title_accessibility_high_contrast" android:key="accessibility_high_contrast" android:summary="@string/preference_description_accessibility_high_contrast" android:defaultValue="false" />
+        <ListPreference android:entries="@array/accessibility_font_style" android:title="@string/preference_title_accessibility_font_style" android:key="accessibility_font_style" android:summary="%s" android:defaultValue="regular" android:entryValues="@array/accessibility_font_style_values" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preference_title_accessibility_Brick_icons" android:key="setting_icon_category">
+        <CheckBoxPreference android:title="@string/preference_title_accessibility_category_icons" android:key="accessibility_category_icons" android:summary="@string/preference_description_accessibility_category_icons" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/preference_title_accessibility_category_icons_big" android:key="accessibility_category_icons_big" android:summary="@string/preference_description_accessibility_category_icons_big" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/preference_title_accessibility_category_icons_high_contrast" android:key="accessibility_category_icons_high_contrast" android:defaultValue="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preference_title_accessibility_handling" android:key="setting_handling_category">
+        <CheckBoxPreference android:title="@string/preference_title_accessibility_element_spacing" android:key="accessibility_element_spacing" android:summary="@string/preference_description_accessibility_element_spacing" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/preference_title_accessibility_dragndrop_delay" android:key="accessibility_dragndrop_delay" android:summary="@string/preference_description_accessibility_dragndrop_delay" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/preference_title_accessibility_beginner_bricks" android:key="accessibility_beginner_bricks" android:summary="@string/preference_description_accessibility_beginner_bricks" android:defaultValue="false" />
+    </PreferenceCategory>
+</PreferenceScreen>

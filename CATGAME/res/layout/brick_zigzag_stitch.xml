@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBox android:gravity="center_vertical" android:id="@id/brick_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <org.catrobat.catroid.ui.BrickLayout android:orientation="horizontal" android:id="@id/brick_stitch_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/BrickContainer.Embroidery.Medium">
+        <include layout="@layout/icon_brick_category_embroidery" />
+        <TextView android:text="@string/brick_zigzag_stitch" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_zigzag_stitch_edit_text_length" style="@style/BrickEditText" />
+        <TextView android:text="@string/brick_zigzag_stitch_width" app:layout_newLine="true" style="@style/BrickText.SingleLine" />
+        <TextView android:id="@id/brick_zigzag_stitch_edit_text_width" style="@style/BrickEditText" />
+    </org.catrobat.catroid.ui.BrickLayout>
+</LinearLayout>

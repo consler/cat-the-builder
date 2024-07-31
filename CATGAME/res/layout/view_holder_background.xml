@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@drawable/button_background_selector" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="?element_spacing" android:layout_marginBottom="?element_spacing" android:minHeight="@dimen/view_holder_height" android:paddingStart="@dimen/view_holder_padding" android:paddingEnd="@dimen/view_holder_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:layout_gravity="center_vertical" android:id="@id/checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/checkbox_margin" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/image_view" android:background="@drawable/image_contour" android:layout_width="72.0dip" android:layout_height="65.0dip" android:scaleType="centerCrop" android:cropToPadding="true" android:layout_marginEnd="@dimen/img_margin" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="?large" android:textColor="@color/view_holder_item_title" android:id="@id/title_view" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <TextView android:textColor="@color/view_holder_item_details" android:id="@id/details_view" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

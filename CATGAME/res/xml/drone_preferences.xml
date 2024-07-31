@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/preference_title_enable_quadcopter_bricks" android:key="settings_drone_screen" android:summary="@string/preference_description_quadcopter_bricks"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:title="@string/preference_title_enable_quadcopter_bricks" android:key="setting_parrot_ar_drone_bricks" android:summary="@string/preference_description_quadcopter_bricks" android:defaultValue="false" />
+    <PreferenceCategory android:title="@string/preference_title_drone_config_properties" android:key="setting_drone_category">
+        <ListPreference android:entries="@array/drone_setting_default_config" android:title="@string/brick_drone_set_config" android:key="setting_drone_basic_configs" android:summary="%s" android:defaultValue="FIRST" android:entryValues="@array/drone_setting_default_config" />
+        <ListPreference android:entries="@array/drone_altitude_spinner_items" android:title="@string/brick_drone_set_altitude" android:key="setting_drone_altitude_limit" android:summary="%s" android:defaultValue="FIRST" android:entryValues="@array/drone_altitude_spinner_items" />
+        <ListPreference android:entries="@array/drone_max_vertical_speed_items" android:title="@string/brick_drone_set_vertical_speed" android:key="setting_drone_vertical_speed" android:summary="%s" android:defaultValue="SECOND" android:entryValues="@array/drone_max_vertical_speed_items" />
+        <ListPreference android:entries="@array/drone_max_rotation_speed_items" android:title="@string/brick_drone_set_rotation_speed" android:key="setting_drone_rotation_speed" android:summary="%s" android:defaultValue="SECOND" android:entryValues="@array/drone_max_rotation_speed_items" />
+        <ListPreference android:entries="@array/drone_max_tilt_angle_items" android:title="@string/brick_drone_set_tilt_limit" android:key="setting_drone_tilt_angle" android:summary="%s" android:defaultValue="SECOND" android:entryValues="@array/drone_max_tilt_angle_items" />
+    </PreferenceCategory>
+</PreferenceScreen>
