@@ -2,11 +2,11 @@
 This is a tool to automate building .apk from .catrobat. Please report any malfunctioning you find.
 
 ## Dependencies
-[ImageMagick](imagemagick.org),
+[ImageMagick](https://imagemagick.org),
 
-[apktool](apktool.org),
+[apktool](https://apktool.org),
 
-[SDK Build Tools](developer.android.com/tools/releases/build-tools), specifically [zipalign](developer.android/tools/zipalign), [apksigner](developer.android/tools/apksigner)
+[SDK Build Tools](https://developer.android.com/tools/releases/build-tools), specifically [zipalign](https://developer.android/tools/zipalign), [apksigner](https://developer.android/tools/apksigner)
 
 ## Installation 
 ``` git clone https://github.com/consler/cat-the-builder.git ```
