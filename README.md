@@ -29,7 +29,7 @@ Install Termux via **F-Droid**
 
 ``` curl -s https://raw.githubusercontent.com/rendiix/rendiix.github.io/master/install-repo.sh | bash ```
 
-``` pkg install zipalign apksigner imagemagick git ```
+``` pkg install zipalign apksigner imagemagick apktool git ```
 
 ``` git clone https://github.com/consler/cat-the-builder.git ```
 
