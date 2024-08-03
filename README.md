@@ -27,18 +27,31 @@ Install Termux via **F-Droid**
 
 ```pkg install openjdk-17```
 ``` curl -s https://raw.githubusercontent.com/rendiix/rendiix.github.io/master/install-repo.sh | bash ```
+
 ``` pkg install zipalign apksigner imagemagick git ```
+
 ``` git clone https://github.com/consler/cat-the-builder.git ```
+
 ```termux-setup-storage ```
+
 ``` cd storage/shared ```
+
 ``` cp PATH/TO/YOUR/FILE.catrobat /data/data/com.termux/files/home ```
+
 ``` cp PATH/TO/YOUR/ICON.png /data/data/com.termux/files/home ```
+
 ``` cd ```
+
 ``` cd cat-the-builder ```
+
 ``` ./main.sh ../yourGame.catrobat my.package.name AppName ../yourIcon.png ```
+
 ``` cd Release```
+
 ```cp AppName.apk ../../```
+
 ```cd```
+
 ``` cp AppName.apk storage/shared```
 
 
