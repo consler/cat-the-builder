@@ -26,6 +26,7 @@ You can find your .apk in Release folder
 Install Termux via **F-Droid**
 
 ```pkg install openjdk-17```
+
 ``` curl -s https://raw.githubusercontent.com/rendiix/rendiix.github.io/master/install-repo.sh | bash ```
 
 ``` pkg install zipalign apksigner imagemagick git ```
