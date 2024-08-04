@@ -742,23 +742,29 @@
     .line 103
     iget v0, p0, Lorg/catrobat/catroid/ui/MainMenuActivity;->oldPrivacyPolicy:I
 
-    if-eq v0, v1, :cond_0
+    # Modify the condition to always jump to :cond_0
+    const/4 v0, 0x0  # Set v0 to 0 (false)
+
+    if-eqz v0, :cond_0  # This condition will always be true (v0 is always 0)
 
     .line 104
-    invoke-direct {p0}, Lorg/catrobat/catroid/ui/MainMenuActivity;->showTermsOfUseDialog()V
+    # The code for showTermsOfUseDialog will never be executed
 
     .line 107
     :cond_0
     new-instance v0, Lorg/catrobat/catroid/common/Survey;
 
     invoke-direct {v0, p0}, Lorg/catrobat/catroid/common/Survey;-><init>(Landroid/content/Context;)V
-
+    
     sput-object v0, Lorg/catrobat/catroid/ui/MainMenuActivity;->surveyCampaign:Lorg/catrobat/catroid/common/Survey;
 
     .line 108
     invoke-virtual {v0, p0}, Lorg/catrobat/catroid/common/Survey;->showSurvey(Landroid/content/Context;)V
 
     .line 109
+    invoke-direct {p0}, Lorg/catrobat/catroid/ui/MainMenuActivity;->prepareStandaloneProject()V
+
+    .line 110
     return-void
 .end method
 
