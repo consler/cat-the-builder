@@ -1,6 +1,9 @@
 # Cat The Builder BETA
 This is a tool to automate building .apk from .catrobat. Please report any malfunctioning you find.
+## Features
+Removed splash screen
 
+Support for Termux
 ## Dependencies
 [ImageMagick](https://imagemagick.org),
 
