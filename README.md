@@ -27,6 +27,7 @@ You can find your .apk in Release folder
 
 ## For Termux
 Install Termux via **F-Droid**
+``` # downloading dependencies ```
 
 ```pkg install openjdk-17```
 
@@ -34,21 +35,23 @@ Install Termux via **F-Droid**
 
 ``` pkg install zipalign apksigner imagemagick apktool git ```
 
-``` git clone https://github.com/consler/cat-the-builder.git ```
+``` git clone https://github.com/consler/cat-the-builder.git # cloning into the repo```
 
-```termux-setup-storage ```
+```termux-setup-storage # setting up the storage ```
 
-``` cd storage/shared ```
+``` cd storage/shared # cding into your files ```
 
-``` cp PATH/TO/YOUR/FILE.catrobat /data/data/com.termux/files/home ```
+``` cp PATH/TO/YOUR/FILE.catrobat /data/data/com.termux/files/home # PATH/TO/YOUR/FILE.catrobat is the path to your game```
 
-``` cp PATH/TO/YOUR/ICON.png /data/data/com.termux/files/home ```
+``` cp PATH/TO/YOUR/ICON.png /data/data/com.termux/files/home # PATH/TO/YOUR/ICON.png is the path to your icon ```
 
 ``` cd ```
 
+``` # running ```
+
 ``` cd cat-the-builder ```
 
-``` ./main.sh ../yourGame.catrobat my.package.name AppName ../yourIcon.png ```
+``` ./main.sh ../yourGame.catrobat my.package.name AppName ../yourIcon.png # change the params for your preferences ```
 
 ``` cd Release```
 
@@ -56,6 +59,6 @@ Install Termux via **F-Droid**
 
 ```cd```
 
-``` cp AppName.apk storage/shared```
+``` cp AppName.apk storage/shared # the app is stored in your external storage```
 
 
