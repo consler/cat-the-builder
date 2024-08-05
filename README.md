@@ -6,6 +6,8 @@ This is a tool to automate building .apk from .catrobat. Please report any malfu
 
 * Support for Termux [DONE]
 
+* Rewrite the interpeter
+
 * Optimization
 
 * Remake into java
@@ -69,3 +71,5 @@ Install Termux via **F-Droid**
 ``` cp AppName.apk storage/shared # the app is stored in your external storage```
 
 
+## Notes
+This is still a beta, huge changes may occur, things might break etc. 
