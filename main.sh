@@ -10,19 +10,7 @@ sed -i "s/my.owner.app/$2/g" Build/AndroidManifest.xml
 sed -i "s/android:label=\"App\"/android:label=\"$3\"/g" Build/AndroidManifest.xml
 
 # changing the icon
-cp $4 Build/res/mipmap-mdpi/ic_launcher.png -f
-cp $4 Build/res/mipmap-hdpi/ic_launcher.png -f
-cp $4 Build/res/mipmap-xhdpi/ic_launcher.png -f
-cp $4 Build/res/mipmap-xxhdpi/ic_launcher.png -f
 cp $4 Build/res/mipmap-xxxhdpi/ic_launcher.png -f
-
-# rescaling the icon so that it matched its dpi rate
-magick Build/res/mipmap-mdpi/ic_launcher.png -resize 48x48 Build/res/mipmap-mdpi/ic_launcher.png
-magick Build/res/mipmap-hdpi/ic_launcher.png -resize 72x72 Build/res/mipmap-hdpi/ic_launcher.png
-magick Build/res/mipmap-xhdpi/ic_launcher.png -resize 96x96 Build/res/mipmap-xhdpi/ic_launcher.png
-magick Build/res/mipmap-xxhdpi/ic_launcher.png -resize 144x144 Build/res/mipmap-xxhdpi/ic_launcher.png
-magick Build/res/mipmap-xxxhdpi/ic_launcher.png -resize 192x192 Build/res/mipmap-xxxhdpi/ic_launcher.png
-
 
 # zipping the apk
 apktool b Build
